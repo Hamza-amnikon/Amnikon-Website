@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Contact AMNIKON — Reach out to discuss your IT needs."
+    />
+
+    <title>Contact Us | AMNIKON</title>
+
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/chatbot.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+
+  <body>
+    <div id="navbar-placeholder"></div>
+    <script src="../../components/navbar.js"></script>
+
+    <!-- HERO -->
+
+    <section class="contact-hero">
+      <div class="container">
+        <div class="eyebrow">LET'S TALK</div>
+
+        <h1>
+          Ready to
+          <span class="highlight"> Transform </span>
+
+          Your Business?
+        </h1>
+
+        <p>
+          Whether you're planning a new project, looking for IT expertise, or
+          simply have a question, we'd love to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+
+    <section class="section contact-info-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- LEFT -->
+
+          <div class="contact-left">
+            <div class="eyebrow">GET IN TOUCH</div>
+
+            <h2>Let's Build Something Great Together</h2>
+
+            <p>
+              Whether you're planning a cloud migration, strengthening
+              cybersecurity, or modernizing your IT infrastructure, our
+              specialists are ready to help.
+            </p>
+
+            <div class="contact-social">
+              <a href="https://www.linkedin.com/company/amnikon-technologies/">LinkedIn</a>
+
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+
+          <div class="contact-cards">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+
+              <h4>Office</h4>
+
+              <p>
+                Building A1<br />
+
+                Dubai Silicon Oasis<br />
+
+                Dubai, UAE
+              </p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">✉️</div>
+
+              <h4>Email</h4>
+
+              <p>
+                <a href="mailto:info@amnikontechnologies"> info@amnikontechnologies </a>
+              </p>
+            </div>
+
+            
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps?q=Dubai+Silicon+Oasis&output=embed"
+        loading="lazy"
+        allowfullscreen
+      >
+      </iframe>
+    </section>
+
+    <!-- CONTACT FORM -->
+
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="contact-form-card">
+          <h2>Send Us a Message</h2>
+
+          <p>
+            Fill out the form below and we'll respond within one business day.
+          </p>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName"> First Name * </label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName"> Last Name * </label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email"> Email * </label>
+
+                <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="company"> Company </label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  id="company"
+                  name="company"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service"> Service </label>
+
+              <select class="form-control" id="service" name="service">
+                <option>Managed IT</option>
+
+                <option>Cloud Solutions</option>
+
+                <option>Cybersecurity</option>
+
+                <option>Consulting</option>
+
+                <option>General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message"> Message * </label>
+
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="7"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Send Message →
+            </button>
+
+            <div class="form-success" id="formSuccess">
+              ✅ Thank you! We'll be in touch within one business day.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../components/footer.js"></script>
+
+    <div id="chatbot-placeholder"></div>
+    <script src="../../components/chatbot.js"></script>
+
+    <script src="../../assets/js/global.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>

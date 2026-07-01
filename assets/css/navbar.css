@@ -1,0 +1,786 @@
+/* ==========================================================
+AMNIKON PREMIUM NAVBAR v2
+========================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1500px,96%);
+
+    height:90px;
+
+    z-index:1000;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(
+        255,255,255,.4
+    );
+
+    box-shadow:
+    0 20px 60px rgba(
+        0,0,0,.08
+    );
+
+    transition:all .4s ease;
+}
+
+.navbar.scrolled{
+
+    background:
+    rgba(255, 255, 255, 0);
+
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border:
+    1px solid rgba(
+        255,255,255,.25
+    );
+
+    box-shadow:
+    0 10px 40px rgba(
+        0,0,0,.06
+    );
+
+    height:78px;
+}
+
+
+
+/* ========================= */
+
+.nav-container{
+
+  
+width:100%;
+
+max-width:none;
+
+height:100%;
+
+padding:0 40px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+  
+
+}
+
+/* =========================
+LOGO
+========================= */
+
+.nav-logo{
+
+  
+display:flex;
+
+align-items:center;
+
+text-decoration:none;
+
+flex-shrink:0;
+  
+
+}
+
+.nav-logo img{
+
+  
+height:80px;
+
+width:auto;
+
+transition:.4s ease;
+  
+
+}
+
+.nav-logo:hover img{
+
+  
+transform:scale(1.04);
+  
+
+}
+
+/* =========================
+MENU
+========================= */
+
+nav{
+
+  
+flex:1;
+
+display:flex;
+
+justify-content:center;
+  
+
+}
+
+.nav-menu{
+
+  
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+list-style:none;
+
+margin:0;
+padding:0;
+  
+
+}
+
+.nav-menu > li{
+
+  
+position:relative;
+  
+
+}
+
+.nav-menu > li > a{
+
+  
+display:flex;
+
+align-items:center;
+
+gap:6px;
+
+padding:12px 16px;
+
+text-decoration:none;
+
+color:#1e293b;
+
+font-size:.96rem;
+
+font-weight:500;
+
+transition:.3s;
+  
+
+}
+
+.nav-menu > li > a:hover{
+
+  
+color:#2563eb;
+  
+
+}
+
+/* underline */
+
+.nav-menu > li > a::before{
+
+  
+content:"";
+
+position:absolute;
+
+left:50%;
+bottom:6px;
+
+transform:translateX(-50%);
+
+width:0;
+
+height:2px;
+
+background:#2563eb;
+
+transition:.3s;
+  
+
+}
+
+.nav-menu > li > a:hover::before{
+
+  
+width:60%;
+  
+
+}
+
+/* =========================
+DROPDOWN ARROW
+========================= */
+
+.has-dropdown > a::after{
+
+  
+content:"";
+
+width:7px;
+height:7px;
+
+border-right:1.5px solid currentColor;
+border-bottom:1.5px solid currentColor;
+
+transform:rotate(45deg);
+
+transition:.3s;
+  
+
+}
+
+.has-dropdown:hover > a::after{
+
+  
+transform:
+rotate(-135deg);
+  
+
+}
+
+/* =========================
+DROPDOWN
+========================= */
+
+.dropdown-menu{
+
+  
+position:absolute;
+
+top:100%;
+left:0;
+
+min-width:260px;
+
+padding:10px;
+
+border-radius:16px;
+
+background:white;
+
+box-shadow:
+0 20px 50px rgba(
+    0,0,0,.12
+);
+
+opacity:0;
+visibility:hidden;
+
+transform:
+translateY(10px);
+
+transition:.3s;
+
+list-style:none;
+  
+
+}
+
+.has-dropdown:hover .dropdown-menu{
+
+  
+opacity:1;
+
+visibility:visible;
+
+transform:
+translateY(0);
+  
+
+}
+
+.dropdown-menu li a{
+
+  
+display:block;
+
+padding:12px 16px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+color:#334155;
+
+transition:.3s;
+  
+
+}
+
+.dropdown-menu li a:hover{
+
+  
+background:
+rgba(37,99,235,.08);
+
+color:#2563eb;
+
+padding-left:22px;
+  
+
+}
+
+/* =========================
+ACTIONS
+========================= */
+
+.nav-actions{
+
+  
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+flex-shrink:0;
+  
+
+}
+
+/* Support */
+
+.btn-support{
+
+  
+padding:12px 22px;
+
+border-radius:999px;
+
+text-decoration:none;
+
+color:#1e293b;
+
+font-weight:600;
+
+background:
+rgba(15,23,42,.05);
+
+transition:.3s;
+  
+
+}
+
+.btn-support:hover{
+
+  
+background:
+rgba(37,99,235,.08);
+
+color:#2563eb;
+  
+
+}
+
+/* Contact */
+
+.btn-primary{
+
+  
+padding:12px 26px;
+
+border-radius:999px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:700;
+
+background:
+linear-gradient(
+    135deg,
+    #2563eb,
+    #38bdf8
+);
+
+box-shadow:
+0 10px 25px rgba(
+    37,99,235,.25
+);
+
+transition:.3s;
+  
+
+}
+
+.btn-primary:hover{
+
+  
+transform:
+translateY(-3px);
+
+box-shadow:
+0 15px 35px rgba(
+    37,99,235,.35
+);
+  
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   SCROLLED NAVBAR TEXT
+========================== */
+
+.navbar.scrolled .nav-menu > li > a{
+    color:#ffffff;
+}
+
+.navbar.scrolled .nav-menu > li > a:hover{
+    color:#38bdf8;
+}
+
+/* Dropdown arrows */
+
+.navbar.scrolled .has-dropdown > a::after{
+    border-color:#ffffff;
+}
+
+/* Support button */
+
+.navbar.scrolled .btn-support{
+    color:#ffffff;
+    background:rgba(255,255,255,.08);
+}
+
+.navbar.scrolled .btn-support:hover{
+    background:rgba(255,255,255,.15);
+    color:#38bdf8;
+}
+
+/* Hamburger */
+
+.navbar.scrolled .nav-hamburger span{
+    background:#ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOBILE RESPOSIVE */
+
+/* ==========================================================
+MOBILE NAVBAR
+/* ==========================================================
+MOBILE NAVBAR - EXPANDING VERSION
+========================================================== */
+
+@media (max-width:992px){
+
+  
+/* Navbar */
+
+.navbar{
+    width:95%;
+    min-height:75px;
+    height:auto;
+    top:10px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.nav-container{
+    padding:0 20px;
+    min-height:75px;
+    flex-wrap:wrap;
+}
+
+.nav-logo img{
+    height:55px;
+}
+
+/* Hide desktop actions */
+
+.nav-actions{
+    display:none;
+}
+
+/* Hamburger */
+
+.nav-hamburger{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    margin-left:auto;
+}
+
+.nav-hamburger span{
+    width:24px;
+    height:2px;
+    background:#1e293b;
+    transition:.3s ease;
+}
+
+.navbar.scrolled .nav-hamburger span{
+    background:#ffffff;
+}
+
+/* Hamburger Animation */
+
+.nav-hamburger.open span:nth-child(1){
+    transform:rotate(45deg) translate(5px,5px);
+}
+
+.nav-hamburger.open span:nth-child(2){
+    opacity:0;
+}
+
+.nav-hamburger.open span:nth-child(3){
+    transform:rotate(-45deg) translate(5px,-5px);
+}
+
+/* Navigation */
+
+nav{
+    width:100%;
+    flex:none;
+    order:3;
+}
+
+.nav-menu{
+
+    display:none;
+
+    width:100%;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:0;
+
+    padding:20px 0 0;
+
+    margin-top:15px;
+
+    border-top:
+    1px solid rgba(
+        255,255,255,.08
+    );
+}
+
+.nav-menu.mobile-open{
+    display:flex;
+}
+
+.nav-menu > li{
+    width:100%;
+}
+
+.nav-menu > li > a{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 0;
+
+    color:#000000;
+
+    text-decoration:none;
+
+    border-bottom:
+    1px solid rgba(
+        255,255,255,.08
+    );
+}
+
+/* Dropdown */
+
+.dropdown-menu{
+
+    position:static;
+
+    opacity:1;
+    visibility:visible;
+
+    transform:none;
+
+    display:none;
+
+    width:100%;
+
+    min-width:100%;
+
+    background:
+    rgba(255,255,255,.03);
+
+    border:none;
+
+    box-shadow:none;
+
+    margin:0;
+
+    padding:10px 0 10px 20px;
+}
+
+.has-dropdown.open .dropdown-menu{
+    display:block;
+}
+
+.dropdown-menu li a{
+
+    display:block;
+
+    padding:10px 0;
+
+    color:
+    rgba(0, 0, 0, 0.75);
+
+    text-decoration:none;
+}
+
+.dropdown-menu li a:hover{
+    color:#38bdf8;
+}
+
+/* Mobile Buttons */
+
+.mobile-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    width:100%;
+
+    margin-top:20px;
+
+    border:none !important;
+}
+
+.mobile-buttons a{
+
+    width:100%;
+
+    text-align:center;
+}
+  
+
+}
+
+/* Small Phones */
+
+@media (max-width:576px){
+
+  
+.navbar{
+    min-height:70px;
+}
+
+.nav-container{
+    min-height:70px;
+}
+
+.nav-logo img{
+    height:48px;
+}
+  
+
+}.navbar.scrolled{
+
+    height:78px;
+
+    background:
+    rgba(15,23,42,.15);
+
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border:
+    1px solid rgba(
+        255,255,255,.15
+    );
+
+    box-shadow:
+    0 10px 40px rgba(
+        0,0,0,.10
+    );
+}
+
+/* Logo */
+
+.nav-logo img{
+    transition:height .4s ease;
+}
+
+.navbar.scrolled .nav-logo img{
+    height:65px;
+}
+
+/* Menu Text */
+
+.navbar.scrolled .nav-menu > li > a{
+    color:#ffffff;
+}
+
+.navbar.scrolled .nav-menu > li > a:hover{
+    color:#38bdf8;
+}
+
+/* Dropdown Arrow */
+
+.navbar.scrolled .has-dropdown > a::after{
+    border-color:#ffffff;
+}
+
+/* Support Button */
+
+.navbar.scrolled .btn-support{
+    color:#ffffff;
+    background:
+    rgba(255,255,255,.08);
+}
+
+/* Hamburger */
+
+.navbar.scrolled .nav-hamburger span{
+    background:#ffffff;
+}

@@ -1,0 +1,42 @@
+/* ============================================================
+   TEAM PAGE — team.css
+   ============================================================ */
+
+.team-image-section { padding: var(--space-xl) 0; }
+
+.team-hero-img {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.team-hero-img img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+.culture-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.culture-grid .card h4 { margin-bottom: var(--space-sm); }
+
+@media (max-width: 1024px) {
+  .culture-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .culture-grid { grid-template-columns: 1fr; }
+  .team-hero-img img { height: 260px; }
+}

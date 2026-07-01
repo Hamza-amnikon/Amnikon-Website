@@ -1,0 +1,99 @@
+/* =========================
+   TECHNOLOGY STACK
+========================= */
+
+.tech-stack {
+  margin-top: -70px;
+  position: relative;
+  z-index: 10;
+}
+
+.tech-stack-inner {
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 50px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8,20,45,.95),
+      rgba(5,10,20,.95)
+    );
+
+  border: 1px solid rgba(0,150,255,.2);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+      0 30px 80px rgba(0,0,0,.4),
+      0 0 50px rgba(0,102,255,.15);
+}
+
+.tech-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tech-heading span {
+  color: var(--brand2);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.tech-heading h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.tech-heading p {
+  color: var(--muted);
+  max-width: 700px;
+  margin: auto;
+}
+
+.tech-grid {
+
+  display: grid;
+
+  grid-template-columns:
+      repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 16px;
+}
+
+.tech-badge {
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background:
+      rgba(255,255,255,.03);
+
+  border:
+      1px solid rgba(0,150,255,.12);
+
+  transition: all .3s ease;
+
+  font-weight: 600;
+}
+
+.tech-badge:hover {
+
+  transform: translateY(-4px);
+
+  border-color: var(--brand2);
+
+  color: var(--brand2);
+
+  box-shadow:
+      0 0 25px rgba(0,150,255,.25);
+}

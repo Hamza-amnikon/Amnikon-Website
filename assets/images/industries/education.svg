@@ -1,0 +1,49 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Outer Rings -->
+
+    <circle cx="250" cy="250" r="220"
+        stroke="rgba(255,255,255,0.05)"
+        stroke-width="1"/>
+
+    <circle cx="250" cy="250" r="170"
+        stroke="rgba(255,255,255,0.08)"
+        stroke-width="1"/>
+
+    <circle cx="250" cy="250" r="120"
+        stroke="rgba(255,255,255,0.12)"
+        stroke-width="1"/>
+
+    <!-- BIG Graduation Cap -->
+
+    <path
+        d="M250 120L90 200L250 280L410 200L250 120Z"
+        stroke="white"
+        stroke-width="5"
+        fill="none"/>
+
+    <!-- Cap Base -->
+
+    <path
+        d="M130 235V320
+           C130 360 180 390 250 390
+           C320 390 370 360 370 320
+           V235"
+        stroke="white"
+        stroke-width="5"
+        fill="none"/>
+
+    <!-- Tassel -->
+
+    <path
+        d="M410 200V320"
+        stroke="white"
+        stroke-width="5"/>
+
+    <circle
+        cx="410"
+        cy="340"
+        r="14"
+        fill="white"/>
+
+</svg>

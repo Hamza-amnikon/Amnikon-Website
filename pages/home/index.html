@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AMNIKON — Powering business growth through smarter IT. Managed IT, Cloud, Cybersecurity, and Advisory services for modern businesses."
+    />
+    <title>AMNIKON — Smarter IT for Modern Business</title>
+
+    <!-- Global Design System -->
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/chatbot.css" />
+    <!-- Page Styles -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- ── NAVBAR (injected) ── -->
+    <div id="navbar-placeholder"></div>
+    <script src="../../components/navbar.js"></script>
+
+    <!-- ══════════════════════════════════════════════
+            SECTION 1 — HERO (Video Background)
+        ══════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <!-- 3D Background -->
+      <canvas id="hero-canvas"></canvas>
+
+      <!-- Glow Effects -->
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="eyebrow">Trusted IT Partner</div>
+
+        <h1>
+          Engineering<br />
+          <span>Digital Growth</span>
+        </h1>
+
+        <p>
+          Managed IT, Cloud Infrastructure, Cybersecurity and Strategic
+          Technology Solutions for modern businesses.
+        </p>
+
+        <div class="hero-actions">
+          <a href="../contact/contact.html" class="btn btn-primary">
+            Let's Talk
+          </a>
+
+<button class="btn btn-video" id="openVideo">
+
+    <span class="play-icon">
+        <svg viewBox="0 0 24 24"
+             fill="currentColor"
+             width="14"
+             height="14">
+
+            <polygon points="6,3 20,12 6,21"/>
+
+        </svg>
+    </span>
+
+    Watch Our Story
+
+</button>
+
+
+        </div>
+      </div>
+
+      <div class="video-modal" id="videoModal">
+
+    <div class="video-modal-inner">
+
+        <video controls autoplay>
+
+            <source src="../../assets/videos/video2.mp4"
+                    type="video/mp4">
+
+        </video>
+
+    </div>
+
+</div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+            SECTION 2 — STATS / EXPERTISE
+        ══════════════════════════════════════════════ -->
+<div class="video-story-sticky">
+
+    <div class="text-slider">
+        <div class="text-track">
+            ENGINEERING DIGITAL GROWTH •
+            ENGINEERING DIGITAL GROWTH •
+            ENGINEERING DIGITAL GROWTH •
+            ENGINEERING DIGITAL GROWTH •
+        </div>
+    </div>
+
+    <div class="video-center">
+      <div class="story-video">
+        <img src="../../assets/images/home/image.jpg" type="images/jpg" class="story-video">
+
+      </div>
+        <div class="video-overlay"></div>
+
+    </div>
+
+</div>
+    <!-- ══════════════════════════════════════════════
+            SECTION 3 — WHY SWITCH (Hover cards)
+        ══════════════════════════════════════════════ -->
+    <section class="why-reveal-section">
+      <div class="why-reveal-sticky">
+        <div class="why-grid">
+          <div class="why-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-lock-icon lucide-folder-lock"><rect width="8" height="5" x="14" y="17" rx="1"/><path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5"/><path d="M20 17v-2a2 2 0 1 0-4 0v2"/></svg>
+            <h3>Proactive Support</h3>
+            <p>
+              We identify and resolve issues before they impact your business
+              operations.
+            </p>
+            <ul class="card-features">
+              <li>24/7 Monitoring</li>
+              <li>Help Desk Support</li>
+              <li>Remote Assistance</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </div>
+          <div class="why-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-cog-icon lucide-user-cog"><path d="M10 15H6a4 4 0 0 0-4 4v2"/><path d="m14.305 16.53.923-.382"/><path d="m15.228 13.852-.923-.383"/><path d="m16.852 12.228-.383-.923"/><path d="m16.852 17.772-.383.924"/><path d="m19.148 12.228.383-.923"/><path d="m19.53 18.696-.382-.924"/><path d="m20.772 13.852.924-.383"/><path d="m20.772 16.148.924.383"/><circle cx="18" cy="15" r="3"/><circle cx="9" cy="7" r="4"/></svg>
+            <h3>Enterprise Security</h3>
+            <p>Protection designed for modern businesses.</p>
+            <ul class="card-features">
+              <li>Threat Detection</li>
+              <li>24/7 Monitoring</li>
+              <li>Compliance Support</li>
+              <li>Risk Assessment</li>
+            </ul>
+          </div>
+          <div class="why-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-icon lucide-cloud"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            <h3>Cloud Infrastructure</h3>
+            <p>
+              Scalable cloud solutions built for performance, flexibility and
+              future growth.
+            </p>
+            <ul class="card-features">
+              <li>AWS & Azure</li>
+              <li>Cloud Migration</li>
+              <li>Hybrid Infrastructure</li>
+              <li>Cost Optimization</li>
+            </ul>
+          </div>
+          <div class="why-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2"><path d="M10 12h4"/><path d="M10 8h4"/><path d="M14 21v-3a2 2 0 0 0-4 0v3"/><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/></svg>
+            <h3>Business Continuity</h3>
+            <p>
+              Ensure your operations stay online with backup, recovery and
+              resilience planning.
+            </p>
+            <ul class="card-features">
+              <li>Disaster Recovery</li>
+              <li>Automated Backups</li>
+              <li>Failover Solutions</li>
+              <li>Recovery Testing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+            SECTION 4 — CLIENT LOGOS (Auto-scroll)
+        ══════════════════════════════════════════════ -->
+    <section class="trust-section">
+      <div class="trust-content">
+        <div class="eyebrow">TRUSTED BY</div>
+
+        <h2 id="dynamic-word"></h2>
+      </div>
+
+      <div class="logo-marquee">
+        <div class="logo-marquee">
+          <div class="logo-track">
+            <!-- Original -->
+
+            <img src="../../assets/logos/client-logos/drinkpak-logo.png" />
+            <img src="../../assets/logos/client-logos/dtc-logo.png" />
+            <img src="../../assets/logos/client-logos/geometry-logo.png" />
+            <img src="../../assets/logos/client-logos/ravidit-logo.png" />
+            <img src="../../assets/logos/client-logos/xoriant-logo.png" />
+
+            <!-- Duplicate -->
+
+            <img src="../../assets/logos/client-logos/drinkpak-logo.png" />
+            <img src="../../assets/logos/client-logos/dtc-logo.png" />
+            <img src="../../assets/logos/client-logos/geometry-logo.png" />
+            <img src="../../assets/logos/client-logos/ravidit-logo.png" />
+            <img src="../../assets/logos/client-logos/xoriant-logo.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER (injected) ── -->
+    <div id="footer-placeholder"></div>
+    <script src="../../components/footer.js"></script>
+
+    <!-- ── CHATBOT (injected) ── -->
+    <div id="chatbot-placeholder"></div>
+    <script src="../../components/chatbot.js"></script>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="../home/hero3d.js"></script>
+    <script src="../home/index.js"></script>
+  </body>
+</html>
