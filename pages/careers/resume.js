@@ -36,10 +36,7 @@ form.addEventListener("submit", async function (e) {
     }
     catch (error) {
 
-        alert("Unable to connect to the server.");
-
-        console.error(error);
-
+        
     }
     finally {
 
