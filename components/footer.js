@@ -112,11 +112,10 @@
                     <h5>Contact</h5>
 
                     <ul>
-                        <li><a href="mailto:info@amnikontechnologies" class="info-email">info@amnikontechnologies</a></li>
+                        <li><a href="mailto:info@amnikontechnologies" class="info-email">info@amnikontechnologies.com</a></li>
                         <li><p class="info-address">
               Building A1, Dubai Silicon Oasis Dubai, United Arab Emirates<br>
             </p></li>
-                        <li>United States</li>
                     </ul>
 
                 </div>

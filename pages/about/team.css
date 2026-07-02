@@ -1,6 +1,212 @@
 /* ============================================================
    TEAM PAGE — team.css
    ============================================================ */
+/* ==========================================================
+   TEAM HERO
+========================================================== */
+
+.page-hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    padding:170px 20px 120px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("../../assets/images/about/team/team2.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+}
+
+/* Grid */
+
+.page-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    opacity:.4;
+}
+
+/* Blue Glow */
+
+.page-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    right:-250px;
+
+    top:-250px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(61, 104, 197, 0.35),
+            transparent 70%
+        );
+
+    animation:heroGlow 12s ease-in-out infinite;
+}
+
+@keyframes heroGlow{
+
+    0%{
+
+        transform:translateY(0) scale(1);
+
+    }
+
+    50%{
+
+        transform:translateY(25px) scale(1.08);
+
+    }
+
+    100%{
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* Content */
+
+.page-hero .container{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:900px;
+}
+
+.page-hero .eyebrow{
+
+    color:#60a5fa;
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+}
+
+.page-hero h1{
+
+    font-size:clamp(3.5rem,7vw,3rem);
+
+    line-height:1;
+
+    font-weight:800;
+
+    color:#fff;
+
+    margin-bottom:30px;
+}
+
+.page-hero .highlight{
+
+    color:#4f8cff;
+}
+
+.page-hero p{
+
+    max-width:750px;
+
+    margin:0 auto 45px;
+
+    color:#cbd5e1;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .page-hero{
+
+        min-height:75vh;
+
+        padding:140px 20px 80px;
+    }
+
+    .page-hero h1{
+
+        font-size:3rem;
+    }
+
+    .page-hero p{
+
+        font-size:1rem;
+    }
+
+    .page-hero::after{
+
+        width:550px;
+
+        height:550px;
+
+        right:-180px;
+
+        top:-180px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .team-image-section { padding: var(--space-xl) 0; }
 

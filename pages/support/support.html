@@ -1,194 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta
-      name="description"
-      content="AMNIKON Support - Submit a support ticket or connect with our experts."
-    />
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="AMNIKON Support - Submit a support ticket or connect with our experts.">
 
     <title>Support | AMNIKON</title>
 
-    <link rel="stylesheet" href="../../assets/css/global.css" />
-    <link rel="stylesheet" href="../../assets/css/navbar.css" />
-    <link rel="stylesheet" href="../../assets/css/footer.css" />
-    <link rel="stylesheet" href="../../assets/css/chatbot.css" />
-    <link rel="stylesheet" href="support.css" />
-  </head>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/chatbot.css">
 
-  <body>
+    <link rel="stylesheet" href="support.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
     <div id="navbar-placeholder"></div>
     <script src="../../components/navbar.js"></script>
 
-    <!-- HERO -->
+    <!-- =======================================================
+                        SUPPORT SECTION
+    ======================================================== -->
 
-    <section class="support-hero">
-      <div class="container">
-        <div class="support-badge">
-          <span class="status-dot"></span>
+    <section class="support-section">
 
-          Support Available 24/7
-        </div>
+        <div class="container">
 
-        <h1>Need <span class="highlight">Help?</span></h1>
+            <div class="support-wrapper">
 
-        <p>
-          Whether you're experiencing a technical issue, need expert guidance,
-          or have a general question, our support team is ready to assist.
-        </p>
+                <!-- LEFT SIDE -->
 
-        <a href="#ticket" class="btn btn-primary"> Submit a Support Ticket </a>
-      </div>
-    </section>
+                <div class="support-content">
 
-    <!-- SUPPORT OPTIONS -->
+                    <div class="eyebrow">
+                        SUPPORT
+                    </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="support-options">
-          <a href="mailto:support@amnikon.com" class="support-option-card">
-            <div class="support-option-icon">📧</div>
+                    <h1>
+                        Talk to an
+                        <span class="highlight">Expert</span>
+                    </h1>
 
-            <h3>Email Support</h3>
+                    <h3>
+                        Let's discuss how we can help your business.
+                    </h3>
 
-            <p>
-              Send us your issue and we'll get back to you as quickly as
-              possible.
-            </p>
+                    <p class="intro">
+                        Whether you're experiencing a technical issue,
+                        planning cloud migration, improving cybersecurity,
+                        or modernizing your IT infrastructure,
+                        our specialists are ready to help.
+                    </p>
 
-            <span> support@amnikon.com → </span>
-          </a>
+                    <div class="steps">
 
-          <a
-            href="https://calendly.com/mfayaz-nhktechnologies/30min?month=2026-06"
-            target="_blank"
-            rel="noopener"
-            class="support-option-card"
-          >
-            <div class="support-option-icon">📅</div>
+                        <div class="step">
 
-            <h3>Schedule a Meeting</h3>
+                            <span class="step-number">
+                                01
+                            </span>
 
-            <p>Book a consultation with one of our technical experts.</p>
+                            <p>
+                                Submit your support request with all the necessary details.
+                            </p>
 
-            <span> Book Now → </span>
-          </a>
-        </div>
-      </div>
-    </section>
+                        </div>
 
-    <!-- SUPPORT FORM -->
+                        <div class="step">
 
-    <section class="section ticket-section" id="ticket">
-      <div class="container">
-        <div class="ticket-card">
-          <div class="eyebrow">Support Ticket</div>
+                            <span class="step-number">
+                                02
+                            </span>
 
-          <h2>Tell Us About Your Issue</h2>
+                            <p>
+                                Our technical team reviews your request and assigns an engineer.
+                            </p>
 
-          <p>
-            Complete the form below and our team will get back to you as soon as
-            possible.
-          </p>
+                        </div>
 
-          <form id="ticketForm" class="ticket-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name"> Name * </label>
+                        <div class="step">
 
-                <input
-                  class="form-control"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="John Smith"
-                  required
-                />
-              </div>
+                            <span class="step-number">
+                                03
+                            </span>
 
-              <div class="form-group">
-                <label for="email"> Email * </label>
+                            <p>
+                                We'll contact you with a solution or schedule a support session.
+                            </p>
 
-                <input
-                  class="form-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
+                        </div>
+
+                        <div class="step">
+
+                            <span class="step-number">
+                                04
+                            </span>
+
+                            <p>
+                                We stay with you until your issue is completely resolved.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+
+                <div class="ticket-card">
+
+                    <h2>
+                        Tell us about your issue
+                    </h2>
+
+                    <p>
+                        Complete the form below and one of our experts will contact you shortly.
+                    </p>
+
+                    <form id="ticketForm" class="ticket-form">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Name *
+                                </label>
+
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    id="name"
+                                    placeholder="John Smith"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email *
+                                </label>
+
+                                <input
+                                    class="form-control"
+                                    type="email"
+                                    id="email"
+                                    placeholder="john@example.com"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Priority
+                                </label>
+
+                                <select
+                                    class="form-control"
+                                    id="priority">
+
+                                    <option>Low</option>
+
+                                    <option>Medium</option>
+
+                                    <option>High</option>
+
+                                    <option>Critical</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    Category
+                                </label>
+
+                                <select
+                                    class="form-control"
+                                    id="category">
+
+                                    <option>General Support</option>
+
+                                    <option>Managed IT</option>
+
+                                    <option>Cloud</option>
+
+                                    <option>Cybersecurity</option>
+
+                                    <option>Infrastructure</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Subject *
+                            </label>
+
+                            <input
+                                class="form-control"
+                                type="text"
+                                id="subject"
+                                placeholder="Brief subject"
+                                required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Message *
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="message"
+                                rows="7"
+                                placeholder="Describe your issue..."
+                                required></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="submitBtn">
+
+                            Submit Ticket →
+
+                        </button>
+
+                        <div
+                            class="form-success"
+                            id="successMessage">
+
+                        </div>
+
+                        <div
+                            class="form-error"
+                            id="errorMessage">
+
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-              <label for="subject"> Subject * </label>
-
-              <input
-                class="form-control"
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="How can we help?"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="message"> Message * </label>
-
-              <textarea
-                class="form-control"
-                id="message"
-                name="message"
-                rows="6"
-                placeholder="Describe your issue..."
-                required
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="submitBtn">
-              Submit Ticket →
-            </button>
-
-            <div class="form-success" id="successMessage"></div>
-
-            <div class="form-error" id="errorMessage"></div>
-          </form>
         </div>
-      </div>
+
     </section>
 
-    <!-- AI ASSISTANT -->
-
-    <section class="section ai-support">
-      <div class="container">
-        <div class="ai-card">
-          <div class="ai-icon">🤖</div>
-
-          <h2>Need Quick Answers?</h2>
-
-          <p>
-            Our AI Assistant is available 24/7 to answer common questions, help
-            you troubleshoot problems, and guide you to the right solution.
-          </p>
-
-          <p class="ai-note">
-            Open the chatbot in the bottom-right corner to start chatting
-            instantly.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- FOOTER -->
 
     <div id="footer-placeholder"></div>
     <script src="../../components/footer.js"></script>
+
+    <!-- CHATBOT -->
 
     <div id="chatbot-placeholder"></div>
     <script src="../../components/chatbot.js"></script>
 
     <script src="../../assets/js/global.js"></script>
+
     <script src="support.js"></script>
-  </body>
+
+</body>
+
 </html>

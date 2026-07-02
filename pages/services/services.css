@@ -17,24 +17,24 @@
 
     align-items:center;
 
-    overflow:hidden;
-
     text-align:center;
 
-    padding:140px 20px;
+    overflow:hidden;
+
+    padding:180px 20px 120px;
 
     background:
-    radial-gradient(
-        circle at top right,
-        rgba(37,99,235,.12),
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at bottom left,
-        rgba(59,130,246,.08),
-        transparent 40%
-    ),
-    #050816;
+        linear-gradient(
+            rgba(0, 0, 0, 0.704),
+            rgba(0, 0, 0, 0.758)
+        ),
+        url("../../assets/images/services/standard-quality-control-concept-m\ copy.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 }
 
 /* ==========================================
@@ -166,7 +166,7 @@
 
 .hero-content h1{
 
-    font-size:clamp(3.5rem,7vw,6rem);
+    font-size:clamp(3.5rem,7vw,3rem);
 
     line-height:.95;
 

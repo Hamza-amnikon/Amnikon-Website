@@ -11,7 +11,7 @@
       <div class="chatbot-header-icon">💬</div>
       <div class="chatbot-header-info">
         <h5>AMNIKON Support</h5>
-        <span><span class="chatbot-status-dot"></span>Online — typically replies instantly</span>
+        <span><span class="chatbot-status-dot"></span>Online</span>
       </div>
     </div>
 
@@ -20,9 +20,9 @@
         <span>💬</span>
         <span>Support</span>
       </a>
-      <a href="https://sl1nk.com/01vwy1u" target="_blank" rel="noopener">
-        <span>📅</span>
-        <span>Meeting</span>
+      <a href="mailto:sales@amnikon.com">
+        <span>✉️</span>
+        <span>Email</span>
       </a>
     </nav>
 

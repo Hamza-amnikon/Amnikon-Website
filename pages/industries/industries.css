@@ -23,12 +23,17 @@
     overflow:hidden;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(66,156,235,.08),
-            transparent 60%
+        linear-gradient(
+            rgba(5, 8, 22, 0.681),
+            rgba(5, 8, 22, 0.784)
         ),
-        #050816;
+        url("../../assets/images/industries/ChatGPT\ Image\ Jul\ 2\,\ 2026\,\ 03_43_41\ AM.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
     padding:120px 30px;
 }
@@ -168,7 +173,7 @@
 
     display:grid;
 
-    grid-template-columns:600px 500px;
+    grid-template-columns:500px 600px;
 
     justify-content:center;
 
@@ -305,7 +310,7 @@
 
     font-weight:800;
 
-    font-size:clamp(2.5rem,4vw,4.5rem);
+    font-size:clamp(2.5rem,4vw,2.5rem);
 
     line-height:1.05;
 }

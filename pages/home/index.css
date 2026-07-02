@@ -1,146 +1,469 @@
-/* ============================================================
-   HOME PAGE — index.css
-   ============================================================ */
-
-/* ── HERO ── */
 /* ===================================
-   MODERN HERO
+   HERO
 =================================== */
 
 .hero{
-  position:relative;
-  min-height:100vh;
-  overflow:hidden;
+    position:relative;
+    min-height:100vh;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-  background:#050816;
+    overflow:hidden;
+
+    background:#050816;
 }
 
-#hero-canvas{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+/* ===========================
+   BACKGROUND VIDEO
+=========================== */
+
+.hero-video{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    z-index:0;
 }
+
+/* ===========================
+   DARK OVERLAY
+=========================== */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(5,8,22,.65),
+            rgba(5,8,22,.65)
+        ),
+        radial-gradient(
+            circle at 25% 30%,
+            rgba(59,130,246,.18),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(56,189,248,.15),
+            transparent 40%
+        );
+
+    z-index:1;
+}
+
+/* ===========================
+   HERO CONTENT
+=========================== */
 
 .hero-content{
-  position:relative;
-  z-index:5;
 
-  max-width:900px;
+    position:relative;
 
-  text-align:center;
+    z-index:5;
 
-  padding:0 20px;
+    max-width:900px;
+
+    width:100%;
+
+    padding:0 20px;
+
+    text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(4rem,10vw,5rem);
-  line-height:0.95;
-  font-weight:800;
 
-  margin-bottom:24px;
+    font-size:clamp(4rem,10vw,3rem);
 
-  color:white;
+    line-height:.95;
+
+    font-weight:800;
+
+    margin-bottom:24px;
+
+    color:#fff;
 }
 
 .hero h1 span{
-  background:linear-gradient(
-      90deg,
-      #3b82f6,
-      #60a5fa
-  );
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    background:linear-gradient(
+        90deg,
+        #3b82f6,
+        #60a5fa
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-  max-width:700px;
 
-  margin:auto;
+    max-width:700px;
 
-  font-size:1.2rem;
+    margin:0 auto;
 
-  color:rgba(255,255,255,.75);
+    font-size:1.2rem;
 
-  line-height:1.8;
+    color:rgba(255,255,255,.82);
+
+    line-height:1.8;
 }
 
 .hero-actions{
-  margin-top:40px;
 
-  display:flex;
+    margin-top:40px;
 
-  justify-content:center;
+    display:flex;
 
-  gap:20px;
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
 }
 
-.hero-glow{
-  position:absolute;
+/* ===========================
+   CINEMATIC VIDEO EFFECT
+=========================== */
 
-  border-radius:50%;
+.hero-video{
 
-  filter:blur(120px);
+    animation:heroZoom 18s ease-in-out infinite alternate;
 
-  opacity:.3;
+    filter:
+        brightness(.55)
+        saturate(1.15)
+        contrast(1.05);
 }
 
-.hero-glow-1{
-  width:400px;
-  height:400px;
+@keyframes heroZoom{
 
-  background:#2563eb;
+    from{
 
-  top:-100px;
-  left:-100px;
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
 }
 
-.hero-glow-2{
-  width:300px;
-  height:300px;
+/* ===========================
+   RESPONSIVE
+=========================== */
 
-  background:#38bdf8;
+@media(max-width:768px){
 
-  right:-100px;
-  bottom:-100px;
+    .hero{
+
+        min-height:100vh;
+    }
+
+    .hero h1{
+
+        font-size:3rem;
+    }
+
+    .hero p{
+
+        font-size:1rem;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+}
+/* Play button */
+.btn-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.hero::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-  radial-gradient(
-      circle at 25% 30%,
-      rgba(59,130,246,.25),
-      transparent 40%
-  ),
-  radial-gradient(
-      circle at 80% 70%,
-      rgba(56,189,248,.18),
-      transparent 40%
-  );
-
-  z-index:1;
+.btn-video:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-2px);
 }
 
-#hero-canvas{
-  position:absolute;
-  inset:0;
-  z-index:2;
+.play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(37,99,235,0.6);
+  flex-shrink: 0;
+  transition: var(--transition);
 }
 
-.hero-content{
-  position:relative;
-  z-index:5;
+.btn-video:hover .play-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(37,99,235,0.8);
 }
+
+/* Video Modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+  backdrop-filter: blur(6px);
+}
+
+.video-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.94);
+  transition: transform var(--transition);
+}
+
+.video-modal.open .video-modal-inner { transform: scale(1); }
+
+.video-modal-inner video {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: var(--white);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.modal-close:hover { background: rgba(220,38,38,0.8); }
+
+/* ── STATS SECTION ── */
+
+
+/* ==========================================
+   VIDEO STORY SECTION
+========================================== */
+
+.video-story-section{
+
+    position:relative;
+
+    height:180vh;
+
+    background:#050816;
+
+    overflow:hidden;
+}
+
+/* PINNED AREA */
+
+.video-story-sticky{
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* ==========================================
+   MOVING TEXT
+========================================== */
+
+.text-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+.text-track{
+
+    display:flex;
+
+    gap:80px;
+
+    width:max-content;
+
+    white-space:nowrap;
+
+    font-size:8vw;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.05);
+
+    animation:marquee 20s linear infinite;
+}
+
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* ==========================================
+   VIDEO
+========================================== */
+
+.video-center{
+
+    position:relative;
+
+    z-index:10;
+}
+
+.story-video{
+
+    width:550px;
+
+    height:340px;
+
+    object-fit:cover;
+
+    border-radius:24px;
+
+    box-shadow:
+        0 30px 80px rgba(
+            0,
+            0,
+            0,
+            .5
+        );
+
+    transform-origin:center center;
+
+    will-change:
+        transform,
+        opacity;
+
+    z-index:10;
+}
+
+/* ==========================================
+   FADE OVERLAY
+========================================== */
+.video-overlay{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
+
+    background:#050816;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:5;
+}
+.video-story-section{
+
+    position:relative;
+
+    height:250vh;
+
+    background:#050816;
+
+    overflow:hidden;
+}
+
+
+
+
+
+
 
 
 
@@ -543,7 +866,7 @@
 
   position:relative;
 
-  padding:140px 0 80px;
+  padding:80px 0 80px;
 
   background:#050816;
 
@@ -638,8 +961,7 @@
 
   width:auto;
 
-  filter:
-    grayscale(100%);
+
 
   opacity:.45;
 
@@ -993,7 +1315,7 @@
     }
 
     .hero h1{
-        font-size:6rem;
+        font-size:3rem;
     }
 
     .hero p{
@@ -1030,7 +1352,7 @@
 @media screen and (max-width:1440px){
 
     .hero h1{
-        font-size:4.5rem;
+        font-size:3.0rem;
     }
 
     .hero p{
@@ -1066,7 +1388,7 @@
     }
 
     .hero h1{
-        font-size:3.5rem;
+        font-size:3rem;
     }
 
     .hero p{
@@ -1110,7 +1432,7 @@
     }
 
     .hero h1{
-        font-size:2.8rem;
+        font-size:3rem;
     }
 
     .hero p{

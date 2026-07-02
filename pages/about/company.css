@@ -11,23 +11,98 @@
    ABOUT HERO
 ========================================== */
 
+/* ==========================================
+   ABOUT HERO
+========================================== */
+
 .about-hero{
 
-    min-height:100vh;
+    position: relative;
 
-    background:#050816;
+    min-height: 100vh;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
-    text-align:center;
+    text-align: center;
 
-    padding:120px 40px;
+    overflow: hidden;
+
+    padding: 180px 20px 120px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.722)
+        ),
+        url("../../assets/images/about/company/about2.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    isolation: isolate;
 }
 
+.about-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:inherit;
+
+    background-size:cover;
+
+    background-position:center;
+
+    transform:scale(1);
+
+    animation:heroZoom 20s ease-in-out infinite alternate;
+
+    z-index:-2;
+}
+
+@keyframes heroZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
+
+}
+.about-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(5, 36, 49, 0.25),
+            transparent 40%
+        );
+
+    z-index:-1;
+}
 .about-hero-content{
 
     max-width:1000px;
@@ -58,7 +133,7 @@
 
 .about-hero-content h1{
 
-    font-size:clamp(3rem,6vw,5.5rem);
+    font-size:clamp(3rem,6vw,3.0rem);
 
     line-height:1.05;
 
@@ -99,7 +174,7 @@
 
     background:#050816;
 
-    padding:80px 40px;
+    padding:1cpx 40px;
 
     display:flex;
 
@@ -125,11 +200,14 @@
     width:100%;
 
     max-width:1200px;
+    
 }
 
 /* Card */
 
 .stat-card{
+
+    position: relative;
 
     width:100%;
 
@@ -150,8 +228,22 @@
     align-items:center;
 
     text-align:center;
-}
 
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(5,8,22,.65),
+            rgba(5,8,22,.65)
+        ),
+        url("../../assets/images/about/company/about2.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+}
 /* Number */
 
 .stat-value{
@@ -161,6 +253,7 @@
     line-height:1;
 
     font-weight:700;
+    
 }
 
 /* Text */
@@ -172,6 +265,7 @@
     font-size:clamp(.85rem,1vw,1rem);
 
     line-height:1.4;
+    
 }
 
 /* COLORS */
@@ -228,12 +322,13 @@
 
 .stat-detail-panel{
 
-    width:420px;
-    min-height:280px;
+    width:100%;
+    min-height:170px;
 
     position:relative;
 
     overflow:hidden;
+    
 }
 
 
@@ -707,7 +802,7 @@
     }
 
     .about-hero-content h1{
-        font-size:5rem;
+        font-size:3rem;
     }
 
     .about-hero-content p{
@@ -717,7 +812,7 @@
 
     .stat-card{
         width:280px;
-        height:250px;
+        height:270px;
     }
 
     .stat-value{

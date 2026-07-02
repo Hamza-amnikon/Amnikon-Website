@@ -98,11 +98,9 @@
 =================================== */
 
 .footer-cta{
-
-  position:relative;
-  z-index:2;
-
-  padding:180px 0 100px;
+    position: relative;
+    z-index: 2;
+    padding: 100px 0 50px;
 }
 
 .footer-cta-content{
@@ -154,7 +152,7 @@
 
  border-top:none;
 
-  padding:80px 0 40px;
+  padding:40px 0 50px;
 }
 
 .footer-grid{
@@ -164,7 +162,7 @@
   grid-template-columns:
   2fr 1fr 1fr 1fr;
 
-  gap:80px;
+  gap:2px;
 }
 
 .footer-brand h4{
@@ -187,9 +185,9 @@
 
 .footer-col h5{
 
-  margin-bottom:25px;
+  margin-bottom:15px;
 
-  font-size:1rem;
+  font-size:0.9rem;
 
   color:white;
 }
@@ -203,8 +201,8 @@
 }
 
 .footer-col li{
-
-  margin-bottom:15px;
+  
+  margin-bottom:5px;
 }
 
 .footer-col a{
@@ -214,6 +212,7 @@
   color:rgba(255,255,255,.65);
 
   transition:.3s;
+  font-size: 0.9rem;
 }
 
 .footer-col a:hover{
@@ -227,10 +226,9 @@
 
 .footer-bottom{
 
-  margin-top:70px;
+  margin-top:20px;
 
-  padding-top:30px;
-
+  padding-top:20px;
   border-top:
   1px solid rgba(
     255,255,255,.08);
@@ -241,7 +239,7 @@
 
   align-items:center;
 
-  gap:30px;
+  gap:10px;
 }
 
 .footer-bottom p{
@@ -252,8 +250,7 @@
 .footer-bottom-links{
 
   display:flex;
-
-  gap:25px;
+  gap:10px;
 }
 
 .footer-bottom-links a{
@@ -421,7 +418,7 @@
 
   .footer-bottom-links {
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 5px;
   }
 
 
