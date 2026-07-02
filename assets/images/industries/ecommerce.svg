@@ -1,0 +1,34 @@
+<svg width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Monitor -->
+  <rect x="18" y="22" width="100" height="72" rx="10" stroke="white" stroke-width="2"></rect>
+
+  <line x1="18" y1="76" x2="118" y2="76" stroke="white" stroke-width="2"></line>
+
+  <line x1="68" y1="94" x2="68" y2="112" stroke="white" stroke-width="2"></line>
+
+  <line x1="52" y1="112" x2="84" y2="112" stroke="white" stroke-width="2"></line>
+
+  <!-- Store -->
+  <rect x="46" y="48" width="28" height="18" stroke="white" stroke-width="2"></rect>
+
+  <path d="M43 48H77L73 41H47L43 48Z" stroke="white" stroke-width="2" fill="none"></path>
+
+  <!-- Shopping Cart -->
+  <path d="M28 55H38L42 66H58" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <circle cx="45" cy="70" r="2" stroke="white" stroke-width="2"></circle>
+
+  <circle cx="56" cy="70" r="2" stroke="white" stroke-width="2"></circle>
+
+  <!-- Shopping Bag -->
+  <rect x="82" y="47" width="16" height="20" rx="2" stroke="white" stroke-width="2"></rect>
+
+  <path d="M86 47C86 43 88 41 90 41C92 41 94 43 94 47" stroke="white" stroke-width="2"></path>
+
+  <!-- Payment Card -->
+  <rect x="72" y="58" width="24" height="14" rx="2" stroke="white" stroke-width="2"></rect>
+
+  <line x1="76" y1="64" x2="92" y2="64" stroke="white" stroke-width="2"></line>
+
+</svg>
