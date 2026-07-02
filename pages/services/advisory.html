@@ -1,346 +1,1081 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advisory Services — AMNIKON</title>
-  <link rel="stylesheet" href="../../assets/css/global.css">
-  <link rel="stylesheet" href="../../assets/css/navbar.css">
-  <link rel="stylesheet" href="../../assets/css/footer.css">
-  <link rel="stylesheet" href="../../assets/css/chatbot.css">
-  <style>
-    :root{
-      --brand:#059669;--brand2:#34d399;--brand3:#0ea5e9;
-      --dark:#040c0a;--dark2:#060e0b;
-      --card-bg:rgba(5,150,105,.05);--card-border:rgba(5,150,105,.18);
-      --glow:rgba(5,150,105,.35);--text:#e8edf5;--muted:#7a9080;--radius:16px;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--dark);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
 
-    /* HERO */
-    .hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
-      background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(5,150,105,.15) 0%,transparent 70%),
-                 linear-gradient(180deg,#040c0a 0%,#060f0b 100%);}
-    .hero-grid{position:absolute;inset:0;
-      background-image:linear-gradient(rgba(5,150,105,.07) 1px,transparent 1px),
-                       linear-gradient(90deg,rgba(5,150,105,.07) 1px,transparent 1px);
-      background-size:60px 60px;
-      transform:perspective(800px) rotateX(30deg) translateY(-10%);
-      transform-origin:top center;animation:gridScroll 20s linear infinite;}
-    @keyframes gridScroll{from{background-position:0 0}to{background-position:0 120px}}
-    .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:orbFloat 10s ease-in-out infinite alternate;}
-    .orb1{width:500px;height:500px;background:#064e3b;top:-150px;right:0%;animation-delay:0s;}
-    .orb2{width:300px;height:300px;background:#0ea5e9;bottom:5%;left:3%;animation-delay:5s;}
-    @keyframes orbFloat{from{transform:translateY(0)}to{transform:translateY(-40px)}}
+    <meta charset="UTF-8">
 
-    .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 40px 80px;
-      display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-    @media(max-width:860px){.hero-inner{grid-template-columns:1fr;padding:100px 24px 60px;}}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    .eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-      color:var(--brand2);border:1px solid rgba(52,211,153,.3);border-radius:30px;padding:5px 14px;margin-bottom:20px;}
-    .hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.15;margin-bottom:20px;}
-    .hero h1 span{background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero p{font-size:1.1rem;color:var(--muted);line-height:1.8;margin-bottom:36px;}
-    .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
-    .btn-primary{background:linear-gradient(135deg,var(--brand),#047857);color:#fff;padding:14px 30px;border-radius:8px;
-      font-weight:700;text-decoration:none;font-size:.95rem;transition:transform .2s,box-shadow .2s;
-      box-shadow:0 4px 24px rgba(5,150,105,.4);}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(5,150,105,.6);}
-    .btn-outline{border:1.5px solid rgba(5,150,105,.35);color:var(--brand2);padding:14px 30px;border-radius:8px;
-      font-weight:600;text-decoration:none;font-size:.95rem;transition:background .2s;}
-    .btn-outline:hover{background:rgba(5,150,105,.1);}
+    <title>Advisory Services — AMNIKON</title>
 
-    /* Roadmap visual */
-    .roadmap-visual{background:rgba(4,12,10,.85);border:1px solid rgba(5,150,105,.25);
-      border-radius:20px;padding:28px;max-width:380px;margin:0 auto;}
-    .rm-title{font-size:.75rem;color:var(--brand2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;}
-    .rm-step{display:flex;gap:14px;margin-bottom:4px;}
-    .rm-left{display:flex;flex-direction:column;align-items:center;gap:0;}
-    .rm-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--brand2);flex-shrink:0;margin-top:4px;}
-    .rm-dot.active{background:var(--brand2);box-shadow:0 0 12px rgba(52,211,153,.6);}
-    .rm-dot.done{background:var(--brand);border-color:var(--brand);}
-    .rm-line{width:2px;flex:1;background:rgba(5,150,105,.25);min-height:24px;}
-    .rm-content{padding-bottom:20px;}
-    .rm-label{font-size:.82rem;font-weight:700;margin-bottom:3px;}
-    .rm-sub{font-size:.75rem;color:var(--muted);}
-    .rm-tag{display:inline-block;margin-top:5px;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;}
-    .tag-done{background:rgba(5,150,105,.2);color:#34d399;}
-    .tag-now{background:rgba(14,165,233,.2);color:#38bdf8;}
-    .tag-next{background:rgba(255,255,255,.06);color:var(--muted);}
+    <!-- Global CSS -->
 
-    /* SECTION */
-    .section{max-width:1200px;margin:0 auto;padding:96px 40px;}
-    @media(max-width:600px){.section{padding:64px 20px;}}
-    .section-label{text-align:center;margin-bottom:56px;}
-    .section-label h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;margin-bottom:14px;}
-    .section-label p{color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7;}
-    .highlight{background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    <link rel="stylesheet"
+          href="../../assets/css/global.css">
 
-    /* 2-col grid */
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-    @media(max-width:700px){.grid-2{grid-template-columns:1fr;}}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    @media(max-width:860px){.grid-3{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:560px){.grid-3{grid-template-columns:1fr;}}
+    <link rel="stylesheet"
+          href="../../assets/css/navbar.css">
 
-    /* Advisory card */
-    .adv-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);
-      padding:32px 28px;backdrop-filter:blur(10px);transition:transform .3s,border-color .3s,box-shadow .3s;
-      position:relative;overflow:hidden;}
-    .adv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,transparent,var(--brand),transparent);opacity:0;transition:opacity .3s;}
-    .adv-card:hover{transform:translateY(-5px);border-color:rgba(52,211,153,.4);
-      box-shadow:0 16px 50px rgba(0,0,0,.4),0 0 24px var(--glow);}
-    .adv-card:hover::before{opacity:1;}
-    .adv-icon{width:48px;height:48px;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.25);
-      border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;}
-    .adv-card h4{font-size:1rem;font-weight:700;margin-bottom:8px;}
-    .adv-card p{font-size:.88rem;color:var(--muted);line-height:1.6;}
-    .adv-card .learn{display:inline-block;margin-top:14px;font-size:.82rem;color:var(--brand2);
-      font-weight:600;text-decoration:none;border-bottom:1px solid rgba(52,211,153,.3);padding-bottom:2px;}
+    <link rel="stylesheet"
+          href="../../assets/css/footer.css">
 
-    /* vCIO focus */
-    .vcio-section{background:linear-gradient(135deg,rgba(5,150,105,.08),rgba(4,12,10,.6));
-      border:1px solid var(--card-border);border-radius:20px;padding:56px 48px;margin:0 40px;}
-    @media(max-width:600px){.vcio-section{margin:0 20px;padding:40px 24px;}}
-    .vcio-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start;}
-    @media(max-width:700px){.vcio-grid{grid-template-columns:1fr;}}
-    .vcio-text h3{font-size:1.6rem;font-weight:800;margin-bottom:16px;}
-    .vcio-text p{color:var(--muted);line-height:1.8;margin-bottom:24px;}
-    .vcio-items{display:flex;flex-direction:column;gap:16px;}
-    .vcio-item{display:flex;gap:14px;align-items:flex-start;}
-    .vcio-item-icon{width:36px;height:36px;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.25);
-      border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-    .vcio-item h5{font-size:.9rem;font-weight:700;margin-bottom:4px;}
-    .vcio-item p{font-size:.82rem;color:var(--muted);line-height:1.5;}
-    .quote-card{background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.2);
-      border-radius:16px;padding:28px;position:relative;}
-    .quote-card::before{content:'"';position:absolute;top:-10px;left:20px;font-size:4rem;color:rgba(52,211,153,.3);line-height:1;}
-    .quote-card p{font-size:.95rem;line-height:1.8;color:var(--text);font-style:italic;margin-bottom:16px;padding-top:20px;}
-    .quote-author{font-size:.82rem;color:var(--muted);}
-    .quote-author strong{color:var(--brand2);}
+    <link rel="stylesheet"
+          href="../../assets/css/chatbot.css">
 
-    /* Stats */
-    .stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-      background:var(--card-border);border:1px solid var(--card-border);border-radius:20px;overflow:hidden;margin:0 40px;}
-    @media(max-width:860px){.stats-band{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:600px){.stats-band{margin:0 20px;}}
-    .stat-item{background:var(--dark2);padding:40px 24px;text-align:center;}
-    .stat-item h3{font-size:2.4rem;font-weight:900;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
-    .stat-item p{font-size:.88rem;color:var(--muted);}
+    <!-- Page CSS -->
 
-    /* CTA */
-    .cta-band{margin:0 40px 80px;background:linear-gradient(135deg,rgba(5,150,105,.16),rgba(14,165,233,.06));
-      border:1px solid rgba(5,150,105,.3);border-radius:24px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;}
-    @media(max-width:600px){.cta-band{margin:0 20px 60px;padding:48px 24px;}}
-    .cta-band::before{content:'';position:absolute;width:400px;height:400px;
-      background:radial-gradient(circle,rgba(5,150,105,.2),transparent 70%);bottom:-150px;right:-100px;pointer-events:none;}
-    .cta-band h2{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;margin-bottom:14px;}
-    .cta-band p{color:var(--muted);margin-bottom:32px;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto;}
-    .cta-band .btn-row{justify-content:center;}
-    .divider{border:none;border-top:1px solid var(--card-border);margin:0 40px;}
-    @media(max-width:600px){.divider{margin:0 20px;}}
-  </style>
+    <link rel="stylesheet"
+          href="advisory.css">
+
 </head>
+
 <body>
-  <div id="navbar-placeholder"></div>
-  <script src="../../components/navbar.js"></script>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="hero-inner">
-      <div>
-        <span class="eyebrow">Advisory Services</span>
-        <h1>IT Strategy That <span>Drives Results</span></h1>
+    <!-- ==========================================
+                    NAVBAR
+    =========================================== -->
+
+    <div id="navbar-placeholder"></div>
+
+    <script src="../../components/navbar.js"></script>
+
+    <!-- ==========================================
+                    HERO
+    =========================================== -->
+
+    <section class="hero">
+
+        <div class="hero-grid"></div>
+
+        <div class="orb orb1"></div>
+
+        <div class="orb orb2"></div>
+
+        <div class="hero-inner">
+
+            <!-- LEFT -->
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+
+                    Advisory Services
+
+                </span>
+
+                <h1>
+
+                    IT Strategy That
+
+                    <span>
+
+                        Drives Results
+
+                    </span>
+
+                </h1>
+
+                <p>
+
+                    AMNIKON's advisory practice provides strategic IT
+                    leadership without the cost of a full-time executive.
+                    We align technology, security, cloud, and digital
+                    transformation initiatives with your business goals.
+
+                </p>
+
+                <div class="btn-row">
+
+                    <a href="../contact/contact.html"
+                       class="btn-primary">
+
+                        Book a Strategy Session
+
+                    </a>
+
+                    <a href="../services/services.html"
+                       class="btn-outline">
+
+                        All Services
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="hero-visual">
+
+                <div class="roadmap-visual">
+
+                    <div class="rm-title">
+
+                        📋 IT Transformation Roadmap
+
+                    </div>
+
+                    <div class="rm-step">
+
+                        <div class="rm-left">
+
+                            <div class="rm-dot done"></div>
+
+                            <div class="rm-line"></div>
+
+                        </div>
+
+                        <div class="rm-content">
+
+                            <div class="rm-label">
+
+                                Discovery & Assessment
+
+                            </div>
+
+                            <div class="rm-sub">
+
+                                Environment audit & gap analysis
+
+                            </div>
+
+                            <div class="rm-tag tag-done">
+
+                                ✓ Complete
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rm-step">
+
+                        <div class="rm-left">
+
+                            <div class="rm-dot done"></div>
+
+                            <div class="rm-line"></div>
+
+                        </div>
+
+                        <div class="rm-content">
+
+                            <div class="rm-label">
+
+                                Strategy & Roadmap
+
+                            </div>
+
+                            <div class="rm-sub">
+
+                                Technology planning & budgeting
+
+                            </div>
+
+                            <div class="rm-tag tag-done">
+
+                                ✓ Complete
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rm-step">
+
+                        <div class="rm-left">
+
+                            <div class="rm-dot active"></div>
+
+                            <div class="rm-line"></div>
+
+                        </div>
+
+                        <div class="rm-content">
+
+                            <div class="rm-label">
+
+                                Cloud Migration
+
+                            </div>
+
+                            <div class="rm-sub">
+
+                                Azure migration in progress
+
+                            </div>
+
+                            <div class="rm-tag tag-now">
+
+                                ▶ In Progress
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rm-step">
+
+                        <div class="rm-left">
+
+                            <div class="rm-dot"></div>
+
+                        </div>
+
+                        <div class="rm-content">
+
+                            <div class="rm-label">
+
+                                Optimization & AI
+
+                            </div>
+
+                            <div class="rm-sub">
+
+                                Automation and continuous improvement
+
+                            </div>
+
+                            <div class="rm-tag tag-next">
+
+                                Next Phase
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                    STATISTICS
+    =========================================== -->
+
+    <section class="stats-band">
+
+        <div class="stat-item">
+
+            <h3>28%</h3>
+
+            <p>
+
+                Average IT Cost Reduction
+
+            </p>
+
+        </div>
+
+        <div class="stat-item">
+
+            <h3>94%</h3>
+
+            <p>
+
+                Client Retention Rate
+
+            </p>
+
+        </div>
+
+        <div class="stat-item">
+
+            <h3>91%</h3>
+
+            <p>
+
+                Projects Delivered On Time
+
+            </p>
+
+        </div>
+
+        <div class="stat-item">
+
+            <h3>30+</h3>
+
+            <p>
+
+                Years of Industry Experience
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+            ADVISORY SERVICES START HERE
+    =========================================== -->
+    <!-- ==========================================
+            ADVISORY SERVICES
+=========================================== -->
+
+<section class="section">
+
+    <div class="section-label">
+
+        <span class="eyebrow">
+
+            Advisory Areas
+
+        </span>
+
+        <h2>
+
+            Strategic IT
+
+            <span class="highlight">
+
+                Leadership
+
+            </span>
+
+        </h2>
+
         <p>
-          AMNIKON's advisory practice gives you the strategic IT leadership you need — without
-          the full-time executive cost. From digital transformation roadmaps to compliance readiness,
-          we align technology to your business outcomes.
+
+            Our advisory experts help organizations make smarter technology
+            decisions through strategic planning, governance, cloud
+            transformation, security consulting, and business-focused IT
+            leadership.
+
         </p>
-        <div class="btn-row">
-          <a href="../contact/contact.html" class="btn-primary">Book a Strategy Session</a>
-          <a href="../services/services.html" class="btn-outline">All Services</a>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:center;">
-        <div class="roadmap-visual">
-          <div class="rm-title">📋 IT Transformation Roadmap</div>
-          <div class="rm-step">
-            <div class="rm-left"><div class="rm-dot done"></div><div class="rm-line"></div></div>
-            <div class="rm-content"><div class="rm-label">Discovery & Assessment</div><div class="rm-sub">Environment audit, gap analysis</div><div class="rm-tag tag-done">✓ Complete</div></div>
-          </div>
-          <div class="rm-step">
-            <div class="rm-left"><div class="rm-dot done"></div><div class="rm-line"></div></div>
-            <div class="rm-content"><div class="rm-label">Strategy & Roadmap</div><div class="rm-sub">3-year IT plan, priorities, budget</div><div class="rm-tag tag-done">✓ Complete</div></div>
-          </div>
-          <div class="rm-step">
-            <div class="rm-left"><div class="rm-dot active"></div><div class="rm-line"></div></div>
-            <div class="rm-content"><div class="rm-label">Cloud Migration Phase 1</div><div class="rm-sub">Core workloads to Azure</div><div class="rm-tag tag-now">▶ In Progress</div></div>
-          </div>
-          <div class="rm-step">
-            <div class="rm-left"><div class="rm-dot"></div><div class="rm-line"></div></div>
-            <div class="rm-content"><div class="rm-label">Security Hardening</div><div class="rm-sub">Zero trust, SOC 2 readiness</div><div class="rm-tag tag-next">Q3 2025</div></div>
-          </div>
-          <div class="rm-step">
-            <div class="rm-left"><div class="rm-dot"></div></div>
-            <div class="rm-content"><div class="rm-label">Optimization & Scale</div><div class="rm-sub">FinOps, automation, AI readiness</div><div class="rm-tag tag-next">Q4 2025</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- STATS -->
-  <div class="stats-band">
-    <div class="stat-item"><h3>28%</h3><p>Avg. IT Cost Reduction</p></div>
-    <div class="stat-item"><h3>94%</h3><p>Client Retention Rate</p></div>
-    <div class="stat-item"><h3>91%</h3><p>Projects On-Time</p></div>
-    <div class="stat-item"><h3>30+</h3><p>Years of Industry Experience</p></div>
-  </div>
-
-  <!-- ADVISORY SERVICES -->
-  <div class="section">
-    <div class="section-label">
-      <span class="eyebrow">Advisory Areas</span>
-      <h2>Strategic IT <span class="highlight">Leadership</span></h2>
-      <p>Senior-level guidance across every dimension of your IT strategy — from board-level planning to hands-on transformation.</p>
     </div>
+
     <div class="grid-3">
-      <div class="adv-card">
-        <div class="adv-icon">🎯</div>
-        <h4>IT Strategy & Roadmapping</h4>
-        <p>Multi-year IT roadmaps aligned to business goals — technology investment prioritization, lifecycle planning, and board-ready presentations.</p>
-        <a href="../contact/contact.html" class="learn">Start a Conversation →</a>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">💼</div>
-        <h4>Virtual CIO (vCIO)</h4>
-        <p>Dedicated strategic IT leadership — your vCIO attends QBRs, manages vendors, governs budgets, and ensures IT serves growth.</p>
-        <a href="../contact/contact.html" class="learn">Meet a vCIO →</a>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">☁️</div>
-        <h4>Cloud Transformation Advisory</h4>
-        <p>Business case development, cloud-readiness assessment, vendor selection, and migration strategy for your cloud journey.</p>
-        <a href="../contact/contact.html" class="learn">Start a Conversation →</a>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🔒</div>
-        <h4>Security & Compliance Advisory</h4>
-        <p>Security posture assessment, risk gap analysis, and compliance roadmaps for CMMC, SOC 2, HIPAA, and NIST frameworks.</p>
-        <a href="../contact/contact.html" class="learn">Assess My Posture →</a>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">💰</div>
-        <h4>IT Budgeting & Cost Optimization</h4>
-        <p>Total cost of ownership analysis, vendor rationalization, and IT spend benchmarking against industry peers.</p>
-        <a href="../contact/contact.html" class="learn">Optimize My Budget →</a>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🔄</div>
-        <h4>Digital Transformation</h4>
-        <p>End-to-end transformation programs — process automation, ERP/CRM optimization, AI readiness, and change management.</p>
-        <a href="../contact/contact.html" class="learn">Start Transforming →</a>
-      </div>
-    </div>
-  </div>
 
-  <hr class="divider">
+        <!-- Card 1 -->
 
-  <!-- vCIO SECTION -->
-  <div class="vcio-section" style="margin-top:80px;">
-    <div class="section-label" style="margin-bottom:0;">
-      <span class="eyebrow">Featured Service</span>
-      <h2>The Power of a <span class="highlight">Virtual CIO</span></h2>
-    </div>
-    <div class="vcio-grid">
-      <div>
-        <div class="vcio-text">
-          <h3>Strategic Leadership Without the Executive Overhead</h3>
-          <p>Most growing businesses need senior IT leadership but can't justify a full-time CIO salary. AMNIKON's vCIO service gives you C-suite-level IT strategy at a fraction of the cost.</p>
-        </div>
-        <div class="vcio-items">
-          <div class="vcio-item">
-            <div class="vcio-item-icon">📅</div>
-            <div><h5>Quarterly Business Reviews</h5><p>Performance reviews, roadmap updates, and strategic planning sessions every quarter.</p></div>
-          </div>
-          <div class="vcio-item">
-            <div class="vcio-item-icon">🤝</div>
-            <div><h5>Vendor Management</h5><p>We manage your technology vendors — contracts, renewals, negotiations, and escalations.</p></div>
-          </div>
-          <div class="vcio-item">
-            <div class="vcio-item-icon">📊</div>
-            <div><h5>IT Budget Governance</h5><p>Annual IT budget development, cost forecasting, and spend vs. plan reporting.</p></div>
-          </div>
-          <div class="vcio-item">
-            <div class="vcio-item-icon">🏛️</div>
-            <div><h5>Board & Leadership Reporting</h5><p>Executive-ready IT scorecards and risk reports for leadership and board meetings.</p></div>
-          </div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:20px;">
-        <div class="quote-card">
-          <p>AMNIKON's vCIO completely transformed how we think about IT. We went from reactive firefighting to a proactive 3-year technology roadmap — and we cut IT costs by 31% in year one.</p>
-          <div class="quote-author"><strong>Operations Director</strong>, Mid-Market Manufacturing Client</div>
-        </div>
-        <div class="adv-card" style="margin:0;">
-          <div class="adv-icon">📋</div>
-          <h4>What's Included in Every vCIO Engagement</h4>
-          <p style="margin-top:4px;">Dedicated advisor · Monthly check-ins · QBR facilitation · Technology roadmap · Vendor management · Budget planning · Security oversight · Compliance advisory</p>
-          <a href="../contact/contact.html" class="learn">Engage a vCIO →</a>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="adv-card">
 
-  <!-- INDUSTRIES -->
-  <div class="section">
+            <div class="adv-icon">
+
+                🎯
+
+            </div>
+
+            <h4>
+
+                IT Strategy & Roadmapping
+
+            </h4>
+
+            <p>
+
+                Develop long-term technology roadmaps that align IT
+                investments with your business objectives, growth plans,
+                and operational priorities.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Start a Conversation →
+
+            </a>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="adv-card">
+
+            <div class="adv-icon">
+
+                💼
+
+            </div>
+
+            <h4>
+
+                Virtual CIO (vCIO)
+
+            </h4>
+
+            <p>
+
+                Gain executive-level IT leadership with strategic planning,
+                vendor management, budgeting, governance, and technology
+                guidance without hiring a full-time CIO.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Meet a vCIO →
+
+            </a>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="adv-card">
+
+            <div class="adv-icon">
+
+                ☁️
+
+            </div>
+
+            <h4>
+
+                Cloud Transformation
+
+            </h4>
+
+            <p>
+
+                Build a cloud-first strategy with migration planning,
+                workload assessments, modernization, and optimization
+                across Azure, AWS, and hybrid environments.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Explore Cloud →
+
+            </a>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="adv-card">
+
+            <div class="adv-icon">
+
+                🔒
+
+            </div>
+
+            <h4>
+
+                Security & Compliance
+
+            </h4>
+
+            <p>
+
+                Strengthen your security posture through governance,
+                risk assessments, compliance planning, and cybersecurity
+                strategy aligned with industry standards.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Assess Security →
+
+            </a>
+
+        </div>
+
+        <!-- Card 5 -->
+
+        <div class="adv-card">
+
+            <div class="adv-icon">
+
+                💰
+
+            </div>
+
+            <h4>
+
+                IT Cost Optimization
+
+            </h4>
+
+            <p>
+
+                Optimize technology investments by reducing unnecessary
+                spending, improving licensing efficiency, and maximizing
+                return on IT investments.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Optimize Budget →
+
+            </a>
+
+        </div>
+
+        <!-- Card 6 -->
+
+        <div class="adv-card">
+
+            <div class="adv-icon">
+
+                🚀
+
+            </div>
+
+            <h4>
+
+                Digital Transformation
+
+            </h4>
+
+            <p>
+
+                Modernize business processes through automation,
+                AI readiness, collaboration platforms,
+                and enterprise digital initiatives.
+
+            </p>
+
+            <a href="../contact/contact.html"
+               class="learn">
+
+                Start Transforming →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr class="divider">
+
+<!-- ==========================================
+        VCIO SECTION STARTS HERE
+=========================================== -->
+
+<!-- ==========================================
+            FEATURED VCIO
+=========================================== -->
+
+<section class="vcio-section">
+
     <div class="section-label">
-      <span class="eyebrow">Who We Advise</span>
-      <h2>Advisory Tailored to <span class="highlight">Your Industry</span></h2>
-      <p>Our advisors bring deep domain expertise across the industries our clients operate in.</p>
+
+        <span class="eyebrow">
+
+            Featured Service
+
+        </span>
+
+        <h2>
+
+            The Power of a
+
+            <span class="highlight">
+
+                Virtual CIO
+
+            </span>
+
+        </h2>
+
+        <p>
+
+            Get executive-level IT leadership, strategic planning,
+            and technology governance without the cost of hiring
+            a full-time Chief Information Officer.
+
+        </p>
+
     </div>
+
+    <div class="vcio-grid">
+
+        <!-- LEFT -->
+
+        <div>
+
+            <div class="vcio-text">
+
+                <h3>
+
+                    Strategic Leadership That
+                    Grows With Your Business
+
+                </h3>
+
+                <p>
+
+                    Our Virtual CIO service provides continuous
+                    technology leadership, helping your organization
+                    make informed IT decisions while aligning
+                    technology investments with long-term
+                    business objectives.
+
+                </p>
+
+            </div>
+
+            <div class="vcio-items">
+
+                <div class="vcio-item">
+
+                    <div class="vcio-item-icon">
+
+                        📅
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+
+                            Quarterly Business Reviews
+
+                        </h5>
+
+                        <p>
+
+                            Regular executive meetings,
+                            KPI reviews,
+                            roadmap planning,
+                            and technology recommendations.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="vcio-item">
+
+                    <div class="vcio-item-icon">
+
+                        🤝
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+
+                            Vendor Management
+
+                        </h5>
+
+                        <p>
+
+                            Contract reviews,
+                            vendor negotiations,
+                            renewals,
+                            and strategic partnerships.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="vcio-item">
+
+                    <div class="vcio-item-icon">
+
+                        📊
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+
+                            Budget Planning
+
+                        </h5>
+
+                        <p>
+
+                            Annual IT budgeting,
+                            investment planning,
+                            forecasting,
+                            and cost optimization.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="vcio-item">
+
+                    <div class="vcio-item-icon">
+
+                        🏛️
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+
+                            Executive Reporting
+
+                        </h5>
+
+                        <p>
+
+                            Board-ready reports,
+                            technology scorecards,
+                            business risk assessments,
+                            and strategic insights.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="vcio-right">
+
+            <div class="quote-card">
+
+                <p>
+
+                    AMNIKON's Virtual CIO completely transformed
+                    our technology strategy. We now have a
+                    structured roadmap, predictable budgeting,
+                    and executive guidance that keeps IT aligned
+                    with business growth.
+
+                </p>
+
+                <div class="quote-author">
+
+                    <strong>
+
+                        Operations Director
+
+                    </strong>
+
+                    <br>
+
+                    Mid-Market Manufacturing Client
+
+                </div>
+
+            </div>
+
+            <div class="adv-card included-card">
+
+                <div class="adv-icon">
+
+                    📋
+
+                </div>
+
+                <h4>
+
+                    Every vCIO Engagement Includes
+
+                </h4>
+
+                <ul class="included-list">
+
+                    <li>Dedicated Virtual CIO</li>
+
+                    <li>Monthly Strategy Meetings</li>
+
+                    <li>Technology Roadmap</li>
+
+                    <li>Vendor Management</li>
+
+                    <li>IT Budget Planning</li>
+
+                    <li>Security Oversight</li>
+
+                    <li>Compliance Guidance</li>
+
+                    <li>Executive Reporting</li>
+
+                </ul>
+
+                <a href="../contact/contact.html"
+
+                   class="learn">
+
+                    Schedule a Consultation →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+        INDUSTRIES START HERE
+=========================================== -->
+<!-- ==========================================
+            INDUSTRIES WE SERVE
+=========================================== -->
+
+<section class="section">
+
+    <div class="section-label">
+
+        <span class="eyebrow">
+
+            Industries We Serve
+
+        </span>
+
+        <h2>
+
+            Advisory Expertise Across
+
+            <span class="highlight">
+
+                Every Industry
+
+            </span>
+
+        </h2>
+
+        <p>
+
+            Our consultants understand the unique technology,
+            compliance, and operational challenges facing
+            organizations across multiple industries.
+
+        </p>
+
+    </div>
+
     <div class="grid-2">
-      <div class="adv-card" style="display:flex;gap:16px;align-items:flex-start;">
-        <div class="adv-icon" style="flex-shrink:0;">🏭</div>
-        <div><h4>Manufacturing & Distribution</h4><p>ERP modernization, shop floor connectivity, OT/IT convergence, and supply chain technology strategy.</p></div>
-      </div>
-      <div class="adv-card" style="display:flex;gap:16px;align-items:flex-start;">
-        <div class="adv-icon" style="flex-shrink:0;">⚖️</div>
-        <div><h4>Professional Services & Legal</h4><p>Document management, secure collaboration, remote work enablement, and client data protection.</p></div>
-      </div>
-      <div class="adv-card" style="display:flex;gap:16px;align-items:flex-start;">
-        <div class="adv-icon" style="flex-shrink:0;">🏥</div>
-        <div><h4>Healthcare & Life Sciences</h4><p>HIPAA compliance, clinical application integration, and telehealth infrastructure strategy.</p></div>
-      </div>
-      <div class="adv-card" style="display:flex;gap:16px;align-items:flex-start;">
-        <div class="adv-icon" style="flex-shrink:0;">💳</div>
-        <div><h4>Financial Services</h4><p>Regulatory compliance (SOC 2, PCI-DSS), core system modernization, and data governance advisory.</p></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- CTA -->
-  <div class="cta-band">
-    <span class="eyebrow">Let's Build Your Roadmap</span>
-    <h2>Turn IT Into a <span class="highlight">Competitive Advantage</span></h2>
-    <p>Start with a complimentary 30-minute strategy call. We'll assess your current IT maturity and identify the highest-impact opportunities for your business.</p>
+        <!-- Manufacturing -->
+
+        <div class="adv-card industry-card">
+
+            <div class="adv-icon">
+
+                🏭
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Manufacturing & Distribution
+
+                </h4>
+
+                <p>
+
+                    Modernize operations through ERP optimization,
+                    industrial automation, supply chain visibility,
+                    and smart manufacturing initiatives.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Healthcare -->
+
+        <div class="adv-card industry-card">
+
+            <div class="adv-icon">
+
+                🏥
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Healthcare
+
+                </h4>
+
+                <p>
+
+                    HIPAA compliance,
+                    secure patient data,
+                    infrastructure modernization,
+                    and healthcare technology consulting.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Financial -->
+
+        <div class="adv-card industry-card">
+
+            <div class="adv-icon">
+
+                💳
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Financial Services
+
+                </h4>
+
+                <p>
+
+                    Digital banking,
+                    cybersecurity,
+                    compliance,
+                    risk management,
+                    and cloud transformation.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Professional -->
+
+        <div class="adv-card industry-card">
+
+            <div class="adv-icon">
+
+                ⚖️
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Professional Services
+
+                </h4>
+
+                <p>
+
+                    Secure collaboration,
+                    document management,
+                    business continuity,
+                    and productivity improvements.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+                CTA
+=========================================== -->
+
+<section class="cta-band">
+
+    <span class="eyebrow">
+
+        Let's Build Your Roadmap
+
+    </span>
+
+    <h2>
+
+        Turn Technology Into Your
+
+        <span class="highlight">
+
+            Competitive Advantage
+
+        </span>
+
+    </h2>
+
+    <p>
+
+        Whether you're planning a digital transformation,
+        migrating to the cloud,
+        improving cybersecurity,
+        or building a long-term IT roadmap,
+        AMNIKON is ready to guide your business forward.
+
+    </p>
+
     <div class="btn-row">
-      <a href="../contact/contact.html" class="btn-primary">Book Strategy Session</a>
-      <a href="../services/services.html" class="btn-outline">Explore All Services</a>
-    </div>
-  </div>
 
-  <div id="footer-placeholder"></div>
-  <script src="../../components/footer.js"></script>
-  <div id="chatbot-placeholder"></div>
-  <script src="../../components/chatbot.js"></script>
-  <script src="../../assets/js/global.js"></script>
+        <a href="../contact/contact.html"
+
+           class="btn-primary">
+
+            Book Strategy Session
+
+        </a>
+
+        <a href="../services/services.html"
+
+           class="btn-outline">
+
+            Explore Services
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+                FOOTER
+=========================================== -->
+
+<div id="footer-placeholder"></div>
+
+<script src="../../components/footer.js"></script>
+
+<div id="chatbot-placeholder"></div>
+
+<script src="../../components/chatbot.js"></script>
+
+<script src="../../assets/js/global.js"></script>
+
+<script src="advisory.js"></script>
+
 </body>
+
 </html>

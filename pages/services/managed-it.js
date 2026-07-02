@@ -1,31 +1,86 @@
-﻿const counters = document.querySelectorAll('.counter');
+﻿/* =====================================================
+   MANAGED IT PAGE
+===================================================== */
 
-counters.forEach(counter => {
-  const target = +counter.dataset.target;
-  let count = 0;
+document.addEventListener("DOMContentLoaded", () => {
 
-  const update = () => {
-    count += target / 100;
+    /* ==========================================
+       REVEAL ANIMATION
+    ========================================== */
 
-    if(count < target){
-      counter.innerText = Math.floor(count);
-      requestAnimationFrame(update);
-    } else {
-      counter.innerText = target;
-    }
-  };
+    const reveals = document.querySelectorAll(
 
-  update();
-});// services.js
+        ".svc-card, .process-card, .stat-card, .tech-card"
+
+    );
+
+    const revealObserver = new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold: 0.15
+
+        }
+
+    );
+
+    reveals.forEach((item) => {
+
+        revealObserver.observe(item);
+
+    });
 
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-    }
-  });
+    /* ==========================================
+       COUNTERS
+    ========================================== */
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+
+        const target = +counter.dataset.target;
+
+        let current = 0;
+
+        const increment = target / 100;
+
+        function updateCounter() {
+
+            current += increment;
+
+            if (current < target) {
+
+                counter.innerText = Math.floor(current);
+
+                requestAnimationFrame(updateCounter);
+
+            }
+
+            else {
+
+                counter.innerText = target;
+
+            }
+
+        }
+
+        updateCounter();
+
+    });
+
 });
-
-document.querySelectorAll('.reveal')
-.forEach(el=>observer.observe(el));

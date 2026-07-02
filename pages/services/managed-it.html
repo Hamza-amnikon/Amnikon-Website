@@ -1,738 +1,785 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Managed IT Services — AMNIKON</title>
-  <link rel="stylesheet" href="../../assets/css/global.css">
-  <link rel="stylesheet" href="../../assets/css/navbar.css">
-  <link rel="stylesheet" href="../../assets/css/footer.css">
-  <link rel="stylesheet" href="../../assets/css/chatbot.css">
-  <style>
-    /* ── Design tokens ── */
-    :root {
-      --brand: #0066ff;
-      --brand2: #00c2ff;
-      --dark: #050a14;
-      --dark2: #0a1525;
-      --card-bg: rgba(255,255,255,0.04);
-      --card-border: rgba(0,150,255,0.18);
-      --glow: rgba(0,102,255,0.35);
-      --text: #e8edf5;
-      --muted: #7a90b0;
-      --radius: 16px;
-    }
+  <head>
+    <meta charset="UTF-8" />
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    body {
-      background: var(--dark);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      overflow-x: hidden;
-    }
+    <meta name="description" content="Managed IT Services by AMNIKON" />
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,102,255,0.22) 0%, transparent 70%),
-                  linear-gradient(180deg, #050a14 0%, #070f1e 100%);
-    }
+    <title>Managed IT Services | AMNIKON</title>
 
-    /* Animated 3-D grid */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,150,255,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,150,255,0.07) 1px, transparent 1px);
-      background-size: 60px 60px;
-      transform: perspective(800px) rotateX(30deg) translateY(-10%);
-      transform-origin: top center;
-      animation: gridScroll 20s linear infinite;
-    }
-    @keyframes gridScroll {
-      from { background-position: 0 0; }
-      to   { background-position: 0 120px; }
-    }
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/chatbot.css" />
+    <link rel="stylesheet" href="managed-it.css" />
+  </head>
 
-    /* Floating orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: .45;
-      animation: orbFloat 8s ease-in-out infinite alternate;
-    }
-    .orb1 { width: 420px; height: 420px; background: #0044cc; top: -120px; right: 5%; animation-delay: 0s; }
-    .orb2 { width: 300px; height: 300px; background: #00b4d8; bottom: 10%; left: 3%; animation-delay: 3s; }
-    .orb3 { width: 200px; height: 200px; background: #0066ff; top: 40%; left: 40%; animation-delay: 6s; }
-    @keyframes orbFloat {
-      from { transform: translateY(0) scale(1); }
-      to   { transform: translateY(-40px) scale(1.08); }
-    }
+  <body>
+    <div id="navbar-placeholder"></div>
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 120px 40px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    @media(max-width:860px){ .hero-inner { grid-template-columns:1fr; padding:100px 24px 60px; } }
+    <script src="../../components/navbar.js"></script>
 
-    .eyebrow {
-      display: inline-block;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--brand2);
-      border: 1px solid rgba(0,194,255,.3);
-      border-radius: 30px;
-      padding: 5px 14px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero h1 span { background: linear-gradient(135deg, var(--brand), var(--brand2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+    <!-- ======================================================
+HERO
+====================================================== -->
 
-    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brand), #0099ff);
-      color: #fff;
-      padding: 14px 30px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: .95rem;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 24px rgba(0,102,255,.4);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,102,255,.6); }
-    .btn-outline {
-      border: 1.5px solid rgba(0,150,255,.4);
-      color: var(--brand2);
-      padding: 14px 30px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: .95rem;
-      transition: background .2s, border-color .2s;
-    }
-    .btn-outline:hover { background: rgba(0,102,255,.12); border-color: var(--brand2); }
+    <section class="hero">
+      <div class="hero-grid"></div>
 
-    /* Hero 3D card */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-card-3d {
-      width: 340px;
-      height: 340px;
-      background: linear-gradient(135deg, rgba(0,102,255,.18), rgba(0,194,255,.08));
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      backdrop-filter: blur(20px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      transform: perspective(800px) rotateY(-10deg) rotateX(5deg);
-      box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
-      animation: cardFloat 6s ease-in-out infinite alternate;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card-3d::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0,150,255,.12) 60deg, transparent 120deg);
-      animation: rotateSheen 8s linear infinite;
-    }
-    @keyframes rotateSheen { to { transform: rotate(360deg); } }
-    @keyframes cardFloat {
-      from { transform: perspective(800px) rotateY(-10deg) rotateX(5deg) translateY(0); }
-      to   { transform: perspective(800px) rotateY(-6deg) rotateX(3deg) translateY(-12px); }
-    }
-    .hero-icon-big { font-size: 4rem; position: relative; z-index: 1; }
-    .hero-card-3d h3 { font-size: 1.3rem; font-weight: 700; position: relative; z-index: 1; text-align: center; }
-    .uptime-badge {
-      background: rgba(0,255,160,.15);
-      border: 1px solid rgba(0,255,160,.3);
-      color: #00ffa0;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: .85rem;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-    }
-    .uptime-badge::before { content: '●'; margin-right: 6px; animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
 
-    /* ── SECTION BASE ── */
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 96px 40px;
-    }
-    @media(max-width:600px){ .section{ padding: 64px 20px; } }
+      <div class="hero-inner">
+        <!-- LEFT -->
 
-    .section-label {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .section-label h2 {
-      font-size: clamp(1.6rem,4vw,2.6rem);
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-    .section-label p { color: var(--muted); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.7; }
-    .highlight { background: linear-gradient(135deg, var(--brand), var(--brand2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        <div class="hero-text">
+          <div class="eyebrow">MANAGED IT SERVICES</div>
 
-    /* ── SERVICES GRID ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media(max-width:900px){ .services-grid { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:560px){ .services-grid { grid-template-columns: 1fr; } }
+          <h1>
+            Reliable IT.<br />
 
-    .svc-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      backdrop-filter: blur(12px);
-      transition: transform .3s, border-color .3s, box-shadow .3s;
-      cursor: default;
-      position: relative;
-      overflow: hidden;
-    }
-    .svc-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--brand), transparent);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .svc-card:hover { transform: translateY(-6px); border-color: rgba(0,150,255,.45); box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 30px var(--glow); }
-    .svc-card:hover::before { opacity: 1; }
+            Smarter Operations.<br />
 
-    .svc-icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, rgba(0,102,255,.25), rgba(0,194,255,.15));
-      border: 1px solid rgba(0,150,255,.3);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    .svc-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-    .svc-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+            <span>Business Growth.</span>
+          </h1>
 
-    /* ── PROCESS STEPS ── */
-    .process-strip {
-      background: linear-gradient(135deg, rgba(0,102,255,.08), rgba(0,20,60,.5));
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 56px 48px;
-      margin: 0 40px;
-    }
-    @media(max-width:600px){ .process-strip { margin: 0 20px; padding: 40px 24px; } }
+          <p>
+            Keep your technology secure, optimized and always available with
+            proactive Managed IT Services from AMNIKON. We monitor, support and
+            improve your entire IT environment so your team can focus on growing
+            the business.
+          </p>
 
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      margin-top: 48px;
-    }
-    @media(max-width:880px){ .process-steps { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:480px){ .process-steps { grid-template-columns: 1fr; } }
+          <div class="btn-row">
+            <a href="../contact/contact.html" class="btn-primary">
+              Get Started
+            </a>
 
-    .step {
-      text-align: center;
-      position: relative;
-    }
-    .step-num {
-      width: 56px; height: 56px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; font-weight: 800;
-      margin: 0 auto 16px;
-      box-shadow: 0 0 24px var(--glow);
-    }
-    .step h4 { font-size: .98rem; font-weight: 700; margin-bottom: 8px; }
-    .step p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+            <a href="../services/services.html" class="btn-outline">
+              Explore Services
+            </a>
+          </div>
+        </div>
 
-    /* ── STATS BAND ── */
-    .stats-band {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 1px;
-      background: var(--card-border);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 0 40px;
-    }
-    @media(max-width:860px){ .stats-band { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:600px){ .stats-band { margin:0 20px; } }
+        <!-- RIGHT -->
 
-    .stat-item {
-      background: var(--dark2);
-      padding: 40px 24px;
-      text-align: center;
-    }
-    .stat-item h3 {
-      font-size: 2.4rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-    }
-    .stat-item p { font-size: .88rem; color: var(--muted); }
+        <div class="hero-visual">
+          <div class="hero-card-3d">
+            <div class="hero-icon-big">🖥️</div>
 
-    /* ── TABS (sub-services) ── */
-    .tabs-wrap { padding: 0 40px; }
-    @media(max-width:600px){ .tabs-wrap { padding: 0 20px; } }
+            <h3>
+              24/7 Monitoring
 
-    .tab-nav {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--card-border);
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      background: none;
-      border: none;
-      color: var(--muted);
-      padding: 14px 22px;
-      cursor: pointer;
-      font-size: .9rem;
-      font-weight: 600;
-      border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s;
-      position: relative;
-      bottom: -1px;
-      white-space: nowrap;
-    }
-    .tab-btn.active { color: var(--brand2); border-color: var(--brand2); }
-    .tab-btn:hover:not(.active) { color: var(--text); }
+              <br />
 
-    .tab-pane { display: none; }
-    .tab-pane.active {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-      animation: fadeIn .3s ease;
-    }
-    @media(max-width:700px){ .tab-pane.active { grid-template-columns:1fr; } }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+              & Support
+            </h3>
 
-    .tab-text h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 16px; }
-    .tab-text p { color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
-    .tab-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .tab-features li {
-      display: flex; gap: 12px; align-items: flex-start;
-      font-size: .92rem; color: var(--muted);
-    }
-    .tab-features li::before {
-      content: '→';
-      color: var(--brand2);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+            <div class="uptime-badge">99% Uptime SLA</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .tab-visual {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 36px;
-      backdrop-filter: blur(8px);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .metric-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .metric-row:last-child { border: none; }
-    .metric-label { font-size: .85rem; color: var(--muted); }
-    .metric-val { font-size: 1rem; font-weight: 700; color: var(--brand2); }
-    .bar-wrap { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-top: 8px; overflow: hidden; }
-    .bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg,var(--brand),var(--brand2)); transition: width 1s ease; }
+    <!-- ======================================================
+STATS
+====================================================== -->
 
-    /* ── CTA ── */
-    .cta-band {
-      margin: 0 40px 80px;
-      background: linear-gradient(135deg, rgba(0,102,255,.2), rgba(0,194,255,.08));
-      border: 1px solid rgba(0,150,255,.3);
-      border-radius: 24px;
-      padding: 64px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    @media(max-width:600px){ .cta-band { margin: 0 20px 60px; padding: 48px 24px; } }
-    .cta-band::before {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,102,255,.2), transparent 70%);
-      top: -100px; right: -100px;
-      pointer-events: none;
-    }
-    .cta-band h2 { font-size: clamp(1.5rem,3.5vw,2.2rem); font-weight: 800; margin-bottom: 14px; }
-    .cta-band p { color: var(--muted); margin-bottom: 32px; font-size: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .cta-band .btn-row { justify-content: center; }
+    <section class="stats-section">
+      <div class="section-label">
+        <span class="eyebrow"> OUR IMPACT </span>
 
-    /* Divider */
-    .divider { border: none; border-top: 1px solid var(--card-border); margin: 0 40px; }
-    @media(max-width:600px){ .divider { margin: 0 20px; } }
-  </style>
-</head>
-<body>
+        <h2>
+          Keeping Businesses
 
-  <div id="navbar-placeholder"></div>
-  <script src="../../components/navbar.js"></script>
+          <span class="highlight"> Running </span>
+        </h2>
 
-  <!-- ══ HERO ══ -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-
-    <div class="hero-inner">
-      <div class="hero-text">
-        <span class="eyebrow">Managed IT Services</span>
-        <h1>IT That Works as <span>Hard as You Do</span></h1>
         <p>
-          AMNIKON takes the complexity out of IT management — monitoring, patching,
-          helpdesk, and infrastructure — so your team stays focused on growth, not
-          troubleshooting.
+          Our proactive approach helps organizations reduce downtime, improve
+          security, and increase productivity.
         </p>
-        <div class="btn-row">
-          <a href="../contact/contact.html" class="btn-primary">Get a Free Assessment</a>
-          <a href="../services/services.html" class="btn-outline">All Services</a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+
+          <h2>99<span>%</span></h2>
+
+          <h4>Uptime</h4>
+
+          <p>Enterprise-grade reliability for critical systems.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+
+          <h2>24<span>/7</span></h2>
+
+          <h4>Support</h4>
+
+          <p>Experienced engineers available around the clock.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🛡️</div>
+
+          <h2>500<span>+</span></h2>
+
+          <h4>Protected Devices</h4>
+
+          <p>Servers, endpoints, and cloud workloads secured daily.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🤝</div>
+
+          <h2>100<span>+</span></h2>
+
+          <h4>Satisfied Clients</h4>
+
+          <p>Businesses trust AMNIKON to manage their IT.</p>
         </div>
       </div>
+    </section>
+    <!-- ======================================================
+TRUSTED TECHNOLOGIES
+====================================================== -->
 
-      <div class="hero-visual">
-        <div class="hero-card-3d">
-          <div class="hero-icon-big">🖥️</div>
-          <h3>24 / 7 Monitoring<br>& Support</h3>
-          <div class="uptime-badge">99.9% Uptime SLA</div>
+    <section class="tech-stack">
+      <div class="section-label">
+        <span class="eyebrow"> TRUSTED TECHNOLOGIES </span>
+
+        <h2>
+          Powered by
+          <span class="highlight"> Industry Leaders </span>
+        </h2>
+
+        <p>
+          We partner with the world's leading technology vendors to deliver
+          secure, scalable and reliable IT solutions.
+        </p>
+      </div>
+
+      <div class="tech-stack-grid">
+        <div class="tech-card">
+          <img src="../../assets/logos/microsoft.svg" alt="Microsoft" />
+
+          <h3>Microsoft 365</h3>
+
+          <p>Collaboration, productivity and enterprise communication.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/azure.svg" alt="Azure" />
+
+          <h3>Microsoft Azure</h3>
+
+          <p>Secure cloud infrastructure, migration and disaster recovery.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/aws.svg" alt="AWS" />
+
+          <h3>Amazon AWS</h3>
+
+          <p>Cloud computing, hosting and scalable workloads.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/cisco.svg" alt="Cisco" />
+
+          <h3>Cisco</h3>
+
+          <p>Enterprise networking, switching and security.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/vmware.svg" alt="VMware" />
+
+          <h3>VMware</h3>
+
+          <p>Virtualization and infrastructure management.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/fortinet.svg" alt="Fortinet" />
+
+          <h3>Fortinet</h3>
+
+          <p>Next-generation firewalls and cybersecurity.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/windows.svg" alt="Windows" />
+
+          <h3>Windows Server</h3>
+
+          <p>Server management, Active Directory and enterprise services.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/logos/docker.svg" alt="Docker" />
+
+          <h3>Docker</h3>
+
+          <p>Modern application deployment and containers.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ STATS ══ -->
-  <div class="stats-band" style="margin-top:0;">
-    <div class="stat-item"><h3>99.9%</h3><p>Uptime SLA Guaranteed</p></div>
-    <div class="stat-item"><h3>&lt;15 min</h3><p>Average Response Time</p></div>
-    <div class="stat-item"><h3>3,000+</h3><p>Endpoints Managed</p></div>
-    <div class="stat-item"><h3>9.6 / 10</h3><p>Avg. Ticket Satisfaction</p></div>
-  </div>
+    <!-- ======================================================
+WHAT WE MANAGE
+====================================================== -->
 
-  <!-- ══ CORE SERVICES ══ -->
-  <div class="section">
-    <div class="section-label">
-      <span class="eyebrow">What We Manage</span>
-      <h2>Comprehensive <span class="highlight">IT Coverage</span></h2>
-      <p>From your first endpoint to your entire hybrid infrastructure — one partner, full ownership.</p>
-    </div>
+    <section class="section">
+      <div class="section-label">
+        <span class="eyebrow"> WHAT WE MANAGE </span>
 
-    <div class="services-grid">
-      <div class="svc-card">
-        <div class="svc-icon">📡</div>
-        <h4>24/7 Remote Monitoring</h4>
-        <p>Proactive surveillance of servers, networks, and endpoints — we catch issues before users ever notice.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🎯</div>
-        <h4>Helpdesk & End-User Support</h4>
-        <p>Tiered support desk with real engineers. Phone, email, and chat — resolved fast, documented always.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🔄</div>
-        <h4>Patch & Update Management</h4>
-        <p>Automated, scheduled patching across OS and applications — zero exposure windows, zero disruptions.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🗄️</div>
-        <h4>Server & Infrastructure Management</h4>
-        <p>Physical and virtual server health, capacity planning, and performance tuning across your stack.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🌐</div>
-        <h4>Network Operations (NOC)</h4>
-        <p>Full NOC services — monitoring routers, switches, firewalls, and WAN links around the clock.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">💾</div>
-        <h4>Backup & Disaster Recovery</h4>
-        <p>Automated backups with tested restore procedures. RPO and RTO aligned to your business needs.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">📋</div>
-        <h4>IT Asset & License Management</h4>
-        <p>Track every device, subscription, and license — eliminate waste, stay audit-ready at all times.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🔧</div>
-        <h4>On-Site Field Services</h4>
-        <p>Dispatched technicians for hardware deployment, break/fix, and physical infrastructure changes.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">📊</div>
-        <h4>Reporting & vCIO Advisory</h4>
-        <p>Monthly business reviews, roadmaps, and budget planning with a dedicated virtual CIO.</p>
-      </div>
-    </div>
-  </div>
+        <h2>
+          Complete
+          <span class="highlight"> IT Management </span>
+        </h2>
 
-  <hr class="divider">
+        <p>
+          From your users to your cloud infrastructure, we manage every aspect
+          of your technology.
+        </p>
+      </div>
 
-  <!-- ══ HOW IT WORKS ══ -->
-  <div class="process-strip" style="margin-top:80px;">
-    <div class="section-label" style="margin-bottom:0;">
-      <span class="eyebrow">Our Process</span>
-      <h2>How We <span class="highlight">Onboard & Operate</span></h2>
-      <p>A structured four-step framework that gets you covered — typically within 30 days.</p>
-    </div>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h4>Discover & Audit</h4>
-        <p>We inventory your full environment — hardware, software, networks, and security gaps.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h4>Design Your Stack</h4>
-        <p>A tailored monitoring, support, and security plan is built around your business priorities.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h4>Deploy Tooling</h4>
-        <p>Agents, dashboards, and ticketing are deployed with zero downtime using our proven playbooks.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h4>Operate & Improve</h4>
-        <p>Continuous monitoring, monthly reviews, and ongoing optimization as your business scales.</p>
-      </div>
-    </div>
-  </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon">💻</div>
 
-  <!-- ══ DETAIL TABS ══ -->
-  <div class="section">
-    <div class="section-label">
-      <span class="eyebrow">Service Deep-Dive</span>
-      <h2>Inside Every <span class="highlight">Service Area</span></h2>
-    </div>
-  </div>
+          <h4>End User Support</h4>
 
-  <div class="tabs-wrap" style="margin-bottom:80px;">
-    <div class="tab-nav">
-      <button class="tab-btn active" data-tab="helpdesk">Helpdesk</button>
-      <button class="tab-btn" data-tab="infra">Infrastructure</button>
-      <button class="tab-btn" data-tab="backup">Backup & DR</button>
-      <button class="tab-btn" data-tab="vcio">vCIO</button>
-    </div>
+          <p>Fast remote and onsite support for all employees.</p>
+        </div>
 
-    <!-- Helpdesk -->
-    <div class="tab-pane active" id="tab-helpdesk">
-      <div class="tab-text">
-        <h3>Helpdesk & End-User Support</h3>
-        <p>Our tiered helpdesk model ensures the right engineer handles the right issue — fast. From password resets to complex application failures, every ticket is tracked, prioritized, and resolved with accountability.</p>
-        <ul class="tab-features">
-          <li>Tier 1–3 support with defined SLAs per severity</li>
-          <li>White-label option — we answer as YOUR IT team</li>
-          <li>Microsoft 365, Google Workspace, ERP, CRM support</li>
-          <li>Mobile device management (MDM) included</li>
-          <li>Real-time ticket portal with executive reporting</li>
-          <li>CSAT scoring on every resolved ticket</li>
-        </ul>
-        <br>
-        <a href="../contact/contact.html" class="btn-primary" style="display:inline-block;margin-top:8px;">Talk to a Specialist</a>
+        <div class="svc-card">
+          <div class="svc-icon">🖥️</div>
+
+          <h4>Server Management</h4>
+
+          <p>Windows and Linux servers monitored 24/7.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">☁️</div>
+
+          <h4>Cloud Services</h4>
+
+          <p>Azure, Microsoft 365, AWS and hybrid cloud.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🔐</div>
+
+          <h4>Cybersecurity</h4>
+
+          <p>Endpoint security, email security and threat protection.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🌐</div>
+
+          <h4>Network Management</h4>
+
+          <p>Firewalls, VPN, Wi-Fi, switches and routing.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">💾</div>
+
+          <h4>Backup & Recovery</h4>
+
+          <p>Business continuity, disaster recovery and secure backups.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">📊</div>
+
+          <h4>Monitoring</h4>
+
+          <p>Proactive monitoring with instant alerts and reporting.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">⚙️</div>
+
+          <h4>Patch Management</h4>
+
+          <p>Automated updates keeping systems secure and compliant.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🤝</div>
+
+          <h4>IT Consulting</h4>
+
+          <p>Strategic planning, budgeting and technology roadmaps.</p>
+        </div>
       </div>
-      <div class="tab-visual">
-        <div style="font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Live Helpdesk Metrics</div>
-        <div class="metric-row"><span class="metric-label">Avg. First Response</span><span class="metric-val">8 min</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:95%"></div></div>
-        <div class="metric-row"><span class="metric-label">First-Call Resolution</span><span class="metric-val">82%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:82%"></div></div>
-        <div class="metric-row"><span class="metric-label">CSAT Score</span><span class="metric-val">9.6 / 10</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:96%"></div></div>
-        <div class="metric-row"><span class="metric-label">Tickets Resolved &lt;2h</span><span class="metric-val">74%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:74%"></div></div>
-        <div class="metric-row"><span class="metric-label">SLA Compliance</span><span class="metric-val">99.2%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:99%"></div></div>
-      </div>
-    </div>
+    </section>
+    <!-- ======================================================
+OUR PROCESS
+====================================================== -->
+<!-- 
+    <section class="process-section">
+      <div class="section-label">
+        <span class="eyebrow"> OUR PROCESS </span>
 
-    <!-- Infrastructure -->
-    <div class="tab-pane" id="tab-infra">
-      <div class="tab-text">
-        <h3>Infrastructure Management</h3>
-        <p>We manage the full lifecycle of your physical and virtual infrastructure — so it performs reliably, scales when needed, and never holds your business back.</p>
-        <ul class="tab-features">
-          <li>Windows & Linux server management</li>
-          <li>VMware, Hyper-V, and Nutanix virtualization</li>
-          <li>Storage (SAN/NAS) management and capacity planning</li>
-          <li>Network switching, routing, and firewall management</li>
-          <li>Scheduled maintenance with zero-downtime windows</li>
-          <li>Performance baselining and anomaly detection</li>
-        </ul>
-        <br>
-        <a href="../contact/contact.html" class="btn-primary" style="display:inline-block;margin-top:8px;">Talk to a Specialist</a>
-      </div>
-      <div class="tab-visual">
-        <div style="font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Infrastructure Health</div>
-        <div class="metric-row"><span class="metric-label">Server Uptime</span><span class="metric-val">99.97%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:99.9%"></div></div>
-        <div class="metric-row"><span class="metric-label">Patch Compliance</span><span class="metric-val">98%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:98%"></div></div>
-        <div class="metric-row"><span class="metric-label">Storage Utilization</span><span class="metric-val">63%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:63%"></div></div>
-        <div class="metric-row"><span class="metric-label">Backup Success Rate</span><span class="metric-val">100%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
-      </div>
-    </div>
+        <h2>
+          How We Deliver
+          <span class="highlight"> Managed IT </span>
+        </h2>
 
-    <!-- Backup & DR -->
-    <div class="tab-pane" id="tab-backup">
-      <div class="tab-text">
-        <h3>Backup & Disaster Recovery</h3>
-        <p>Business continuity is non-negotiable. We architect, implement, and test backup and recovery solutions aligned to your RPO and RTO requirements — on-prem, cloud, or hybrid.</p>
-        <ul class="tab-features">
-          <li>3-2-1 backup strategy implementation</li>
-          <li>Immutable cloud backups (Azure, AWS)</li>
-          <li>Ransomware-resilient backup architecture</li>
-          <li>Quarterly DR tests with documented results</li>
-          <li>Business Continuity Planning (BCP) support</li>
-          <li>Microsoft 365 & Google Workspace backup</li>
-        </ul>
-        <br>
-        <a href="../contact/contact.html" class="btn-primary" style="display:inline-block;margin-top:8px;">Talk to a Specialist</a>
+        <p>
+          A proven approach designed to keep your business secure, productive
+          and always online.
+        </p>
       </div>
-      <div class="tab-visual">
-        <div style="font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Recovery Readiness</div>
-        <div class="metric-row"><span class="metric-label">Target RPO</span><span class="metric-val">&lt; 1 hour</span></div>
-        <div class="metric-row"><span class="metric-label">Target RTO</span><span class="metric-val">&lt; 4 hours</span></div>
-        <div class="metric-row"><span class="metric-label">Backup Jobs Succeeded</span><span class="metric-val">100%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
-        <div class="metric-row"><span class="metric-label">DR Test Pass Rate</span><span class="metric-val">100%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
-        <div class="metric-row"><span class="metric-label">Data Protected (TB)</span><span class="metric-val">240+ TB</span></div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <h1>01</h1>
+
+          <h3>Assess</h3>
+
+          <p>
+            We evaluate your current infrastructure, identify risks, and
+            understand your business goals.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h1>02</h1>
+
+          <h3>Plan</h3>
+
+          <p>
+            We create a tailored IT roadmap with security, scalability and
+            performance at its core.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h1>03</h1>
+
+          <h3>Implement</h3>
+
+          <p>
+            Deploy new technologies, optimize systems, and migrate services with
+            minimal disruption.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h1>04</h1>
+
+          <h3>Manage</h3>
+
+          <p>
+            Continuous monitoring, maintenance, support and strategic IT
+            improvements.
+          </p>
+        </div>
       </div>
-    </div>
+    </section> -->
 
-    <!-- vCIO -->
-    <div class="tab-pane" id="tab-vcio">
-      <div class="tab-text">
-        <h3>vCIO & Strategic Advisory</h3>
-        <p>Every AMNIKON client gets a dedicated virtual CIO — a senior strategist who understands your business, aligns IT investments to goals, and keeps you ahead of the curve.</p>
-        <ul class="tab-features">
-          <li>Quarterly Business Reviews (QBRs) with roadmap</li>
-          <li>Technology budgeting and lifecycle planning</li>
-          <li>Vendor management and negotiation support</li>
-          <li>Risk and compliance advisory (CMMC, SOC 2, HIPAA)</li>
-          <li>Digital transformation strategy and planning</li>
-          <li>Board-level IT reporting and presentation support</li>
-        </ul>
-        <br>
-        <a href="../contact/contact.html" class="btn-primary" style="display:inline-block;margin-top:8px;">Meet a vCIO</a>
+    <!-- ======================================================
+WHY CHOOSE AMNIKON
+====================================================== -->
+
+    <section class="section why-section">
+      <div class="section-label">
+        <span class="eyebrow"> WHY CHOOSE US </span>
+
+        <h2>More Than IT Support</h2>
+
+        <p>
+          We become an extension of your business, delivering technology that
+          drives growth, security and long-term success.
+        </p>
       </div>
-      <div class="tab-visual">
-        <div style="font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Advisory Outcomes</div>
-        <div class="metric-row"><span class="metric-label">Avg. IT Cost Reduction</span><span class="metric-val">28%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:28%"></div></div>
-        <div class="metric-row"><span class="metric-label">Compliance Readiness</span><span class="metric-val">96%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:96%"></div></div>
-        <div class="metric-row"><span class="metric-label">Projects Delivered On-Time</span><span class="metric-val">91%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:91%"></div></div>
-        <div class="metric-row"><span class="metric-label">Client Retention Rate</span><span class="metric-val">94%</span></div>
-        <div class="bar-wrap"><div class="bar" style="width:94%"></div></div>
+
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon">🛡️</div>
+
+          <h4>Security First</h4>
+
+          <p>
+            Every solution is designed with cybersecurity best practices built
+            into every layer.
+          </p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">⚡</div>
+
+          <h4>Fast Response</h4>
+
+          <p>
+            Our engineers respond quickly, minimizing downtime and restoring
+            productivity.
+          </p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">📈</div>
+
+          <h4>Scalable Solutions</h4>
+
+          <p>
+            Technology that grows with your business without unnecessary costs.
+          </p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">🤝</div>
+
+          <h4>Dedicated Partnership</h4>
+
+          <p>We work as an extension of your team, not just another vendor.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">☁️</div>
+
+          <h4>Cloud Expertise</h4>
+
+          <p>Azure, Microsoft 365, AWS and hybrid cloud specialists.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">📊</div>
+
+          <h4>Business Insights</h4>
+
+          <p>
+            Detailed reporting, IT planning and strategic recommendations for
+            continuous improvement.
+          </p>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- ══ CTA ══ -->
-  <div class="cta-band">
-    <span class="eyebrow">Ready to Switch?</span>
-    <h2>Let AMNIKON Become Your <span class="highlight">IT Department</span></h2>
-    <p>Start with a free 30-minute IT assessment. No obligations — just a clear picture of where your IT stands and how we can help.</p>
-    <div class="btn-row">
-      <a href="../contact/contact.html" class="btn-primary">Schedule Free Assessment</a>
-      <a href="../services/services.html" class="btn-outline">Explore All Services</a>
-    </div>
-  </div>
+    <!-- ======================================================
+TECHNOLOGY STACK
+====================================================== -->
+<!-- 
+    <section class="tech-stack">
+      <div class="section-label">
+        <span class="eyebrow"> TECHNOLOGY STACK </span>
 
-  <div id="footer-placeholder"></div>
-  <script src="../../components/footer.js"></script>
-  <div id="chatbot-placeholder"></div>
-  <script src="../../components/chatbot.js"></script>
-  <script src="../../assets/js/global.js"></script>
+        <h2>
+          Modern Technology
 
-  <script>
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-      });
-    });
+          <span class="highlight"> We Support </span>
+        </h2>
 
-    // Intersection observer — animate bars when visible
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if(e.isIntersecting) {
-          e.target.querySelectorAll('.bar').forEach(b => {
-            const w = b.style.width;
-            b.style.width = '0';
-            setTimeout(() => b.style.width = w, 100);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.tab-visual').forEach(el => observer.observe(el));
-  </script>
-</body>
+        <p>
+          AMNIKON manages leading enterprise platforms, cloud services and
+          security technologies to keep your business running efficiently.
+        </p>
+      </div>
+
+      <div class="tech-stack-grid">
+        <div class="tech-card">
+          <img src="../../assets/icons/windows.svg" alt="Windows" />
+
+          <h3>Windows Server</h3>
+
+          <p>
+            Server deployment, Active Directory, DNS and Group Policy
+            Management.
+          </p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/azure.svg" alt="Azure" />
+
+          <h3>Microsoft Azure</h3>
+
+          <p>Cloud infrastructure, virtual machines, networking and storage.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/aws.svg" alt="AWS" />
+
+          <h3>Amazon AWS</h3>
+
+          <p>Secure cloud hosting, backup and scalable services.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/m365.svg" alt="Microsoft 365" />
+
+          <h3>Microsoft 365</h3>
+
+          <p>Exchange Online, Teams, SharePoint and productivity.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/docker.svg" alt="Docker" />
+
+          <h3>Docker</h3>
+
+          <p>Containerized applications and deployment automation.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/linux.svg" alt="Linux" />
+
+          <h3>Linux Servers</h3>
+
+          <p>Ubuntu, CentOS, Debian and enterprise Linux.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/firewall.svg" alt="Firewall" />
+
+          <h3>Firewalls</h3>
+
+          <p>Enterprise firewall configuration and security.</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="../../assets/icons/network.svg" alt="Networking" />
+
+          <h3>Networking</h3>
+
+          <p>Routing, switching, VPN and wireless solutions.</p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ======================================================
+INFRASTRUCTURE DASHBOARD
+====================================================== -->
+
+    <section class="stats-section">
+      <div class="section-label">
+        <span class="eyebrow"> INFRASTRUCTURE </span>
+
+        <h2>Everything Connected</h2>
+
+        <p>
+          A proactive ecosystem designed to monitor, secure and optimize your IT
+          environment.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🌐</div>
+
+          <h4>Network Monitoring</h4>
+
+          <p>Continuous monitoring of switches, routers, VPNs and firewalls.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">☁️</div>
+
+          <h4>Cloud Services</h4>
+
+          <p>Microsoft Azure, AWS, Microsoft 365 and hybrid infrastructure.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">💾</div>
+
+          <h4>Backup Solutions</h4>
+
+          <p>Automated backups, disaster recovery and business continuity.</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🔐</div>
+
+          <h4>Security Operations</h4>
+
+          <p>Endpoint protection, email security, MFA and compliance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+LIVE MONITORING
+====================================================== -->
+
+    <section class="section">
+      <div class="section-label">
+        <span class="eyebrow"> LIVE MANAGEMENT </span>
+
+        <h2>Proactive IT Monitoring</h2>
+
+        <p>
+          Our engineers identify issues before they impact your business
+          operations.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon">📡</div>
+
+          <h4>24/7 Monitoring</h4>
+
+          <p>
+            Continuous monitoring for servers, workstations and cloud
+            infrastructure.
+          </p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">⚙️</div>
+
+          <h4>Automation</h4>
+
+          <p>Automated maintenance, updates and health checks.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">📈</div>
+
+          <h4>Performance Reports</h4>
+
+          <p>Monthly reports with recommendations for improvement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+FAQ
+====================================================== -->
+
+    <section class="faq-section">
+      <div class="section-label">
+        <span class="eyebrow"> FREQUENTLY ASKED QUESTIONS </span>
+
+        <h2>
+          Everything You Need
+          <span class="highlight"> To Know </span>
+        </h2>
+
+        <p>
+          Answers to some of the most common questions about our Managed IT
+          Services.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span> Do you provide 24/7 IT support? </span>
+
+            <span>+</span>
+          </div>
+
+          <div class="faq-answer">
+            Yes. Our team continuously monitors your infrastructure and provides
+            around-the-clock technical support to minimize downtime.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span> Can you manage our Microsoft 365 environment? </span>
+
+            <span>+</span>
+          </div>
+
+          <div class="faq-answer">
+            Absolutely. We manage Microsoft 365, Azure, Exchange Online,
+            SharePoint, Teams and user administration.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span> Do you support cloud migration? </span>
+
+            <span>+</span>
+          </div>
+
+          <div class="faq-answer">
+            Yes. We help businesses migrate servers, applications and data to
+            Microsoft Azure, AWS and hybrid cloud environments.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span> Can you improve our cybersecurity? </span>
+
+            <span>+</span>
+          </div>
+
+          <div class="faq-answer">
+            We provide layered cybersecurity, endpoint protection, firewalls,
+            vulnerability management and compliance support.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+CALL TO ACTION
+====================================================== -->
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready To Modernize Your IT Infrastructure?</h2>
+
+          <p>
+            Let AMNIKON become your trusted technology partner. From proactive
+            support to complete infrastructure management, we're here to help
+            your business stay secure, productive and future-ready.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="../contact/contact.html" class="btn btn-primary">
+              Schedule a Consultation
+            </a>
+
+            <a href="../support/support.html" class="btn btn-secondary">
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+FOOTER
+====================================================== -->
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../components/footer.js"></script>
+
+    <!-- ======================================================
+CHATBOT
+====================================================== -->
+
+    <div id="chatbot-placeholder"></div>
+
+    <script src="../../components/chatbot.js"></script>
+
+    <!-- ======================================================
+SCRIPTS
+====================================================== -->
+
+    <script src="../../assets/js/global.js"></script>
+
+    <script src="managed-it.js"></script>
+  </body>
 </html>

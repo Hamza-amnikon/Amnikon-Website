@@ -2,7 +2,12 @@
    CAREERS HERO
 =================================== */
 
+/* ===================================
+   CAREERS HERO
+=================================== */
+
 .careers-hero {
+
   min-height: 100vh;
 
   display: flex;
@@ -20,38 +25,44 @@
   overflow: hidden;
 
   background:
+    linear-gradient(
+      rgba(5, 8, 22, 0.75),
+      rgba(13, 16, 33, 0.356)
+    ),
     radial-gradient(
       circle at center,
-      rgba(66, 156, 235, 0.08),
+      rgba(66, 156, 235, 0.12),
       transparent 60%
     ),
-    #050816;
+    url("../../assets/images/career//image.png");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
 }
-
 /* subtle glow */
-
 .careers-hero::before {
+
   content: "";
 
   position: absolute;
 
-  width: 700px;
-  height: 700px;
+  inset: 0;
 
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(66, 156, 235, 0.12),
-    transparent 70%
-  );
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(
+      circle,
+      rgba(66, 156, 235, 0.10),
+      transparent 70%
+    );
 
   pointer-events: none;
+
+  z-index: 1;
 }
 
 .careers-hero-content {
@@ -230,33 +241,14 @@
 }
 
 /* PERKS */
+.benefits-section{
 
-.benefits-section::before {
-  content: "";
+    position: relative;
 
-  position: absolute;
+    margin-top: 120px;
 
-  width: 1000px;
+    padding: 80px 0;
 
-  height: 1000px;
-
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(66, 156, 235, 0.15),
-    transparent 70%
-  );
-
-  top: 50%;
-
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  pointer-events: none;
-
-  filter: blur(100px);
 }
 .benefits-section::before {
   content: "";
