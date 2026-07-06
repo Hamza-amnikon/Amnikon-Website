@@ -6,6 +6,10 @@ on:
       - main
 
       
+
+
+
+      
 jobs:
   deploy:
     runs-on: self-hosted
