@@ -1,0 +1,30 @@
+name: Deploy Frontend to IIS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Frontend Files
+        shell: powershell
+        run: |
+          $source = "${{ github.workspace }}"
+          $destination = "C:\Amnikon Website V 1.1"
+
+          robocopy $source $destination /MIR /XD .git .github
+
+          if ($LASTEXITCODE -le 7) {
+            Write-Host "Deployment completed successfully."
+            exit 0
+          } else {
+            Write-Error "Robocopy failed with exit code $LASTEXITCODE"
+            exit $LASTEXITCODE
+          }
