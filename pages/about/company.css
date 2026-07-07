@@ -323,7 +323,7 @@
 .stat-detail-panel{
 
     width:100%;
-    min-height:170px;
+    min-height:180px;
 
     position:relative;
 
@@ -346,7 +346,7 @@
     position:absolute;
     inset:0;
 
-    padding:40px;
+    padding:50px;
 
     border-radius:24px;
 
@@ -856,7 +856,7 @@
     }
 
     .detail-content{
-        padding:30px;
+        padding:40px;
     }
 
     .detail-content h3{
