@@ -194,7 +194,7 @@ form.addEventListener("submit",async function(e){
 
     try{
 
-        const response=await fetch("http://localhost:5000/api/support",{
+        const response=await fetch("https://wwwuat.amnikontechnologies.com:5000/api/support",{
 
             method:"POST",
 
