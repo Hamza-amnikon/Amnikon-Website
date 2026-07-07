@@ -502,6 +502,64 @@
     0 0 12px #429ceb;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.industries-more{
+
+    text-align:center;
+
+    padding:100px 20px 40px;
+
+    max-width:900px;
+
+    margin:0 auto;
+}
+
+.industries-more h2{
+
+    font-size:clamp(2rem,5vw,3.5rem);
+
+    font-weight:800;
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+    letter-spacing:-1px;
+}
+
+.industries-more p{
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.75);
+
+    max-width:700px;
+
+    margin:0 auto;
+}
+
+
 /* ==========================================================
    LIST
 ========================================================== */
