@@ -271,6 +271,279 @@
  RESPONSIVE
 =================================== */
 
+/* ===================================
+   FOOTER
+=================================== */
+.info-email{
+    display:inline-block;
+    color:#60a5fa;
+    text-decoration:none;
+
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+.site-footer{
+  position:relative;
+  overflow:hidden;
+  background:#020617;
+  color:#fff;
+}
+
+/* ===================================
+ HUGE BACKGROUND WORD
+=================================== */
+
+.footer-wordmark{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.footer-wordmark span{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    font-weight:900;
+
+    line-height:.8;
+
+    letter-spacing:-0.08em;
+
+    text-transform:uppercase;
+
+    /* RESPONSIVE SIZE */
+    font-size:clamp(4rem, 20vw, 24rem);
+
+    /* ALLOW SCALING */
+    white-space:nowrap;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.01)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+/* Blue glow */
+
+.footer-wordmark::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  width:1200px;
+  height:400px;
+
+  background:
+  radial-gradient(
+      circle,
+      rgba(37,99,235,.18),
+      transparent 70%
+  );
+
+  filter:blur(120px);
+
+  z-index:-1;
+}
+
+/* ===================================
+ CTA
+=================================== */
+
+.footer-cta{
+    position: relative;
+    z-index: 2;
+    padding: 100px 0 50px;
+}
+
+.footer-cta-content{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:80px;
+}
+
+.footer-cta h2{
+
+  font-size:clamp(3rem,5vw,5rem);
+
+  line-height:1;
+
+  margin-bottom:20px;
+
+  color:#fff;
+}
+
+.footer-cta p{
+
+  max-width:650px;
+
+  line-height:1.8;
+
+  color:rgba(255,255,255,.7);
+}
+
+.footer-cta-actions{
+
+  display:flex;
+
+  gap:20px;
+}
+
+/* ===================================
+ FOOTER MAIN
+=================================== */
+
+.footer-main{
+
+  position:relative;
+  z-index:2;
+
+ border-top:none;
+
+  padding:40px 0 50px;
+}
+
+.footer-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  2fr 1fr 1fr 1fr;
+
+  gap:2px;
+}
+
+.footer-brand h4{
+
+  font-size:2.2rem;
+
+  margin-bottom:25px;
+
+  color:white;
+}
+
+.footer-brand p{
+
+  max-width:380px;
+
+  color:rgba(255,255,255,.65);
+
+  line-height:1.8;
+}
+
+.footer-col h5{
+
+  margin-bottom:15px;
+
+  font-size:0.9rem;
+
+  color:white;
+}
+
+.footer-col ul{
+
+  list-style:none;
+
+  margin:0;
+  padding:0;
+}
+
+.footer-col li{
+  
+  margin-bottom:5px;
+}
+
+.footer-col a{
+
+  text-decoration:none;
+
+  color:rgba(255,255,255,.65);
+
+  transition:.3s;
+  font-size: 0.9rem;
+}
+
+.footer-col a:hover{
+
+  color:#60a5fa;
+}
+
+/* ===================================
+ BOTTOM
+=================================== */
+
+.footer-bottom{
+
+  margin-top:20px;
+
+  padding-top:20px;
+  border-top:
+  1px solid rgba(
+    255,255,255,.08);
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:10px;
+}
+
+.footer-bottom p{
+
+  color:rgba(255,255,255,.45);
+}
+
+.footer-bottom-links{
+
+  display:flex;
+  gap:10px;
+}
+
+.footer-bottom-links a{
+
+  color:rgba(255,255,255,.45);
+
+  text-decoration:none;
+
+  transition:.3s;
+}
+
+.footer-bottom-links a:hover{
+
+  color:#fff;
+}
+
+/* ===================================
+ RESPONSIVE
+=================================== */
+
 @media(max-width:992px){
 
   .footer-grid{
@@ -513,4 +786,290 @@
     .footer-wordmark span{
         font-size:4rem;
     }
+}
+
+/* ==========================================================
+   SMALL PHONES (0px - 480px)
+========================================================== */
+
+@media screen and (max-width:480px){
+
+    html{
+
+        font-size:14px;
+    }
+
+    /* ==========================
+       FOOTER
+    ========================== */
+
+    .site-footer{
+
+        text-align:center;
+    }
+
+    /* ==========================
+       WATERMARK
+    ========================== */
+
+    .footer-wordmark span{
+
+        font-size:3.5rem;
+
+        letter-spacing:-.03em;
+    }
+
+    .footer-wordmark::after{
+
+        width:320px;
+
+        height:170px;
+
+        filter:blur(55px);
+    }
+
+    /* ==========================
+       CTA
+    ========================== */
+
+    .footer-cta{
+
+        padding:60px 15px 35px;
+    }
+
+    .footer-cta h2{
+
+        font-size:1.7rem;
+
+        line-height:1.25;
+    }
+
+    .footer-cta p{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+    }
+
+    .footer-cta-actions{
+
+        gap:12px;
+    }
+
+    .footer-cta-actions .btn,
+
+    .footer-cta-actions a{
+
+        min-height:50px;
+
+        font-size:.95rem;
+    }
+
+    /* ==========================
+       MAIN
+    ========================== */
+
+    .footer-main{
+
+        padding:35px 15px;
+    }
+
+    .footer-grid{
+
+        gap:30px;
+    }
+
+    /* ==========================
+       BRAND
+    ========================== */
+
+    .footer-brand h4{
+
+        font-size:1.7rem;
+
+        margin-bottom:15px;
+    }
+
+    .footer-brand p{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+    }
+
+    /* ==========================
+       LINKS
+    ========================== */
+
+    .footer-col h5{
+
+        font-size:.95rem;
+    }
+
+    .footer-col a{
+
+        font-size:.9rem;
+    }
+
+    /* ==========================
+       EMAIL
+    ========================== */
+
+    .info-email{
+
+        font-size:.9rem;
+    }
+
+    /* ==========================
+       BOTTOM
+    ========================== */
+
+    .footer-bottom{
+
+        gap:12px;
+
+        padding-top:18px;
+    }
+
+    .footer-bottom p{
+
+        font-size:.85rem;
+    }
+
+    .footer-bottom-links{
+
+        gap:12px;
+    }
+
+    .footer-bottom-links a{
+
+        font-size:.85rem;
+    }
+
+}/* ==========================================================
+   TABLET FOOTER (769px - 992px)
+========================================================== */
+
+@media screen and (min-width:769px) and (max-width:992px){
+
+    /* ==========================
+       CTA
+    ========================== */
+
+    .footer-cta{
+
+        padding:90px 35px 60px;
+    }
+
+    .footer-cta-content{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:35px;
+    }
+
+    .footer-cta h2{
+
+        font-size:2.8rem;
+
+        line-height:1.15;
+    }
+
+    .footer-cta p{
+
+        max-width:100%;
+
+        font-size:1rem;
+    }
+
+    .footer-cta-actions{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        gap:15px;
+    }
+
+    .footer-cta-actions .btn,
+
+    .footer-cta-actions a{
+
+        min-width:180px;
+    }
+
+    /* ==========================
+       MAIN
+    ========================== */
+
+    .footer-main{
+
+        padding:55px 35px;
+    }
+
+    .footer-grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:40px;
+    }
+
+    .footer-brand{
+
+        grid-column:1/-1;
+    }
+
+    .footer-brand p{
+
+        max-width:650px;
+    }
+
+    /* ==========================
+       BOTTOM
+    ========================== */
+
+    .footer-bottom{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        flex-wrap:wrap;
+
+        gap:15px;
+    }
+
+    .footer-bottom-links{
+
+        display:flex;
+
+        gap:18px;
+    }
+
+    /* ==========================
+       WATERMARK
+    ========================== */
+
+    .footer-wordmark span{
+
+        font-size:9rem;
+    }
+
+    .footer-wordmark::after{
+
+        width:850px;
+
+        height:280px;
+
+        filter:blur(90px);
+    }
+
 }

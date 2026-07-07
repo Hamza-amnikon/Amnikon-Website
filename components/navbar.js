@@ -45,7 +45,17 @@
         <li><a href="../projects/index.html">Projects</a></li>
         <li><a href="../careers/careers.html">Careers</a></li>
         
+<li class="mobile-buttons">
 
+    <a href="../support/support.html" class="btn btn-support">
+        Support
+    </a>
+
+    <a href="../contact/contact.html" class="btn btn-primary">
+        Contact Us
+    </a>
+
+</li>
       </ul>
     </nav>
 
@@ -65,184 +75,159 @@
 `;
 })();
 
+/* ==========================================
+   AMNIKON NAVBAR
+========================================== */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("nav-hamburger");
+    const nav = document.getElementById("main-nav");
 
-    const navbar =
-    document.getElementById("navbar");
+    if (!navbar || !hamburger || !nav) return;
 
-    if(window.scrollY > 80){
+    /* ==========================================
+       NAVBAR SCROLL EFFECT
+    ========================================== */
 
-        navbar.classList.add("scrolled");
+    function handleScroll() {
 
-    }else{
+        if (window.scrollY > 80) {
 
-        navbar.classList.remove("scrolled");
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
 
     }
 
-});
+    window.addEventListener("scroll", handleScroll);
 
-/* ==========================================
-   MOBILE MENU
-========================================== */
+    handleScroll();
 
-document.addEventListener("click", (e) => {
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
 
-    const hamburger =
-    document.getElementById("nav-hamburger");
+    hamburger.addEventListener("click", function (e) {
 
-    const navMenu =
-    document.querySelector(".nav-menu");
-
-    if(!hamburger || !navMenu) return;
-
-    if(e.target.closest("#nav-hamburger")){
+        e.stopPropagation();
 
         hamburger.classList.toggle("open");
 
-        navMenu.classList.toggle("mobile-open");
-    }
+        nav.classList.toggle("mobile-open");
 
-});
+    });
 
-/* ==========================================
-   MOBILE DROPDOWNS
-========================================== */
+    /* ==========================================
+       MOBILE DROPDOWN
+    ========================================== */
 
-/* ==========================================
-NAVBAR SCROLL EFFECT
-========================================== */
+    document.querySelectorAll(".has-dropdown > a").forEach(link => {
 
-window.addEventListener("scroll", () => {
+        link.addEventListener("click", function (e) {
 
-  
-const navbar =
-document.getElementById("navbar");
+            if (window.innerWidth > 992) return;
 
-if(!navbar) return;
+            e.preventDefault();
 
-if(window.scrollY > 80){
+            const parent = this.parentElement;
 
-    navbar.classList.add("scrolled");
+            document.querySelectorAll(".has-dropdown").forEach(item => {
 
-}else{
+                if (item !== parent) {
 
-    navbar.classList.remove("scrolled");
+                    item.classList.remove("open");
 
-}
-  
+                }
 
-});
+            });
 
-/* ==========================================
-MOBILE HAMBURGER MENU
-========================================== */
+            parent.classList.toggle("open");
 
-document.addEventListener("click", (e) => {
+        });
 
-  
-const hamburger =
-document.getElementById("nav-hamburger");
+    });
 
-const navMenu =
-document.querySelector(".nav-menu");
+    /* ==========================================
+       CLOSE WHEN LINK CLICKED
+    ========================================== */
 
-if(!hamburger || !navMenu) return;
+    document.querySelectorAll(".dropdown-menu a, .nav-menu > li:not(.has-dropdown) > a").forEach(link => {
 
-if(e.target.closest("#nav-hamburger")){
+        link.addEventListener("click", () => {
 
-    hamburger.classList.toggle("open");
+            if (window.innerWidth > 992) return;
 
-    navMenu.classList.toggle("mobile-open");
-}
-  
+            closeMenu();
 
-});
+        });
 
-/* ==========================================
-MOBILE DROPDOWNS
-========================================== */
+    });
 
-document.addEventListener("click", (e) => {
+    /* ==========================================
+       CLICK OUTSIDE
+    ========================================== */
 
-  
-if(window.innerWidth > 992) return;
+    document.addEventListener("click", function (e) {
 
-const dropdownLink =
-e.target.closest(".has-dropdown > a");
+        if (window.innerWidth > 992) return;
 
-if(!dropdownLink) return;
+        if (!navbar.contains(e.target)) {
 
-e.preventDefault();
+            closeMenu();
 
-dropdownLink
-    .parentElement
-    .classList
-    .toggle("open");
-  
+        }
 
-});
+    });
 
-/* ==========================================
-CLOSE MENU WHEN RESIZING TO DESKTOP
-========================================== */
+    /* ==========================================
+       RESIZE
+    ========================================== */
 
-window.addEventListener("resize", () => {
+    window.addEventListener("resize", () => {
 
-  
-const hamburger =
-document.getElementById("nav-hamburger");
+        if (window.innerWidth > 992) {
 
-const navMenu =
-document.querySelector(".nav-menu");
+            closeMenu();
 
-if(window.innerWidth > 992){
+        }
 
-    hamburger?.classList.remove("open");
+    });
 
-    navMenu?.classList.remove("mobile-open");
+    /* ==========================================
+       ESC
+    ========================================== */
 
-    document
-        .querySelectorAll(".has-dropdown")
-        .forEach(item => {
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    });
+
+    /* ==========================================
+       CLOSE MENU
+    ========================================== */
+
+    function closeMenu() {
+
+        hamburger.classList.remove("open");
+
+        nav.classList.remove("mobile-open");
+
+        document.querySelectorAll(".has-dropdown").forEach(item => {
 
             item.classList.remove("open");
 
         });
-}
-  
-
-});
-
-
-
-
-
-
-
-/* ==========================================
-PREMIUM NAVBAR SCROLL
-========================================== */
-
-/* ==========================================
-   PREMIUM NAVBAR SCROLL
-========================================== */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (!navbar) return;
-
-    if (window.scrollY > 80) {
-
-        navbar.classList.add("scrolled");
-
-    } else {
-
-        navbar.classList.remove("scrolled");
 
     }
 

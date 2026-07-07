@@ -225,21 +225,6 @@
 
 /* responsive */
 
-@media (max-width: 768px) {
-  .careers-hero h1 {
-    font-size: 3rem;
-  }
-
-  .careers-hero p {
-    font-size: 1.1rem;
-  }
-
-  .hero-btn.primary,
-  .hero-btn.secondary {
-    width: 100%;
-  }
-}
-
 /* PERKS */
 .benefits-section{
 
@@ -436,11 +421,6 @@
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .benefit-points {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 
@@ -697,33 +677,6 @@
 
 /* MOBILE */
 
-@media(max-width:900px){
-
-    .jobs-filters{
-
-        grid-template-columns:1fr;
-    }
-
-    .job-item{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:25px;
-    }
-
-    .apply-btn{
-
-        width:100%;
-    }
-
-    .job-left h3{
-
-        font-size:1.5rem;
-    }
-}
-
 
 
 /* ======================================
@@ -955,15 +908,622 @@ RESUME SECTION
     font-size:.95rem;
 }
 
-@media(max-width:768px){
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   MOBILE HERO (0px - 768px)
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    html{
+
+        font-size:15px;
+    }
+
+    body{
+
+        overflow-x:hidden;
+    }
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    .careers-hero{
+
+        min-height:100vh;
+
+        padding:120px 20px 80px;
+
+        background-position:center;
+
+        background-size:cover;
+
+        background-attachment:scroll;
+    }
+
+    .careers-hero-content{
+
+        width:100%;
+
+        max-width:100%;
+
+        margin:auto;
+
+        text-align:center;
+    }
+
+    .hero-label{
+
+        font-size:.8rem;
+
+        letter-spacing:3px;
+
+        margin-bottom:18px;
+    }
+
+    .hero-title{
+
+        display:block;
+
+        font-size:2.5rem;
+
+        line-height:1.15;
+
+        margin-bottom:25px;
+    }
+
+    .hero-title span{
+
+        display:inline;
+
+        opacity:1;
+
+        transform:none;
+
+        filter:none;
+    }
+
+    .careers-hero h1{
+
+        font-size:2.5rem;
+
+        line-height:1.15;
+
+        margin-bottom:20px;
+    }
+
+    .careers-hero p{
+
+        width:100%;
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        margin-bottom:35px;
+    }
+
+    .hero-actions{
+
+        width:100%;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:center;
+    }
+
+    .hero-btn.primary,
+
+    .hero-btn.secondary{
+
+        width:100%;
+
+        max-width:420px;
+
+        height:56px;
+
+        border-radius:12px;
+
+        font-size:1rem;
+    }
+
+}/* ==========================================================
+   MOBILE BENEFITS SECTION (0px - 768px)
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    /* ==========================
+       SECTION
+    ========================== */
+
+    .benefits-section{
+
+        margin-top:70px;
+
+        padding:70px 20px;
+
+        overflow:hidden;
+    }
+
+    .benefits-section::before{
+
+        width:500px;
+
+        height:500px;
+
+        filter:blur(70px);
+    }
+
+    /* ==========================
+       LAYOUT
+    ========================== */
+
+    .benefits-layout{
+
+        display:block;
+
+        width:100%;
+
+        padding:0;
+    }
+
+    /* ==========================
+       HIDE STICKY SIDEBAR
+    ========================== */
+
+    .benefits-sidebar{
+
+        display:none;
+    }
+
+    .sidebar-line,
+
+    .sidebar-progress{
+
+        display:none;
+    }
+
+    /* ==========================
+       CONTENT
+    ========================== */
+
+    .benefits-content{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:70px;
+    }
+
+    /* ==========================
+       PANEL
+    ========================== */
+
+    .benefit-panel{
+
+        min-height:auto;
+    }
+
+    .benefit-panel img{
+
+        width:100%;
+
+        border-radius:18px;
+
+        margin-bottom:25px;
+    }
+
+    .benefit-panel h2{
+
+        font-size:2rem;
+
+        line-height:1.2;
+
+        margin-bottom:18px;
+    }
+
+    .benefit-panel p{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        max-width:100%;
+    }
+
+    /* ==========================
+       POINTS
+    ========================== */
+
+    .benefit-points{
+
+        grid-template-columns:1fr;
+
+        gap:14px;
+
+        margin-top:25px;
+    }
+
+    .benefit-points li{
+
+        font-size:.95rem;
+
+        line-height:1.7;
+
+        padding-left:24px;
+    }
+
+}/* ==========================================================
+   MOBILE OPEN ROLES (0px - 768px)
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    /* ==========================
+       SECTION
+    ========================== */
+
+    .careers-openings{
+
+        padding:80px 20px;
+    }
+
+    /* ==========================
+       HEADER
+    ========================== */
+
+    .openings-header{
+
+        text-align:center;
+
+        transform:none;
+
+        opacity:1;
+    }
+
+    .openings-header .section-label{
+
+        font-size:.8rem;
+
+        letter-spacing:3px;
+
+        margin-bottom:15px;
+    }
+
+    .openings-header h2{
+
+        font-size:2.4rem;
+
+        line-height:1.2;
+
+        margin-bottom:18px;
+    }
+
+    .openings-header p{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        max-width:100%;
+    }
+
+    /* ==========================
+       FILTERS
+    ========================== */
+
+    .jobs-filters{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+        margin:40px 0;
+    }
+
+    .jobs-filters select{
+
+        width:100%;
+
+        height:55px;
+
+        font-size:.95rem;
+    }
+
+    /* ==========================
+       JOB LIST
+    ========================== */
+
+    .jobs-list{
+
+        border-radius:18px;
+    }
+
+    .job-item{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+        padding:25px 20px;
+    }
+
+    .job-left{
+
+        width:100%;
+    }
+
+    .job-left h3{
+
+        font-size:1.4rem;
+
+        line-height:1.3;
+
+        margin-bottom:12px;
+    }
+
+    /* ==========================
+       META
+    ========================== */
+
+    .job-meta{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+    .job-meta span{
+
+        font-size:.95rem;
+    }
+
+    .job-meta span::after{
+
+        display:none;
+    }
+
+    /* ==========================
+       BUTTON
+    ========================== */
+
+    .apply-btn{
+
+        width:100%;
+
+        height:52px;
+
+        font-size:.95rem;
+    }
+
+}/* ==========================================================
+   MOBILE OPEN ROLES (0px - 768px)
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    /* ==========================
+       SECTION
+    ========================== */
+
+    .careers-openings{
+
+        padding:80px 20px;
+    }
+
+    /* ==========================
+       HEADER
+    ========================== */
+
+    .openings-header{
+
+        text-align:center;
+
+        transform:none;
+
+        opacity:1;
+    }
+
+    .openings-header .section-label{
+
+        font-size:.8rem;
+
+        letter-spacing:3px;
+
+        margin-bottom:15px;
+    }
+
+    .openings-header h2{
+
+        font-size:2.4rem;
+
+        line-height:1.2;
+
+        margin-bottom:18px;
+    }
+
+    .openings-header p{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        max-width:100%;
+    }
+
+    /* ==========================
+       FILTERS
+    ========================== */
+
+    .jobs-filters{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+        margin:40px 0;
+    }
+
+    .jobs-filters select{
+
+        width:100%;
+
+        height:55px;
+
+        font-size:.95rem;
+    }
+
+    /* ==========================
+       JOB LIST
+    ========================== */
+
+    .jobs-list{
+
+        border-radius:18px;
+    }
+
+    .job-item{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+        padding:25px 20px;
+    }
+
+    .job-left{
+
+        width:100%;
+    }
+
+    .job-left h3{
+
+        font-size:1.4rem;
+
+        line-height:1.3;
+
+        margin-bottom:12px;
+    }
+
+    /* ==========================
+       META
+    ========================== */
+
+    .job-meta{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+    .job-meta span{
+
+        font-size:.95rem;
+    }
+
+    .job-meta span::after{
+
+        display:none;
+    }
+
+    /* ==========================
+       BUTTON
+    ========================== */
+
+    .apply-btn{
+
+        width:100%;
+
+        height:52px;
+
+        font-size:.95rem;
+    }
+
+}
+
+
+
+
+
+
+/* ==========================================================
+   TABLET RESPONSIVE (769px - 1024px)
+========================================================== */
+
+@media screen and (min-width:769px) and (max-width:1024px){
+
+    .hero-title{
+
+        font-size:4rem;
+    }
+
+    .benefits-layout{
+
+        grid-template-columns:220px 1fr;
+
+        gap:40px;
+    }
+
+    .benefits-sidebar{
+
+        padding-left:30px;
+    }
+
+    .benefit-panel h2{
+
+        font-size:3rem;
+    }
+
+    .benefit-panel p{
+
+        font-size:1.1rem;
+    }
+
+    .jobs-filters{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .job-item{
+
+        padding:30px;
+    }
 
     .resume-card{
 
-        padding:30px 20px;
+        padding:40px;
     }
 
-    .resume-container h2{
-
-        font-size:2.5rem;
-    }
 }

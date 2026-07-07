@@ -181,3 +181,82 @@ if (word) {
     }, 300);
   }, 2500);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MOBILE 
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.matchMedia({
+
+  "(min-width: 769px)": function () {
+
+    // Your existing desktop GSAP code here
+    // videoTL
+    // why animations
+    // pins
+
+  },
+
+  "(max-width: 768px)": function () {
+
+    // Remove all ScrollTriggers
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    // Show elements in their final state
+    gsap.set(".story-video", {
+      clearProps: "all"
+    });
+
+    gsap.set(".video-overlay", {
+      opacity: 0
+    });
+
+    gsap.set(".why-item", {
+      opacity: 1,
+      y: 0,
+      clearProps: "transform"
+    });
+
+    gsap.set(".why-grid", {
+      opacity: 1,
+      y: 0
+    });
+
+  }
+
+});
