@@ -124,7 +124,7 @@ ScrollTrigger.matchMedia({
 
         start: "top top",
 
-        end: "+=2500",
+        end: "+=2000",
 
         pin: true,
 

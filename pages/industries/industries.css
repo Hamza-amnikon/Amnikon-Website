@@ -240,8 +240,8 @@
 
     position:absolute;
 
-    width:550px;
-    height:550px;
+    width:100%;
+    height:100%;
 
     left:50%;
     top:50%;
@@ -252,7 +252,7 @@
     radial-gradient(
         circle,
         rgba(66,156,235,.22),
-        transparent 70%
+        transparent 30%
     );
 
     pointer-events:none;
@@ -260,11 +260,11 @@
 
 .industry-image img{
 
-    width:220px;
+    width:100%;
 
-    height:220px;
+    height:100%;
 
-    object-fit:contain;
+    object-fit:cover;
 
     position:relative;
 
