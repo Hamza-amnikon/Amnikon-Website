@@ -5,10 +5,7 @@ on:
     branches:
       - main
 
-      
-
-
-
+    
       
 jobs:
   deploy:
@@ -19,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Frontend Files
+    
         shell: powershell
         run: |
           $source = "${{ github.workspace }}"
