@@ -13,7 +13,7 @@ form.addEventListener("submit", async function (e) {
         const formData = new FormData(form);
 
         const response = await fetch(
-            "http://localhost:5022/api/careers",
+            "http://localhost:5000/api/careers",
             {
                 method: "POST",
                 body: formData
