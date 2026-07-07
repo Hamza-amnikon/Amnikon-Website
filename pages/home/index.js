@@ -32,7 +32,7 @@ ScrollTrigger.matchMedia({
 
         start: "top top",
 
-        end: "+=1200",
+        end: "+=1500",
 
         pin: true,
 
@@ -49,8 +49,9 @@ ScrollTrigger.matchMedia({
     height:"340px",
 
     duration:1,
-
+   opacity:.75,
     ease:"none"
+    
 
 })
 
@@ -61,7 +62,7 @@ ScrollTrigger.matchMedia({
     height:"560px",
 
     duration:2,
-
+   opacity:.75,
     ease:"none"
 
 })
@@ -75,7 +76,7 @@ ScrollTrigger.matchMedia({
     borderRadius:"0px",
 
     duration:2,
-
+   opacity:.75,
     ease:"none"
 
 })
