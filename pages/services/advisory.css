@@ -87,30 +87,31 @@ body{
 
     align-items:center;
 
+    justify-content:center;
+
     background:
 
-    radial-gradient(
-
-        ellipse at top,
-
-        rgba(5,150,105,.18),
-
-        transparent 65%
-
+    linear-gradient(
+        rgba(4, 12, 10, 0.356),
+        rgba(6,16,13,.80)
     ),
 
-    linear-gradient(
+    radial-gradient(
+        ellipse at top,
+        rgba(5,150,105,.18),
+        transparent 65%
+    ),
 
-        180deg,
+    url("../../assets/images/services/Advisory\ Services.png");
 
-        #040c0a,
+    background-size:cover;
 
-        #06100d
+    background-position:center;
 
-    );
+    background-repeat:no-repeat;
 
+    background-attachment:fixed;
 }
-
 /* ========================================== */
 
 .hero-grid{
