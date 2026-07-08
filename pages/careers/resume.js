@@ -13,7 +13,7 @@ form.addEventListener("submit", async function (e) {
         const formData = new FormData(form);
 
         const response = await fetch(
-            "https://wwwuat.amnikontechnologies.com/api/careers",
+            "http://wwwuat.amnikontechnologies.com/api/careers",
             {
                 method: "POST",
                 body: formData
