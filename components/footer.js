@@ -87,9 +87,9 @@
 
                     <ul>
                         <li><a href="../about/company.html">About Us</a></li>
-                        <li><a href="../pages/about/team.html">Team</a></li>
-                        <li><a href="../pages/projects/index.html">Projects</a></li>
-                        <li><a href="../pages/careers/careers.html">Careers</a></li>
+                        <li><a href="../about/team.html">Team</a></li>
+                        <li><a href="../projects/index.html">Projects</a></li>
+                        <li><a href="../careers/careers.html">Careers</a></li>
                     </ul>
 
                 </div>
@@ -99,10 +99,9 @@
                     <h5>Services</h5>
 
                     <ul>
-                        <li><a href="../pages/services/managed-it.html">Managed IT</a></li>
-                        <li><a href="../pages/services/cloud.html">Cloud Solutions</a></li>
-                        <li><a href="../pages/services/cybersecurity.html">Cybersecurity</a></li>
-                        <li><a href="#">Consulting</a></li>
+                        <li><a href="../services/managed-it.html">Managed IT</a></li>
+                        <li><a href="../services/cloud.html">Cloud Solutions</a></li>
+                        <li><a href="../services/cybersecurity.html">Cybersecurity</a></li>
                     </ul>
 
                 </div>
