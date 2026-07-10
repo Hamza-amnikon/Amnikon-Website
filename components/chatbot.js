@@ -16,7 +16,7 @@
     </div>
 
     <nav class="chatbot-nav">
-      <a href="../contact/contact.html">
+      <a href="../support/support.html">
         <span>💬</span>
         <span>Support</span>
       </a>

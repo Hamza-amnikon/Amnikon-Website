@@ -138,9 +138,6 @@
                         Terms of Service
                     </a>
 
-                    <a href="#">
-                        Cookies
-                    </a>
 
                 </div>
 
