@@ -224,22 +224,13 @@
  BOTTOM
 =================================== */
 
-.footer-bottom{
+.footer-bottom {
+    width: min(1280px, 80%);
+    margin: 0 auto;
 
-  margin-top:20px;
-
-  padding-top:20px;
-  border-top:
-  1px solid rgba(
-    255,255,255,.08);
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-bottom p{
