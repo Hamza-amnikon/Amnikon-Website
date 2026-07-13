@@ -146,50 +146,34 @@
 =================================== */
 
 .footer-main{
-
-  position:relative;
-  z-index:2;
-
- border-top:none;
-
-  padding:40px 0 50px;
+    position: relative;
+    z-index: 2;
+    padding: 70px 0 60px;
 }
 
 .footer-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  2fr 1fr 1fr 1fr;
-
-  gap:2px;
+    display:grid;
+    grid-template-columns: 2.5fr 1fr 1fr 420px;
+    gap:70px;
 }
-
 .footer-brand h4{
-
-  font-size:2.2rem;
-
-  margin-bottom:25px;
-
-  color:white;
+    font-size: 3rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
 .footer-brand p{
-
-  max-width:380px;
-
-  color:rgba(255,255,255,.65);
-
-  line-height:1.8;
+    max-width: 420px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.9;
+    font-size: 1rem;
 }
-
 .footer-col h5{
-
-  margin-bottom:15px;
-
-  font-size:0.9rem;
-
-  color:white;
+    margin-bottom: 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .footer-col ul{
@@ -201,32 +185,32 @@
 }
 
 .footer-col li{
-  
-  margin-bottom:5px;
+    margin-bottom: 14px;
 }
 
 .footer-col a{
-
-  text-decoration:none;
-
-  color:rgba(255,255,255,.65);
-
-  transition:.3s;
-  font-size: 0.9rem;
+    color: rgba(255,255,255,.68);
+    text-decoration: none;
+    transition: .3s;
+    font-size: .96rem;
 }
 
 .footer-col a:hover{
-
-  color:#60a5fa;
+    color: #60a5fa;
+    padding-left: 4px;
 }
 
 /* ===================================
  BOTTOM
 =================================== */
 
-.footer-bottom {
-    width: min(1280px, 80%);
-    margin: 0 auto;
+.footer-bottom{
+    width: min(1280px,90%);
+    margin: 50px auto 0;
+
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(255,255,255,.08);
 
     display: flex;
     justify-content: space-between;
@@ -270,10 +254,14 @@
     color:#60a5fa;
     text-decoration:none;
 
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
+    white-space: nowrap;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
 }
+
+
 .site-footer{
   position:relative;
   overflow:hidden;
