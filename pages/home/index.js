@@ -83,7 +83,7 @@ ScrollTrigger.matchMedia({
 
 .to(".video-overlay",{
 
-    opacity:.75,
+ 
 
     duration:1,
 
