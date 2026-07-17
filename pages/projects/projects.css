@@ -1,151 +1,80 @@
-.project-image{
-    position:relative;
-    cursor:pointer;
-}
-
-.project-btn{
-    cursor:pointer;
-}
-
-.project-btn img{
-    display:block;
-    width:100%;
-}
-
-.project-btn:hover .overlay{
-    opacity:1;
-}
-
-.overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.play-btn{
-    pointer-events:none; /* Makes the whole image clickable */
-}
 /* ============================================================
    PROJECT HERO
 ============================================================ */
 
-.page-hero{
-
-    position:relative;
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
+.page-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
     background:
-    linear-gradient(
-        rgba(5,10,20,.75),
-        rgba(8,12,22,.90)
-    ),
-    url("../../assets/images/projects/image.png")
-    center/cover no-repeat;
-
+        linear-gradient(rgba(5,10,20,.75), rgba(8,12,22,.9)),
+        url("../../assets/images/projects/image.png") center/cover no-repeat;
 }
-
-/* ========================================== */
 
 .page-hero::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
-    background:
-
-    radial-gradient(
-
+    background:radial-gradient(
         circle at top,
-
-        rgba(37,99,235,.20),
-
+        rgba(37,99,235,.22),
         transparent 60%
-
     );
-
 }
-
-/* ========================================== */
 
 .page-hero .container{
-
     position:relative;
-
     z-index:2;
-
     max-width:900px;
-
 }
-
-/* ========================================== */
 
 .page-hero .eyebrow{
 
     display:inline-block;
 
-    padding:8px 20px;
+    padding:8px 22px;
+
+    margin-bottom:24px;
 
     border-radius:50px;
 
-    margin-bottom:25px;
-
-    background:rgba(37,99,235,.10);
+    background:rgba(37,99,235,.12);
 
     border:1px solid rgba(37,99,235,.25);
 
     color:#60a5fa;
 
-    font-size:.8rem;
-
     text-transform:uppercase;
 
     letter-spacing:.15em;
+
+    font-size:.8rem;
 
     font-weight:700;
 
 }
 
-/* ========================================== */
-
 .page-hero h1{
 
-    font-size:clamp(3rem,6vw,4rem);
+    font-size:clamp(3rem,6vw,4.2rem);
 
-    line-height:1.1;
-
-    color:#fff;
+    line-height:1.08;
 
     font-weight:800;
 
-    margin-bottom:25px;
+    color:#fff;
+
+    margin-bottom:24px;
 
 }
 
-/* ========================================== */
-
 .page-hero .highlight{
 
-    background:linear-gradient(
-        135deg,
-        #2563eb,
-        #60a5fa
-    );
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
 
     -webkit-background-clip:text;
 
@@ -153,23 +82,19 @@
 
 }
 
-/* ========================================== */
-
 .page-hero p{
 
     max-width:700px;
 
-    margin:0 auto 40px;
+    margin:0 auto 42px;
 
     color:#b7c3d4;
 
-    font-size:1.1rem;
-
     line-height:1.8;
 
-}
+    font-size:1.08rem;
 
-/* ========================================== */
+}
 
 .page-hero .btn{
 
@@ -179,9 +104,9 @@
 
     justify-content:center;
 
-    padding:16px 34px;
+    padding:16px 36px;
 
-    border-radius:10px;
+    border-radius:12px;
 
     text-decoration:none;
 
@@ -190,8 +115,6 @@
     transition:.35s;
 
 }
-
-/* ========================================== */
 
 .page-hero .btn-primary{
 
@@ -205,104 +128,157 @@
 
     transform:translateY(-4px);
 
-    box-shadow:0 15px 35px rgba(37,99,235,.35);
+    box-shadow:0 18px 38px rgba(37,99,235,.35);
 
 }
 
-/* ========================================== */
-
-@media(max-width:768px){
-
-    .page-hero{
-
-        min-height:75vh;
-
-        padding:120px 20px;
-
-    }
-
-    .page-hero h1{
-
-        font-size:2.5rem;
-
-    }
-
-    .page-hero p{
-
-        font-size:1rem;
-
-    }
-
-}
-
-
-
+/* ============================================================
+   PROJECTS SECTION
+============================================================ */
 
 .projects-section{
+
     padding:120px 0;
+
     background:#080808;
+
+    position:relative;
+
     overflow:hidden;
+
 }
 
 .project-row{
+
     position:relative;
+
+    display:flex;
+
+    align-items:center;
+
     margin-top:60px;
+
 }
+
+/* ============================================================
+   SLIDER
+============================================================ */
 
 .project-slider{
 
     display:flex;
-    gap:24px;
+
+    gap:28px;
 
     overflow-x:auto;
-    overflow-y:hidden;
+
+    overflow-y:visible;
 
     scroll-behavior:smooth;
 
     scrollbar-width:none;
 
-    padding:20px 70px;
+    scroll-snap-type:x proximity;
+
+    scroll-padding-left:100px;
+
+    scroll-padding-right:100px;
+
+    padding:40px 100px;
+
+    align-items:flex-start;
+
 }
 
 .project-slider::-webkit-scrollbar{
+
     display:none;
+
 }
 
-/* ===========================
-      CARD
-=========================== */
+.project-slider.dragging{
+
+    cursor:grabbing;
+
+}
+
+.project-slider.active .project-card{
+
+    opacity:.45;
+
+    filter:brightness(.55);
+
+    transition:.45s;
+
+}
+
+.project-slider.active .project-card.active{
+
+    opacity:1;
+
+    filter:none;
+
+}
+
+/* ============================================================
+   CARD
+============================================================ */
 
 .project-card{
 
     flex:0 0 420px;
 
-    transition:.45s;
+    position:relative;
 
     cursor:pointer;
 
-    position:relative;
+    scroll-snap-align:center;
+
+    transform-origin:center center;
+
+    transition:
+        transform .45s ease,
+        opacity .45s ease,
+        filter .45s ease;
+
+    z-index:1;
+
 }
 
 .project-card:hover{
 
-    transform:scale(1.08);
+    transform:translateY(-8px) scale(1.04);
 
-    z-index:50;
+    z-index:100;
+
 }
 
-/* ===========================
-      IMAGE
-=========================== */
+.project-card.active{
+
+    transform:scale(1.10);
+
+    z-index:999;
+
+}
+
+/* ============================================================
+   IMAGE
+============================================================ */
 
 .project-image{
 
     position:relative;
 
-    border-radius:20px;
+    height:260px;
 
     overflow:hidden;
 
-    height:260px;
+    border-radius:22px;
+
+    background:#111;
+
+    cursor:pointer;
+
 }
 
 .project-image img{
@@ -313,17 +289,27 @@
 
     object-fit:cover;
 
-    transition:.6s;
+    transition:
+        transform .6s ease,
+        filter .45s ease;
+
 }
 
 .project-card:hover img{
 
-    transform:scale(1.12);
+    transform:scale(1.08);
+
 }
 
-/* ===========================
-      OVERLAY
-=========================== */
+.project-card.active img{
+
+    transform:scale(1.08);
+
+}
+
+/* ============================================================
+   OVERLAY
+============================================================ */
 
 .overlay{
 
@@ -337,185 +323,175 @@
 
     align-items:center;
 
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.1),
-        rgba(0,0,0,.75)
+    background:linear-gradient(
+        rgba(0,0,0,.08),
+        rgba(0,0,0,.82)
     );
 
     opacity:0;
 
-    transition:.45s;
+    transition:.35s;
+
 }
 
-.project-card:hover .overlay{
+.project-card:hover .overlay,
+.project-card.active .overlay{
 
     opacity:1;
-}
 
-/* ===========================
-      BUTTON
-=========================== */
+}
 
 .play-btn{
 
+    pointer-events:none;
+
     background:#2563eb;
 
-    color:white;
-
-    border:none;
+    color:#fff;
 
     padding:14px 28px;
 
     border-radius:50px;
 
-    cursor:pointer;
-
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
+
 }
 
-.play-btn:hover{
-
-    background:#1d4ed8;
-
-    transform:translateY(-3px);
-}
-
-/* ===========================
-      INFO
-=========================== */
+/* ============================================================
+   INFO
+============================================================ */
 
 .project-info{
 
     margin-top:18px;
+
 }
 
 .project-info h3{
 
-    color:white;
+    color:#fff;
 
     font-size:1.35rem;
 
     margin-bottom:8px;
+
 }
 
 .project-info p{
 
     color:#9ca3af;
+
 }
 
-/* ===========================
-      ARROWS
-=========================== */
+/* ============================================================
+   SLIDER BUTTONS
+============================================================ */
 
 .slider-btn{
 
     position:absolute;
-    overflow: visible;
-    top:40%;
+
+    top:50%;
 
     transform:translateY(-50%);
 
-    width:55px;
+    width:60px;
 
-    height:55px;
+    height:60px;
 
     border:none;
 
     border-radius:50%;
 
-    background:rgba(25,25,25,.9);
+    background:rgba(0,0,0,.85);
 
-    color:white;
+    color:#fff;
+
+    font-size:24px;
 
     cursor:pointer;
 
     z-index:9999;
 
-    font-size:22px;
-
     transition:.3s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+
 }
 
 .slider-btn:hover{
 
     background:#2563eb;
 
-    transform:translateY(-50%) scale(1.1);
+    transform:translateY(-50%) scale(1.12);
+
 }
 
 .slider-btn.left{
 
     left:0;
+
 }
 
 .slider-btn.right{
 
     right:0;
+
 }
 
-/* ===========================
-      RESPONSIVE
-=========================== */
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 
 @media(max-width:991px){
 
-.project-card{
+    .project-card{
 
-    flex:0 0 320px;
-}
+        flex:0 0 320px;
 
-.project-image{
+    }
 
-    height:210px;
-}
+    .project-image{
+
+        height:210px;
+
+    }
 
 }
 
 @media(max-width:600px){
 
-.project-card{
+    .project-slider{
 
-    flex:0 0 280px;
+        padding:20px;
+
+    }
+
+    .project-card{
+
+        flex:0 0 280px;
+
+    }
+
+    .project-image{
+
+        height:180px;
+
+    }
+
+    .slider-btn{
+
+        display:none;
+
+    }
+
 }
 
-.project-image{
-
-    height:180px;
-}
-
-.slider-btn{
-
-    display:none;
-}
-
-.project-slider{
-
-    padding:20px;
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*=========================================
-      PROJECT MODAL
-=========================================*/
+/*============================================================
+    PROJECT MODAL
+============================================================*/
 
 .project-modal{
 
@@ -523,23 +499,32 @@
 
     inset:0;
 
-    background:rgba(0,0,0,.92);
-
-    backdrop-filter:blur(25px);
-
     display:flex;
+
+    align-items:center;
 
     justify-content:center;
 
-    align-items:center;
+    padding:40px;
+
+    background:rgba(5,10,20,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
 
     opacity:0;
 
     visibility:hidden;
 
-    transition:.45s ease;
+    pointer-events:none;
 
-    z-index:9999;
+    transition:
+        opacity .4s ease,
+        visibility .4s ease;
+
+    z-index:99999;
+
 }
 
 .project-modal.active{
@@ -547,7 +532,14 @@
     opacity:1;
 
     visibility:visible;
+
+    pointer-events:auto;
+
 }
+
+/*============================================================
+    MODAL CONTENT
+============================================================*/
 
 .modal-content{
 
@@ -555,37 +547,130 @@
 
     width:min(1100px,92vw);
 
-    background:#0d1117;
-
-    border-radius:24px;
+    max-height:90vh;
 
     overflow:hidden;
 
+    display:flex;
+
+    flex-direction:column;
+
+    border-radius:24px;
+
+    background:#0d1117;
+
     border:1px solid rgba(255,255,255,.08);
 
-    transform:translateY(60px) scale(.95);
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.55);
 
-    transition:.45s;
+    transform:
+        translateY(40px)
+        scale(.94);
+
+    transition:
+        transform .45s ease;
 
 }
 
 .project-modal.active .modal-content{
 
-    transform:none;
+    transform:
+        translateY(0)
+        scale(1);
+
 }
 
-.modal-content img{
+/*============================================================
+    IMAGE
+============================================================*/
+
+.modal-image-wrapper{
+
+    position:relative;
 
     width:100%;
 
     height:420px;
 
-    object-fit:cover;
+    overflow:hidden;
+
+    background:#111827;
+
 }
+
+#modal-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/*============================================================
+    CLOSE BUTTON
+============================================================*/
+
+.close-modal{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.82);
+
+    color:#fff;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:1000;
+
+}
+
+.close-modal:hover{
+
+    background:#2563eb;
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+
+}
+
+/*============================================================
+    BODY
+============================================================*/
 
 .modal-body{
 
     padding:40px;
+
+    overflow-y:auto;
+
 }
 
 .modal-body h2{
@@ -594,7 +679,8 @@
 
     font-size:2.2rem;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
+
 }
 
 .modal-body p{
@@ -603,8 +689,13 @@
 
     line-height:1.8;
 
-    margin-bottom:30px;
+    margin-bottom:32px;
+
 }
+
+/*============================================================
+    TECHNOLOGIES
+============================================================*/
 
 .modal-tech{
 
@@ -614,59 +705,210 @@
 
     gap:12px;
 
-    margin-bottom:35px;
+    margin-bottom:36px;
+
 }
 
 .modal-tech span{
+
+    padding:10px 18px;
+
+    border-radius:999px;
 
     background:#2563eb;
 
     color:#fff;
 
-    padding:10px 18px;
-
-    border-radius:30px;
-
     font-size:.9rem;
+
+    font-weight:600;
+
 }
+
+/*============================================================
+    ACTION BUTTONS
+============================================================*/
 
 .modal-actions{
 
     display:flex;
 
-    gap:20px;
+    flex-wrap:wrap;
+
+    gap:18px;
+
 }
 
-.close-modal{
+.modal-actions a{
 
-    position:absolute;
+    display:inline-flex;
 
-    right:35px;
+    align-items:center;
 
-    top:35px;
+    justify-content:center;
 
-    width:55px;
+    padding:14px 28px;
 
-    height:55px;
+    border-radius:10px;
 
-    border:none;
+    text-decoration:none;
 
-    border-radius:50%;
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.modal-actions .btn-primary{
 
     background:#2563eb;
 
     color:#fff;
 
-    font-size:30px;
-
-    cursor:pointer;
-
-    transition:.3s;
 }
 
-.close-modal:hover{
-
-    transform:rotate(90deg) scale(1.1);
+.modal-actions .btn-primary:hover{
 
     background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+.modal-actions .btn-secondary{
+
+    background:#1f2937;
+
+    color:#fff;
+
+}
+
+.modal-actions .btn-secondary:hover{
+
+    background:#374151;
+
+    transform:translateY(-3px);
+
+}
+
+/*============================================================
+    SCROLLBAR
+============================================================*/
+
+.modal-body::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.modal-body::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+}
+
+/*============================================================
+    RESPONSIVE
+============================================================*/
+
+@media(max-width:991px){
+
+    .modal-image-wrapper{
+
+        height:320px;
+
+    }
+
+    .modal-body{
+
+        padding:30px;
+
+    }
+
+    .modal-body h2{
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .project-modal{
+
+        padding:20px;
+
+    }
+
+    .modal-content{
+
+        width:100%;
+
+        max-height:95vh;
+
+    }
+
+    .modal-image-wrapper{
+
+        height:240px;
+
+    }
+
+    .modal-body{
+
+        padding:24px;
+
+    }
+
+    .modal-actions{
+
+        flex-direction:column;
+
+    }
+
+    .modal-actions a{
+
+        width:100%;
+
+    }
+
+    .close-modal{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:26px;
+
+        top:14px;
+
+        right:14px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .modal-image-wrapper{
+
+        height:190px;
+
+    }
+
+    .modal-body h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .modal-body{
+
+        padding:20px;
+
+    }
+
 }

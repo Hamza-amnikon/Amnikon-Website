@@ -1,348 +1,256 @@
 /* ===========================================================
    AMNIKON PROJECTS
-   Netflix Style Slider + Modal
-===========================================================*/
+   Netflix Style Slider + Modal (fixed)
+=========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /*=========================================
+  /*=========================================================
         ELEMENTS
-    =========================================*/
+    =========================================================*/
+  const slider = document.querySelector(".project-slider");
+  const leftBtn = document.querySelector(".slider-btn.left");
+  const rightBtn = document.querySelector(".slider-btn.right");
+  const cards = document.querySelectorAll(".project-card");
+  const modal = document.querySelector(".project-modal");
+  const modalImage = document.getElementById("modal-image");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
+  const modalTech = document.getElementById("modal-tech");
+  const demoLink = document.getElementById("demo-link");
+  const githubLink = document.getElementById("github-link");
+  const closeModal = document.querySelector(".close-modal");
 
-    const slider = document.querySelector(".project-slider");
+  if (!slider || !modal) {
+    console.warn("Slider or modal element not found — check your selectors.");
+    return;
+  }
 
-    const leftBtn = document.querySelector(".slider-btn.left");
+  const scrollAmount = 450;
+  let activeCard = null;
+  let isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
 
-    const rightBtn = document.querySelector(".slider-btn.right");
+  /*=========================================================
+        SLIDER SCROLL
+    =========================================================*/
+  function scrollSlider(distance) {
+    slider.scrollBy({ left: distance, behavior: "smooth" });
+  }
 
-    const cards = document.querySelectorAll(".project-card");
+  leftBtn?.addEventListener("click", () => scrollSlider(-scrollAmount));
+  rightBtn?.addEventListener("click", () => scrollSlider(scrollAmount));
 
-    /*=========================================
-        MODAL
-    =========================================*/
+  /*=========================================================
+        SLIDER BUTTON STATE (single source of truth)
+    =========================================================*/
+  function updateSliderButtons() {
+    if (!leftBtn || !rightBtn) return;
 
-    const modal = document.querySelector(".project-modal");
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+    const atStart = slider.scrollLeft <= 5;
+    const atEnd = slider.scrollLeft >= maxScroll - 5;
 
-    const modalImage = document.getElementById("modal-image");
+    leftBtn.disabled = atStart;
+    leftBtn.style.opacity = atStart ? ".35" : "1";
+    leftBtn.style.pointerEvents = atStart ? "none" : "auto";
 
-    const modalTitle = document.getElementById("modal-title");
+    rightBtn.disabled = atEnd;
+    rightBtn.style.opacity = atEnd ? ".35" : "1";
+    rightBtn.style.pointerEvents = atEnd ? "none" : "auto";
+  }
 
-    const modalDescription = document.getElementById("modal-description");
+  slider.addEventListener("scroll", updateSliderButtons);
+  window.addEventListener("resize", updateSliderButtons);
+  updateSliderButtons();
 
-    const modalTech = document.getElementById("modal-tech");
+  /*=========================================================
+        MOUSE WHEEL (horizontal scroll)
+    =========================================================*/
+  slider.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
+      slider.scrollLeft += e.deltaY;
+    },
+    { passive: false }
+  );
 
-    const demoLink = document.getElementById("demo-link");
-
-    const githubLink = document.getElementById("github-link");
-
-    const closeModal = document.querySelector(".close-modal");
-
-    /*=========================================
-        SLIDER BUTTONS
-    =========================================*/
-
-    const scrollAmount = 450;
-
-    if (rightBtn) {
-
-        rightBtn.addEventListener("click", () => {
-
-            slider.scrollBy({
-
-                left: scrollAmount,
-
-                behavior: "smooth"
-
-            });
-
-        });
-
-    }
-
-    if (leftBtn) {
-
-        leftBtn.addEventListener("click", () => {
-
-            slider.scrollBy({
-
-                left: -scrollAmount,
-
-                behavior: "smooth"
-
-            });
-
-        });
-
-    }
-
-    /*=========================================
-        MOUSE WHEEL
-    =========================================*/
-
-    slider.addEventListener("wheel", (e) => {
-
-        e.preventDefault();
-
-        slider.scrollLeft += e.deltaY;
-
-    });
-
-    /*=========================================
+  /*=========================================================
         DRAG SUPPORT
-    =========================================*/
+    =========================================================*/
+  slider.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    slider.classList.add("dragging");
+    startX = e.pageX;
+    startScroll = slider.scrollLeft;
+  });
 
-    let isDown = false;
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+    slider.classList.remove("dragging");
+  });
 
-    let startX;
+  slider.addEventListener("mouseleave", () => {
+    isDragging = false;
+    slider.classList.remove("dragging");
+  });
 
-    let scrollLeft;
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const distance = (e.pageX - startX) * 2;
+    slider.scrollLeft = startScroll - distance;
+  });
 
-    slider.addEventListener("mousedown", (e) => {
-
-        isDown = true;
-
-        slider.classList.add("dragging");
-
-        startX = e.pageX - slider.offsetLeft;
-
-        scrollLeft = slider.scrollLeft;
-
+  /*=========================================================
+        CARD HOVER
+    =========================================================*/
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (card.classList.contains("active")) return;
+      gsap.to(card, { scale: 1.04, duration: 0.25, overwrite: true });
     });
 
-    slider.addEventListener("mouseleave", () => {
+    card.addEventListener("mouseleave", () => {
+      if (card.classList.contains("active")) return;
+      gsap.to(card, { scale: 1, duration: 0.25, overwrite: true });
+    });
+  });
 
-        isDown = false;
+  /*=========================================================
+        OPEN MODAL
+    =========================================================*/
+  function openProject(btn) {
+    activeCard = btn.closest(".project-card");
+    if (!activeCard) return;
 
-        slider.classList.remove("dragging");
+    slider.classList.add("active");
 
+    cards.forEach((card) => {
+      card.classList.remove("active");
+      gsap.set(card, { clearProps: "transform" });
     });
 
-    slider.addEventListener("mouseup", () => {
+    activeCard.classList.add("active");
 
-        isDown = false;
+    const sliderWidth = slider.clientWidth;
+    const cardWidth = activeCard.offsetWidth;
+    const cardLeft = activeCard.offsetLeft;
 
-        slider.classList.remove("dragging");
-
+    slider.scrollTo({
+      left: cardLeft - sliderWidth / 2 + cardWidth / 2,
+      behavior: "smooth",
     });
 
-    slider.addEventListener("mousemove", (e) => {
+    // Guarded dataset reads — won't throw or write "undefined" if a card is missing data
+    modalTitle.textContent = btn.dataset.title || "";
+    modalImage.src = btn.dataset.image || "";
+    modalImage.alt = btn.dataset.title || "Project image";
+    modalDescription.textContent = btn.dataset.description || "";
+    demoLink.href = btn.dataset.demo || "#";
+    githubLink.href = btn.dataset.github || "#";
 
-        if (!isDown) return;
+    modalTech.innerHTML = "";
+    (btn.dataset.technologies || "")
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .forEach((tech) => {
+        const badge = document.createElement("span");
+        badge.textContent = tech;
+        modalTech.appendChild(badge);
+      });
 
+    setTimeout(() => {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      gsap.fromTo(
+        ".modal-content",
+        { opacity: 0, y: 40, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }
+      );
+    }, 350);
+  }
+
+  /*=========================================================
+        CARD EVENTS (click + keyboard)
+    =========================================================*/
+  document.querySelectorAll(".project-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openProject(btn);
+      btn.blur();
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-
-        const x = e.pageX - slider.offsetLeft;
-
-        const walk = (x - startX) * 2;
-
-        slider.scrollLeft = scrollLeft - walk;
-
+        openProject(btn);
+      }
     });
 
-    /*=========================================
-        HOVER ANIMATION
-    =========================================*/
+    // Accessibility label
+    if (btn.dataset.title) {
+      btn.setAttribute("aria-label", btn.dataset.title);
+    }
+  });
 
-    cards.forEach(card => {
-
-        card.addEventListener("mouseenter", () => {
-
-            gsap.to(card, {
-
-                scale: 1.08,
-
-                duration: .35,
-
-                ease: "power2.out"
-
-            });
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            gsap.to(card, {
-
-                scale: 1,
-
-                duration: .35,
-
-                ease: "power2.out"
-
-            });
-
-        });
-
+  /*=========================================================
+        CLOSE MODAL (single definition)
+    =========================================================*/
+  function closeProjectModal() {
+    gsap.to(".modal-content", {
+      opacity: 0,
+      y: 40,
+      scale: 0.95,
+      duration: 0.25,
+      ease: "power2.in",
+      onComplete: () => {
+        modal.classList.remove("active");
+      },
     });
 
-    /*=========================================
-    OPEN MODAL
-=========================================*/
+    document.body.style.overflow = "";
+    slider.classList.remove("active");
 
-document.querySelectorAll(".project-btn").forEach(card => {
-
-    card.addEventListener("click", () => {
-
-        modal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-        modalTitle.textContent = card.dataset.title;
-
-        modalImage.src = card.dataset.image;
-
-        modalDescription.textContent = card.dataset.description;
-
-        demoLink.href = card.dataset.demo;
-
-        githubLink.href = card.dataset.github;
-
-        modalTech.innerHTML = "";
-
-        card.dataset.technologies
-            .split(",")
-            .forEach(tech => {
-
-                const span = document.createElement("span");
-
-                span.textContent = tech.trim();
-
-                modalTech.appendChild(span);
-
-            });
-
-        gsap.fromTo(
-            ".modal-content",
-            {
-                opacity: 0,
-                y: 80,
-                scale: .9
-            },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: .6,
-                ease: "power3.out"
-            }
-        );
-
+    cards.forEach((card) => {
+      card.classList.remove("active");
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.25,
+        overwrite: true,
+        clearProps: "transform",
+      });
     });
 
-});
+    activeCard = null;
+  }
 
-    /*=========================================
-        CLOSE MODAL
-    =========================================*/
+  closeModal?.addEventListener("click", closeProjectModal);
 
- function closeProjectModal(){
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeProjectModal();
+  });
 
-    modal.classList.remove("active");
-
-    document.body.style.overflow="";
-
-}
-
-document.querySelector(".close-modal").onclick = closeProjectModal;
-
-modal.onclick = function(e){
-
-    if(e.target===modal){
-
-        closeProjectModal();
-
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeProjectModal();
     }
 
-}
-
-document.addEventListener("keydown",function(e){
-
-    if(e.key==="Escape"){
-
-        closeProjectModal();
-
+    // Arrow-key slider navigation, only when modal is closed
+    if (!modal.classList.contains("active")) {
+      if (e.key === "ArrowRight") scrollSlider(scrollAmount);
+      if (e.key === "ArrowLeft") scrollSlider(-scrollAmount);
     }
+  });
 
+  /*=========================================================
+        IMAGE PRELOAD
+    =========================================================*/
+  document.querySelectorAll(".project-btn").forEach((btn) => {
+    if (!btn.dataset.image) return;
+    const image = new Image();
+    image.src = btn.dataset.image;
+  });
 });
-    /*=========================================
-        GSAP REVEAL
-    =========================================*/
-
-    gsap.from(".section-header", {
-
-        opacity: 0,
-
-        y: 50,
-
-        duration: .8,
-
-        ease: "power3.out"
-
-    });
-
-    gsap.from(".project-card", {
-
-        opacity: 0,
-
-        y: 40,
-
-        duration: .8,
-
-        stagger: .15,
-
-        ease: "power3.out",
-
-        scrollTrigger: {
-
-            trigger: ".projects-section",
-
-            start: "top 70%"
-
-        }
-
-    });
-
-    /*=========================================
-        DISABLE BUTTONS
-    =========================================*/
-
-    function updateButtons() {
-
-        if (slider.scrollLeft <= 0) {
-
-            leftBtn.style.opacity = ".35";
-
-        } else {
-
-            leftBtn.style.opacity = "1";
-
-        }
-
-        if (
-
-            slider.scrollLeft + slider.clientWidth >=
-
-            slider.scrollWidth - 10
-
-        ) {
-
-            rightBtn.style.opacity = ".35";
-
-        }
-
-        else {
-
-            rightBtn.style.opacity = "1";
-
-        }
-
-    }
-
-    slider.addEventListener("scroll", updateButtons);
-
-    updateButtons();
-
-});
-
-
-
