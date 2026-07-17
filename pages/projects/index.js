@@ -176,76 +176,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /*=========================================
-        OPEN MODAL
-    =========================================*/
+    OPEN MODAL
+=========================================*/
 
-    document.querySelectorAll(".play-btn").forEach(btn => {
+document.querySelectorAll(".project-btn").forEach(card => {
 
-        btn.addEventListener("click", () => {
+    card.addEventListener("click", () => {
 
-            modal.classList.add("active");
+        modal.classList.add("active");
 
-            document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
 
-            modalTitle.textContent = btn.dataset.title;
+        modalTitle.textContent = card.dataset.title;
 
-            modalImage.src = btn.dataset.image;
+        modalImage.src = card.dataset.image;
 
-            modalDescription.textContent = btn.dataset.description;
+        modalDescription.textContent = card.dataset.description;
 
-            demoLink.href = btn.dataset.demo;
+        demoLink.href = card.dataset.demo;
 
-            githubLink.href = btn.dataset.github;
+        githubLink.href = card.dataset.github;
 
-            modalTech.innerHTML = "";
+        modalTech.innerHTML = "";
 
-            btn.dataset.technologies
+        card.dataset.technologies
+            .split(",")
+            .forEach(tech => {
 
-                .split(",")
+                const span = document.createElement("span");
 
-                .forEach(tech => {
+                span.textContent = tech.trim();
 
-                    const span = document.createElement("span");
+                modalTech.appendChild(span);
 
-                    span.textContent = tech.trim();
+            });
 
-                    modalTech.appendChild(span);
-
-                });
-
-            gsap.fromTo(
-
-                ".modal-content",
-
-                {
-
-                    opacity: 0,
-
-                    y: 80,
-
-                    scale: .9
-
-                },
-
-                {
-
-                    opacity: 1,
-
-                    y: 0,
-
-                    scale: 1,
-
-                    duration: .6,
-
-                    ease: "power3.out"
-
-                }
-
-            );
-
-        });
+        gsap.fromTo(
+            ".modal-content",
+            {
+                opacity: 0,
+                y: 80,
+                scale: .9
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: .6,
+                ease: "power3.out"
+            }
+        );
 
     });
+
+});
 
     /*=========================================
         CLOSE MODAL
@@ -359,3 +343,6 @@ document.addEventListener("keydown",function(e){
     updateButtons();
 
 });
+
+
+

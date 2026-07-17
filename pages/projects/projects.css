@@ -1,6 +1,32 @@
-/* ============================================================
-   PROJECTS PAGE — projects.css
-   ============================================================ */
+.project-image{
+    position:relative;
+    cursor:pointer;
+}
+
+.project-btn{
+    cursor:pointer;
+}
+
+.project-btn img{
+    display:block;
+    width:100%;
+}
+
+.project-btn:hover .overlay{
+    opacity:1;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.play-btn{
+    pointer-events:none; /* Makes the whole image clickable */
+}
 /* ============================================================
    PROJECT HERO
 ============================================================ */
