@@ -414,7 +414,7 @@
 .slider-btn{
 
     position:absolute;
-
+    overflow: visible;
     top:40%;
 
     transform:translateY(-50%);
@@ -433,7 +433,7 @@
 
     cursor:pointer;
 
-    z-index:100;
+    z-index:9999;
 
     font-size:22px;
 
