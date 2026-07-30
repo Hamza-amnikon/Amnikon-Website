@@ -124,9 +124,9 @@ const tl = gsap.timeline({
 
         start:"top top",
 
-        end:"+=4000",
+        end:"+=2800",
 
-        scrub:1,
+        scrub:0.3,
 
         pin:true,
 
@@ -138,98 +138,91 @@ const tl = gsap.timeline({
 
 /* STEP 1 */
 
-tl.call(()=>{
-
-    steps.forEach(s=>s.classList.remove("active"));
+tl.call(() => {
+    steps.forEach(s => s.classList.remove("active"));
     steps[0].classList.add("active");
-
 })
 
-.to(progressLine,{
-    width:"0%",
-    duration:0.5
+.to(progressLine, {
+    width: "0%",
+    duration: 0.3
 })
 
-.to({},{
-    duration:1
+.to({}, {
+    duration: 0.4
 });
+
 
 /* STEP 2 */
 
-tl.to(dot,{
-    left:"33.33%",
-    duration:2,
-    ease:"power2.inOut"
+tl.to(dot, {
+    left: "33.33%",
+    duration: 0.8,
+    ease: "power2.out"
 })
 
-.to(progressLine,{
-    width:"33.33%",
-    duration:2,
-    ease:"power2.inOut"
-},"<")
+.to(progressLine, {
+    width: "33.33%",
+    duration: 0.8,
+    ease: "power2.out"
+}, "<")
 
-.call(()=>{
-
-    steps.forEach(s=>s.classList.remove("active"));
+.call(() => {
+    steps.forEach(s => s.classList.remove("active"));
     steps[1].classList.add("active");
-
 })
 
-.to({},{
-    duration:1
+.to({}, {
+    duration: 0.4
 });
+
 
 /* STEP 3 */
 
-tl.to(dot,{
-    left:"66.66%",
-    duration:2,
-    ease:"power2.inOut"
+tl.to(dot, {
+    left: "66.66%",
+    duration: 0.8,
+    ease: "power2.out"
 })
 
-.to(progressLine,{
-    width:"66.66%",
-    duration:2,
-    ease:"power2.inOut"
-},"<")
+.to(progressLine, {
+    width: "66.66%",
+    duration: 0.8,
+    ease: "power2.out"
+}, "<")
 
-.call(()=>{
-
-    steps.forEach(s=>s.classList.remove("active"));
+.call(() => {
+    steps.forEach(s => s.classList.remove("active"));
     steps[2].classList.add("active");
-
 })
 
-.to({},{
-    duration:1
+.to({}, {
+    duration: 0.4
 });
+
 
 /* STEP 4 */
 
-tl.to(dot,{
-    left:"100%",
-    duration:2,
-    ease:"power2.inOut"
+tl.to(dot, {
+    left: "100%",
+    duration: 0.8,
+    ease: "power2.out"
 })
 
-.to(progressLine,{
-    width:"100%",
-    duration:2,
-    ease:"power2.inOut"
-},"<")
+.to(progressLine, {
+    width: "100%",
+    duration: 0.8,
+    ease: "power2.out"
+}, "<")
 
-.call(()=>{
-
-    steps.forEach(s=>s.classList.remove("active"));
+.call(() => {
+    steps.forEach(s => s.classList.remove("active"));
     steps[3].classList.add("active");
-
 })
 
-.to({},{
-    duration:1
+.to({}, {
+    duration: 0.4
 });
-
-
 
 /* ==========================================
    HERO SCROLL EFFECT

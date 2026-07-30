@@ -32,7 +32,7 @@ ScrollTrigger.matchMedia({
 
         start: "top top",
 
-        end: "+=1500",
+        end: "+=1200",
 
         pin: true,
 
@@ -106,9 +106,8 @@ ScrollTrigger.matchMedia({
 
         start: "top top",
 
-        end: "+=800",
-
-        scrub: 0.3,
+end: "+=400",
+scrub: 0.15,
       },
     });
 
@@ -124,11 +123,9 @@ ScrollTrigger.matchMedia({
 
         start: "top top",
 
-        end: "+=2000",
-
-        pin: true,
-
-        scrub: 1,
+  end: "+=900",
+pin: true,
+scrub: 0.5,
       },
     });
 

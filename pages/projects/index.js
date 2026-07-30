@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const scrollAmount = 450;
+  const scrollAmount = 200;
   let activeCard = null;
   let isDragging = false;
   let startX = 0;
@@ -67,14 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
   /*=========================================================
         MOUSE WHEEL (horizontal scroll)
     =========================================================*/
-  slider.addEventListener(
-    "wheel",
-    (e) => {
-      e.preventDefault();
-      slider.scrollLeft += e.deltaY;
-    },
-    { passive: false }
-  );
+slider.addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault();
+    slider.scrollLeft += e.deltaY * 3; // 40% speed
+  },
+  { passive: false }
+);
 
   /*=========================================================
         DRAG SUPPORT
