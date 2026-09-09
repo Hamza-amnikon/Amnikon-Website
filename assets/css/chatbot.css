@@ -1,259 +1,894 @@
 /* ============================================================
    AMNIKON — Chatbot Widget Styles
+   Fixed / Click-Safe Version
+   ============================================================ */
+
+
+/* ============================================================
+   CHATBOT CONTAINER
    ============================================================ */
 
 #chatbot-container {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
+    position: fixed !important;
+
+    right: 28px;
+    bottom: 28px;
+
+    /*
+     * Very high stacking level.
+     * Keeps the chatbot above footer/content layers.
+     */
+    z-index: 2147483647 !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+
+    /*
+     * IMPORTANT:
+     * The container itself must NOT capture clicks.
+     * Only the actual button/window will receive clicks.
+     */
+    pointer-events: none !important;
+
+    /*
+     * Do not let flex/layout behavior create an unexpected
+     * clickable region.
+     */
+    width: max-content;
+    height: max-content;
+
+    margin: 0;
+    padding: 0;
+
+    isolation: auto;
 }
 
-/* Toggle Button */
+
+/* ============================================================
+   TOGGLE BUTTON
+   ============================================================ */
+
 #chatbot-toggle {
-  width: 58px;
-  height: 58px;
-  border-radius: var(--radius-full);
-  background: #ffffff;
-  border: 2.5px solid var(--accent);
-  box-shadow: 0 6px 28px rgba(37, 99, 235, 0.35), 0 2px 8px rgba(0,0,0,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+    min-height: 58px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+    border: 2.5px solid var(--accent);
+
+    box-shadow:
+        0 6px 28px rgba(37, 99, 235, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    /*
+     * THIS is the actual clickable area.
+     */
+    pointer-events: auto !important;
+
+    position: relative;
+    z-index: 2147483647 !important;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    outline: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
+
+
+/* ============================================================
+   TOGGLE HOVER
+   ============================================================ */
 
 #chatbot-toggle:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.65);
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 40px rgba(37, 99, 235, 0.65),
+        0 2px 10px rgba(0, 0, 0, 0.15);
 }
+
+
+/* ============================================================
+   TOGGLE ACTIVE
+   ============================================================ */
+
+#chatbot-toggle:active {
+    transform: scale(0.96);
+}
+
+
+/* ============================================================
+   TOGGLE FOCUS
+   ============================================================ */
+
+#chatbot-toggle:focus {
+    outline: none;
+}
+
+#chatbot-toggle:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 4px;
+}
+
+
+/* ============================================================
+   CHAT ICON
+   ============================================================ */
 
 #chatbot-toggle img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  transition: var(--transition);
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    transition: transform 0.2s ease;
 }
+
+
+/*
+ * If the icon is implemented using a class instead of img.
+ */
+#chatbot-toggle .chatbot-icon-open {
+    display: block;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   CLOSE ICON
+   ============================================================ */
 
 #chatbot-toggle .close-icon {
-  display: none;
-  font-size: 1.25rem;
-  color: var(--accent);
-  line-height: 1;
+    display: none;
+
+    font-size: 1.25rem;
+    color: var(--accent);
+
+    line-height: 1;
+
+    pointer-events: none;
 }
 
-#chatbot-toggle img { display: none; }
-#chatbot-toggle.open .chatbot-icon-open { display: none; }
-#chatbot-toggle.open .close-icon { display: block; }
 
-/* Pulse ring */
+/* ============================================================
+   OPEN STATE
+   ============================================================ */
+
+#chatbot-toggle.open .chatbot-icon-open {
+    display: none;
+}
+
+#chatbot-toggle.open .close-icon {
+    display: block;
+}
+
+
+/* ============================================================
+   REMOVE IMG DISPLAY CONFLICT
+   ============================================================ */
+
+#chatbot-toggle img {
+    display: block;
+}
+
+#chatbot-toggle img.chatbot-icon-open {
+    display: block;
+}
+
+#chatbot-toggle.open img.chatbot-icon-open {
+    display: none;
+}
+
+
+/* ============================================================
+   PULSE RING
+   ============================================================ */
+
 #chatbot-toggle::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: var(--radius-full);
-  border: 2px solid rgba(37, 99, 235, 0.45);
-  animation: pulse-ring 2.5s ease infinite;
-  pointer-events: none;
+    content: "";
+
+    position: absolute;
+
+    inset: -6px;
+
+    width: auto;
+    height: auto;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(37, 99, 235, 0.45);
+
+    animation: pulse-ring 2.5s ease infinite;
+
+    /*
+     * VERY IMPORTANT:
+     * The pulse ring must NEVER intercept clicks.
+     */
+    pointer-events: none !important;
+
+    z-index: -1;
 }
+
 
 @keyframes pulse-ring {
-  0%   { transform: scale(1); opacity: 0.8; }
-  70%  { transform: scale(1.3); opacity: 0; }
-  100% { transform: scale(1.3); opacity: 0; }
+
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
 }
 
-/* Chat Window */
+
+/* ============================================================
+   CHAT WINDOW
+   ============================================================ */
+
 #chatbot-window {
-  width: 360px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px) scale(0.96);
-  transform-origin: bottom right;
-  transition: all var(--transition);
-  max-height: 480px;
+    width: 360px;
+
+    max-width: calc(100vw - 32px);
+
+    max-height: 480px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transform-origin: bottom right;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    /*
+     * Hidden window must not capture clicks.
+     */
+    pointer-events: none !important;
+
+    position: relative;
+
+    z-index: 2147483646 !important;
 }
+
+
+/* ============================================================
+   CHAT WINDOW OPEN
+   ============================================================ */
 
 #chatbot-window.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    /*
+     * Only the visible chat window receives clicks.
+     */
+    pointer-events: auto !important;
 }
 
-/* Header */
-.chatbot-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+
+/* ============================================================
+   CHAT WINDOW CHILDREN
+   ============================================================ */
+
+#chatbot-window *,
+#chatbot-window a,
+#chatbot-window button,
+#chatbot-window input {
+    pointer-events: auto;
 }
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.chatbot-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent) 0%,
+            var(--accent-dark) 100%
+        );
+
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   HEADER ICON
+   ============================================================ */
 
 .chatbot-header-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+    min-height: 36px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1rem;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   HEADER INFO
+   ============================================================ */
+
+.chatbot-header-info {
+    min-width: 0;
 }
 
 .chatbot-header-info h5 {
-  color: var(--white);
-  font-size: 0.9375rem;
+    color: var(--white);
+
+    font-size: 0.9375rem;
+
+    margin: 0;
 }
 
 .chatbot-header-info span {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.75);
+    font-size: 0.75rem;
+
+    color: rgba(255, 255, 255, 0.75);
 }
+
+
+/* ============================================================
+   STATUS DOT
+   ============================================================ */
 
 .chatbot-status-dot {
-  width: 8px;
-  height: 8px;
-  background: #4ade80;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 4px;
-  animation: blink 2s ease infinite;
+    width: 8px;
+    height: 8px;
+
+    min-width: 8px;
+    min-height: 8px;
+
+    background: #4ade80;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    margin-right: 4px;
+
+    animation: blink 2s ease infinite;
+
+    pointer-events: none;
 }
+
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
 }
 
-/* Quick Links */
+
+/* ============================================================
+   QUICK LINKS
+   ============================================================ */
+
 .chatbot-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-bottom: 1px solid var(--border);
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-bottom: 1px solid var(--border);
+
+    flex-shrink: 0;
 }
+
+
+/* ============================================================
+   QUICK LINK
+   ============================================================ */
 
 .chatbot-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 12px 6px;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  border-right: 1px solid var(--border);
-  transition: var(--transition);
-  text-align: center;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    padding: 12px 6px;
+
+    font-size: 0.6875rem;
+
+    font-weight: 500;
+
+    color: var(--text-muted);
+
+    border-right: 1px solid var(--border);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    pointer-events: auto !important;
 }
 
-.chatbot-nav a:last-child { border-right: none; }
+
+.chatbot-nav a:last-child {
+    border-right: none;
+}
+
 
 .chatbot-nav a:hover {
-  background: rgba(37,99,235,0.08);
-  color: var(--accent-text);
+    background: rgba(37, 99, 235, 0.08);
+
+    color: var(--accent-text);
 }
 
-.chatbot-nav a span:first-child { font-size: 1.1rem; }
 
-/* Messages */
+.chatbot-nav a span:first-child {
+    font-size: 1.1rem;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   MESSAGES
+   ============================================================ */
+
 .chatbot-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: var(--space-md);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-sm);
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--border)
+        transparent;
 }
+
+
+/* ============================================================
+   CHAT MESSAGE
+   ============================================================ */
 
 .chat-msg {
-  max-width: 85%;
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  animation: fadeInUp 0.3s var(--ease);
+    max-width: 85%;
+
+    padding: 10px 14px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 0.875rem;
+
+    line-height: 1.5;
+
+    animation:
+        fadeInUp 0.3s
+        var(--ease);
 }
+
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
 }
+
+
+/* ============================================================
+   BOT MESSAGE
+   ============================================================ */
 
 .chat-msg.bot {
-  background: var(--surface-2);
-  color: var(--text);
-  border-bottom-left-radius: 4px;
-  align-self: flex-start;
+    background: var(--surface-2);
+
+    color: var(--text);
+
+    border-bottom-left-radius: 4px;
+
+    align-self: flex-start;
 }
+
+
+/* ============================================================
+   USER MESSAGE
+   ============================================================ */
 
 .chat-msg.user {
-  background: var(--accent);
-  color: var(--white);
-  border-bottom-right-radius: 4px;
-  align-self: flex-end;
+    background: var(--accent);
+
+    color: var(--white);
+
+    border-bottom-right-radius: 4px;
+
+    align-self: flex-end;
 }
 
-/* Input */
+
+/* ============================================================
+   INPUT AREA
+   ============================================================ */
+
 .chatbot-input {
-  display: flex;
-  gap: var(--space-sm);
-  padding: 12px 16px;
-  border-top: 1px solid var(--border);
-  background: var(--surface-2);
+    display: flex;
+
+    gap: var(--space-sm);
+
+    padding: 12px 16px;
+
+    border-top: 1px solid var(--border);
+
+    background: var(--surface-2);
+
+    flex-shrink: 0;
 }
+
+
+/* ============================================================
+   INPUT
+   ============================================================ */
 
 .chatbot-input input {
-  flex: 1;
-  background: var(--surface-3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  color: var(--text);
-  font-size: 0.875rem;
-  padding: 9px 16px;
-  outline: none;
-  transition: var(--transition);
+    flex: 1;
+
+    min-width: 0;
+
+    background: var(--surface-3);
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    color: var(--text);
+
+    font-size: 0.875rem;
+
+    padding: 9px 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    pointer-events: auto !important;
 }
+
 
 .chatbot-input input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent-glow);
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 2px var(--accent-glow);
 }
+
+
+/* ============================================================
+   SEND BUTTON
+   ============================================================ */
 
 .chatbot-input button {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-full);
-  background: var(--accent);
-  color: var(--white);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    color: var(--white);
+
+    font-size: 1rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    pointer-events: auto !important;
+
+    appearance: none;
+    -webkit-appearance: none;
 }
+
 
 .chatbot-input button:hover {
-  background: var(--accent-light);
-  transform: scale(1.05);
+    background: var(--accent-light);
+
+    transform: scale(1.05);
 }
 
+
+.chatbot-input button:active {
+    transform: scale(0.95);
+}
+
+
+/* ============================================================
+   MOBILE — GENERAL
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    #chatbot-container {
+        right: 18px;
+
+        bottom: 18px;
+
+        /*
+         * Keep above mobile footer layers.
+         */
+        z-index: 2147483647 !important;
+    }
+
+
+    #chatbot-toggle {
+        width: 58px;
+        height: 58px;
+
+        min-width: 58px;
+        min-height: 58px;
+    }
+
+
+    #chatbot-window {
+        width: calc(100vw - 36px);
+
+        max-width: calc(100vw - 36px);
+
+        max-height: 70vh;
+
+        border-radius: var(--radius-lg);
+    }
+}
+
+
+/* ============================================================
+   MOBILE — SMALL PHONES
+   ============================================================ */
+
 @media (max-width: 420px) {
-  #chatbot-window { width: calc(100vw - 40px); }
-  #chatbot-container { right: 16px; bottom: 16px; }
+
+    #chatbot-container {
+        right: 16px;
+
+        bottom: 16px;
+
+        /*
+         * Do NOT use width: 100% here.
+         * The container must remain only as large as its children.
+         */
+        width: max-content;
+
+        height: max-content;
+
+        z-index: 2147483647 !important;
+    }
+
+
+    #chatbot-toggle {
+        width: 58px;
+        height: 58px;
+    }
+
+
+    #chatbot-window {
+        width: calc(100vw - 32px);
+
+        max-width: calc(100vw - 32px);
+
+        max-height: 70vh;
+    }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+    #chatbot-container {
+        right: 12px;
+
+        bottom: 12px;
+    }
+
+
+    #chatbot-toggle {
+        width: 54px;
+        height: 54px;
+
+        min-width: 54px;
+        min-height: 54px;
+    }
+
+
+    #chatbot-window {
+        width: calc(100vw - 24px);
+
+        max-width: calc(100vw - 24px);
+    }
+}
+
+
+/* ============================================================
+   TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    #chatbot-toggle:hover {
+        transform: none;
+    }
+
+
+    #chatbot-toggle:active {
+        transform: scale(0.94);
+    }
+
+
+    #chatbot-input button:hover {
+        transform: none;
+    }
+}
+
+
+/* ============================================================
+   FINAL CLICK-SAFETY OVERRIDES
+   ============================================================ */
+
+/*
+ * The container is only a positioning wrapper.
+ * It MUST NOT block anything behind it.
+ */
+
+#chatbot-container {
+    pointer-events: none !important;
+}
+
+
+/*
+ * Actual interactive elements remain clickable.
+ */
+
+#chatbot-toggle,
+#chatbot-window.open,
+#chatbot-window.open a,
+#chatbot-window.open button,
+#chatbot-window.open input {
+    pointer-events: auto !important;
+}
+
+
+/*
+ * Decorative elements never capture clicks.
+ */
+
+#chatbot-toggle::before,
+#chatbot-toggle::after {
+    pointer-events: none !important;
 }
