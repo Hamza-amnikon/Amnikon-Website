@@ -1,1093 +1,967 @@
-/* ===================================
-   FOOTER
-=================================== */
-.info-email{
-    display:inline-block;
-    color:#60a5fa;
-    text-decoration:none;
+/* ============================================================
+   AMNIKON — FOOTER
+   Clean / Compact / Responsive / Chatbot Safe
+   ============================================================ */
 
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-}
-.site-footer{
-  position:relative;
-  overflow:hidden;
-  background:#020617;
-  color:#fff;
-}
 
-/* ===================================
- HUGE BACKGROUND WORD
-=================================== */
+/* ============================================================
+   FOOTER BASE
+   ============================================================ */
 
-.footer-wordmark{
-    position:absolute;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-}
-
-.footer-wordmark span{
-
-    display:block;
-
-    width:100%;
-
-    text-align:center;
-
-    font-weight:900;
-
-    line-height:.8;
-
-    letter-spacing:-0.08em;
-
-    text-transform:uppercase;
-
-    /* RESPONSIVE SIZE */
-    font-size:clamp(4rem, 20vw, 24rem);
-
-    /* ALLOW SCALING */
-    white-space:nowrap;
-
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.01)
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-/* Blue glow */
-
-.footer-wordmark::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:50%;
-  top:50%;
-
-  transform:translate(-50%,-50%);
-
-  width:1200px;
-  height:400px;
-
-  background:
-  radial-gradient(
-      circle,
-      rgba(37,99,235,.18),
-      transparent 70%
-  );
-
-  filter:blur(120px);
-
-  z-index:-1;
-}
-
-/* ===================================
- CTA
-=================================== */
-
-.footer-cta{
+.site-footer {
     position: relative;
-    z-index: 2;
-    padding: 100px 0 50px;
+    overflow: hidden;
+    background: #020617;
+    color: #fff;
+    isolation: isolate;
 }
 
-.footer-cta-content{
 
-  display:flex;
+/* ============================================================
+   HUGE BACKGROUND WORDMARK
+   ============================================================ */
 
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:80px;
-}
-
-.footer-cta h2{
-
-  font-size:clamp(3rem,5vw,5rem);
-
-  line-height:1;
-
-  margin-bottom:20px;
-
-  color:#fff;
-}
-
-.footer-cta p{
-
-  max-width:650px;
-
-  line-height:1.8;
-
-  color:rgba(255,255,255,.7);
-}
-
-.footer-cta-actions{
-
-  display:flex;
-
-  gap:20px;
-}
-
-/* ===================================
- FOOTER MAIN
-=================================== */
-
-.footer-main{
-    position: relative;
-    z-index: 2;
-    padding: 70px 0 60px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns: 2.5fr 1fr 1fr 420px;
-    gap:70px;
-}
-.footer-brand h4{
-    font-size: 3rem;
-    margin-bottom: 25px;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.footer-brand p{
-    max-width: 420px;
-    color: rgba(255,255,255,.72);
-    line-height: 1.9;
-    font-size: 1rem;
-}
-.footer-col h5{
-    margin-bottom: 24px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.footer-col ul{
-
-  list-style:none;
-
-  margin:0;
-  padding:0;
-}
-
-.footer-col li{
-    margin-bottom: 14px;
-}
-
-.footer-col a{
-    color: rgba(255,255,255,.68);
-    text-decoration: none;
-    transition: .3s;
-    font-size: .96rem;
-}
-
-.footer-col a:hover{
-    color: #60a5fa;
-    padding-left: 4px;
-}
-
-/* ===================================
- BOTTOM
-=================================== */
-
-.footer-bottom{
-    width: min(1280px,90%);
-    margin: 50px auto 0;
-
-    padding-top: 30px;
-
-    border-top: 1px solid rgba(255,255,255,.08);
+.footer-wordmark {
+    position: absolute;
+    inset: 0;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    overflow: hidden;
+
+    pointer-events: none !important;
+
+    z-index: 0;
 }
 
-.footer-bottom p{
+.footer-wordmark span {
+    display: block;
 
-  color:rgba(255,255,255,.45);
-}
+    width: 100%;
 
-.footer-bottom-links{
+    text-align: center;
 
-  display:flex;
-  gap:10px;
-}
+    font-weight: 900;
 
-.footer-bottom-links a{
+    line-height: 0.8;
 
-  color:rgba(255,255,255,.45);
+    letter-spacing: -0.08em;
 
-  text-decoration:none;
+    text-transform: uppercase;
 
-  transition:.3s;
-}
-
-.footer-bottom-links a:hover{
-
-  color:#fff;
-}
-
-/* ===================================
- RESPONSIVE
-=================================== */
-
-/* ===================================
-   FOOTER
-=================================== */
-.info-email{
-    display:inline-block;
-    color:#60a5fa;
-    text-decoration:none;
+    font-size: clamp(4rem, 20vw, 24rem);
 
     white-space: nowrap;
 
-    word-break: normal;
-
-    overflow-wrap: normal;
-}
-
-
-.site-footer{
-  position:relative;
-  overflow:hidden;
-  background:#020617;
-  color:#fff;
-}
-
-/* ===================================
- HUGE BACKGROUND WORD
-=================================== */
-
-.footer-wordmark{
-    position:absolute;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-}
-
-.footer-wordmark span{
-
-    display:block;
-
-    width:100%;
-
-    text-align:center;
-
-    font-weight:900;
-
-    line-height:.8;
-
-    letter-spacing:-0.08em;
-
-    text-transform:uppercase;
-
-    /* RESPONSIVE SIZE */
-    font-size:clamp(4rem, 20vw, 24rem);
-
-    /* ALLOW SCALING */
-    white-space:nowrap;
-
-    background:linear-gradient(
+    background: linear-gradient(
         180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.01)
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.01)
     );
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 }
+
+
 /* Blue glow */
 
-.footer-wordmark::after{
+.footer-wordmark::after {
+    content: "";
 
-  content:"";
+    position: absolute;
 
-  position:absolute;
+    left: 50%;
+    top: 50%;
 
-  left:50%;
-  top:50%;
+    transform: translate(-50%, -50%);
 
-  transform:translate(-50%,-50%);
+    width: 1200px;
+    height: 400px;
 
-  width:1200px;
-  height:400px;
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.18),
+        transparent 70%
+    );
 
-  background:
-  radial-gradient(
-      circle,
-      rgba(37,99,235,.18),
-      transparent 70%
-  );
+    filter: blur(120px);
 
-  filter:blur(120px);
+    z-index: -1;
 
-  z-index:-1;
+    pointer-events: none !important;
 }
 
-/* ===================================
- CTA
-=================================== */
 
-.footer-cta{
+/* ============================================================
+   CTA
+   ============================================================ */
+
+.footer-cta {
     position: relative;
+
     z-index: 2;
-    padding: 100px 0 50px;
+
+    padding: 90px 0 45px;
 }
 
-.footer-cta-content{
+.footer-cta-content {
+    display: flex;
 
-  display:flex;
+    justify-content: space-between;
 
-  justify-content:space-between;
+    align-items: center;
 
-  align-items:center;
-
-  gap:80px;
+    gap: 60px;
 }
 
-.footer-cta h2{
+.footer-cta h2 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
 
-  font-size:clamp(3rem,5vw,5rem);
+    line-height: 1;
 
-  line-height:1;
+    margin-bottom: 18px;
 
-  margin-bottom:20px;
-
-  color:#fff;
+    color: #fff;
 }
 
-.footer-cta p{
+.footer-cta p {
+    max-width: 650px;
 
-  max-width:650px;
+    line-height: 1.7;
 
-  line-height:1.8;
+    color: rgba(255, 255, 255, 0.7);
 
-  color:rgba(255,255,255,.7);
+    margin: 0;
 }
 
-.footer-cta-actions{
+.footer-cta-actions {
+    display: flex;
 
-  display:flex;
+    gap: 15px;
 
-  gap:20px;
-}
-
-/* ===================================
- FOOTER MAIN
-=================================== */
-
-.footer-main{
-
-  position:relative;
-  z-index:2;
-
- border-top:none;
-
-  padding:40px 0 50px;
-}
-
-.footer-grid{
-
-  display:grid;
-
-  grid-template-columns:
-  2fr 1fr 1fr 1fr;
-
-  gap:2px;
-}
-
-.footer-brand h4{
-
-  font-size:2.2rem;
-
-  margin-bottom:25px;
-
-  color:white;
-}
-
-.footer-brand p{
-
-  max-width:380px;
-
-  color:rgba(255,255,255,.65);
-
-  line-height:1.8;
-}
-
-.footer-col h5{
-
-  margin-bottom:15px;
-
-  font-size:0.9rem;
-
-  color:white;
-}
-
-.footer-col ul{
-
-  list-style:none;
-
-  margin:0;
-  padding:0;
-}
-
-.footer-col li{
-  
-  margin-bottom:5px;
-}
-
-.footer-col a{
-
-  text-decoration:none;
-
-  color:rgba(255,255,255,.65);
-
-  transition:.3s;
-  font-size: 0.9rem;
-}
-
-.footer-col a:hover{
-
-  color:#60a5fa;
-}
-
-/* ===================================
- BOTTOM
-=================================== */
-
-.footer-bottom{
-
-  margin-top:20px;
-
-  padding-top:20px;
-  border-top:
-  1px solid rgba(
-    255,255,255,.08);
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:10px;
-}
-
-.footer-bottom p{
-
-  color:rgba(255,255,255,.45);
-}
-
-.footer-bottom-links{
-
-  display:flex;
-  gap:10px;
-}
-
-.footer-bottom-links a{
-
-  color:rgba(255,255,255,.45);
-
-  text-decoration:none;
-
-  transition:.3s;
-}
-
-.footer-bottom-links a:hover{
-
-  color:#fff;
-}
-
-/* ===================================
- RESPONSIVE
-=================================== */
-
-@media(max-width:992px){
-
-  .footer-grid{
-
-      grid-template-columns:1fr 1fr;
-  }
-
-  .footer-cta-content{
-
-      flex-direction:column;
-      align-items:flex-start;
-  }
-
-}
-
-@media(max-width:768px){
-
-  .footer-grid{
-
-      grid-template-columns:1fr;
-  }
-
-  .footer-bottom{
-
-      flex-direction:column;
-      align-items:flex-start;
-  }
-
-  .footer-wordmark span{
-
-      font-size:clamp(6rem,20vw,12rem);
-  }
-
+    flex-shrink: 0;
 }
 
 
+/* ============================================================
+   FOOTER MAIN
+   ============================================================ */
 
-/* RESPONSIVE  */
+.footer-main {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 45px 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1.35fr;
+
+    gap: 45px;
+
+    align-items: start;
+}
 
 
-/* ===================================
-   FOOTER RESPONSIVE FIXES
-=================================== */
+/* ============================================================
+   BRAND
+   ============================================================ */
 
-/* Large Screens */
+.footer-brand h4 {
+    font-size: 2.2rem;
+
+    margin: 0 0 15px;
+
+    color: #fff;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.footer-brand p {
+    max-width: 380px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    line-height: 1.7;
+
+    font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   FOOTER COLUMNS
+   ============================================================ */
+
+.footer-col h5 {
+    margin: 0 0 14px;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 7px;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.65);
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease;
+
+    font-size: 0.85rem;
+}
+
+.footer-col a:hover {
+    color: #60a5fa;
+
+    padding-left: 3px;
+}
+
+
+/* ============================================================
+   EMAIL
+   ============================================================ */
+
+.info-email {
+    display: inline-block;
+
+    color: #60a5fa !important;
+
+    text-decoration: none;
+
+    white-space: normal;
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+
+    font-size: 0.82rem !important;
+}
+
+
+/* ============================================================
+   ADDRESS
+   ============================================================ */
+
+.footer-contact {
+    min-width: 0;
+}
+
+.footer-address {
+    margin-top: 12px;
+
+    margin-bottom: 0 !important;
+}
+
+.footer-address h5 {
+    margin: 0 0 3px !important;
+
+    font-size: 0.72rem !important;
+
+    font-weight: 600 !important;
+
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.info-address {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+
+    max-width: 270px;
+}
+
+
+/* ============================================================
+   FOOTER BOTTOM
+   ============================================================ */
+
+.footer-bottom {
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.78rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+
+    gap: 18px;
+}
+
+.footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.45);
+
+    text-decoration: none;
+
+    font-size: 0.78rem;
+
+    transition: color 0.25s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #fff;
+}
+
+
+/* ============================================================
+   CHATBOT CLICK SAFETY
+   ============================================================ */
+
+/*
+   The chatbot wrapper must NEVER block clicks.
+   Only its actual interactive elements receive clicks.
+*/
+
+#chatbot-container {
+    position: fixed !important;
+
+    right: 28px;
+
+    bottom: 28px;
+
+    z-index: 2147483647 !important;
+
+    pointer-events: none !important;
+
+    width: max-content;
+
+    height: max-content;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+#chatbot-container #chatbot-toggle {
+    pointer-events: auto !important;
+
+    position: relative;
+
+    z-index: 2147483647 !important;
+}
+
+#chatbot-container #chatbot-window {
+    pointer-events: none !important;
+}
+
+#chatbot-container #chatbot-window.open {
+    pointer-events: auto !important;
+}
+
+
+/*
+   Footer decorative elements can never intercept clicks.
+*/
+
+.footer-wordmark,
+.footer-wordmark::before,
+.footer-wordmark::after {
+    pointer-events: none !important;
+}
+
+
+/* ============================================================
+   LARGE DESKTOP
+   ============================================================ */
+
 @media (min-width: 1600px) {
 
-  .footer-grid {
-    max-width: 1600px;
-    margin: 0 auto;
-    gap: 120px;
-  }
+    .footer-grid {
+        max-width: 1600px;
 
-  .footer-cta-content {
-    max-width: 1600px;
-    margin: 0 auto;
-  }
+        margin: 0 auto;
 
-  .footer-wordmark span {
-    font-size: 30rem;
-  }
+        gap: 70px;
+    }
+
+    .footer-cta-content {
+        max-width: 1600px;
+
+        margin: 0 auto;
+    }
+
+    .footer-wordmark span {
+        font-size: 24rem;
+    }
 }
 
-/* Laptop */
+
+/* ============================================================
+   LAPTOP
+   ============================================================ */
+
 @media (max-width: 1200px) {
 
-  .footer-grid {
-    gap: 50px;
-  }
+    .footer-grid {
+        gap: 35px;
+    }
 
-  .footer-cta-content {
-    gap: 50px;
-  }
+    .footer-cta-content {
+        gap: 40px;
+    }
 
-  .footer-wordmark span {
-    font-size: clamp(8rem, 22vw, 18rem);
-  }
+    .footer-wordmark span {
+        font-size: clamp(
+            8rem,
+            22vw,
+            18rem
+        );
+    }
 }
 
-/* Tablet */
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
 @media (max-width: 992px) {
 
-  .footer-cta {
-    padding: 120px 0 80px;
-  }
+    .footer-cta {
+        padding: 75px 30px 45px;
+    }
 
-  .footer-cta-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
-  }
+    .footer-cta-content {
+        flex-direction: column;
 
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
+        align-items: flex-start;
 
+        gap: 35px;
+    }
 
-  .footer-wordmark span {
-    font-size: clamp(6rem, 18vw, 12rem);
-  }
+    .footer-cta h2 {
+        font-size: 2.8rem;
+
+        line-height: 1.1;
+    }
+
+    .footer-cta p {
+        max-width: 100%;
+
+        font-size: 0.95rem;
+    }
+
+    .footer-cta-actions {
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .footer-main {
+        padding: 45px 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        max-width: 650px;
+    }
+
+    .footer-wordmark span {
+        font-size: 9rem;
+    }
+
+    .footer-wordmark::after {
+        width: 850px;
+
+        height: 280px;
+
+        filter: blur(90px);
+    }
 }
 
-/* Mobile */
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
 @media (max-width: 768px) {
 
-  .footer-cta {
-    padding: 100px 0 60px;
-  }
-
-  .footer-cta h2 {
-    font-size: 2.2rem;
-  }
-
-  .footer-cta p {
-    font-size: 0.95rem;
-  }
-
-  .footer-cta-actions {
-    width: 100%;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .footer-cta-actions .btn,
-  .footer-cta-actions a {
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .footer-brand p {
-    max-width: 100%;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .footer-bottom-links {
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-
-  .footer-wordmark span {
-    font-size: clamp(4rem, 18vw, 8rem);
-    letter-spacing: -0.04em;
-  }
-
-  .footer-wordmark::after {
-    width: 600px;
-    height: 250px;
-    filter: blur(80px);
-  }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-
-  .site-footer {
-    text-align: center;
-  }
-
-  .footer-cta-content {
-    align-items: center;
-  }
-
-  .footer-cta h2 {
-    font-size: 1.8rem;
-  }
-
-  .footer-cta p {
-    font-size: 0.9rem;
-  }
-
-  .footer-grid {
-    text-align: center;
-  }
-
-  .footer-brand p {
-    margin: 0 auto;
-  }
-
-  .footer-bottom {
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-bottom-links {
-    justify-content: center;
-  }
-
-  .footer-wordmark span {
-    font-size: 3.5rem;
-  }
-
-  .footer-wordmark::after {
-    width: 400px;
-    height: 200px;
-  }
-}
-
-/* Large Desktop */
-@media (min-width:1600px){
-    .footer-wordmark span{
-        font-size:24rem;
-    }
-}
-
-/* Laptop */
-@media (max-width:1200px){
-    .footer-wordmark span{
-        font-size:16rem;
-    }
-}
-
-/* Tablet */
-@media (max-width:992px){
-    .footer-wordmark span{
-        font-size:10rem;
-    }
-}
-
-/* Mobile */
-@media (max-width:768px){
-    .footer-wordmark span{
-        font-size:6rem;
-    }
-}
-
-/* Small Mobile */
-@media (max-width:480px){
-    .footer-wordmark span{
-        font-size:4rem;
-    }
-}
-
-/* ==========================================================
-   SMALL PHONES (0px - 480px)
-========================================================== */
-
-@media screen and (max-width:480px){
-
-    html{
-
-        font-size:14px;
+    .footer-cta {
+        padding: 65px 20px 40px;
     }
 
-    /* ==========================
-       FOOTER
-    ========================== */
+    .footer-cta-content {
+        align-items: center;
 
-    .site-footer{
+        text-align: center;
 
-        text-align:center;
+        gap: 28px;
     }
 
-    /* ==========================
-       WATERMARK
-    ========================== */
+    .footer-cta h2 {
+        font-size: 2.1rem;
 
-    .footer-wordmark span{
-
-        font-size:3.5rem;
-
-        letter-spacing:-.03em;
+        line-height: 1.15;
     }
 
-    .footer-wordmark::after{
+    .footer-cta p {
+        font-size: 0.88rem;
 
-        width:320px;
-
-        height:170px;
-
-        filter:blur(55px);
+        line-height: 1.6;
     }
 
-    /* ==========================
-       CTA
-    ========================== */
+    .footer-cta-actions {
+        width: 100%;
 
-    .footer-cta{
+        flex-direction: column;
 
-        padding:60px 15px 35px;
-    }
-
-    .footer-cta h2{
-
-        font-size:1.7rem;
-
-        line-height:1.25;
-    }
-
-    .footer-cta p{
-
-        font-size:.9rem;
-
-        line-height:1.7;
-    }
-
-    .footer-cta-actions{
-
-        gap:12px;
+        gap: 10px;
     }
 
     .footer-cta-actions .btn,
+    .footer-cta-actions a {
+        width: 100%;
 
-    .footer-cta-actions a{
+        min-height: 48px;
 
-        min-height:50px;
-
-        font-size:.95rem;
+        text-align: center;
     }
 
-    /* ==========================
-       MAIN
-    ========================== */
 
-    .footer-main{
+    /* MAIN */
 
-        padding:35px 15px;
+    .footer-main {
+        padding: 35px 20px;
     }
 
-    .footer-grid{
+    .footer-grid {
+        grid-template-columns: 1fr;
 
-        gap:30px;
+        gap: 28px;
+
+        text-align: center;
     }
 
-    /* ==========================
-       BRAND
-    ========================== */
-
-    .footer-brand h4{
-
-        font-size:1.7rem;
-
-        margin-bottom:15px;
+    .footer-brand {
+        grid-column: auto;
     }
 
-    .footer-brand p{
+    .footer-brand h4 {
+        font-size: 1.7rem;
 
-        font-size:.9rem;
-
-        line-height:1.7;
+        margin-bottom: 10px;
     }
 
-    /* ==========================
-       LINKS
-    ========================== */
+    .footer-brand p {
+        max-width: 100%;
 
-    .footer-col h5{
+        margin: 0 auto;
 
-        font-size:.95rem;
+        font-size: 0.85rem;
+
+        line-height: 1.6;
     }
 
-    .footer-col a{
 
-        font-size:.9rem;
+    /* COLUMNS */
+
+    .footer-col h5 {
+        font-size: 0.85rem;
+
+        margin-bottom: 10px;
     }
 
-    /* ==========================
-       EMAIL
-    ========================== */
-
-    .info-email{
-
-        font-size:.9rem;
+    .footer-col li {
+        margin-bottom: 5px;
     }
 
-    /* ==========================
-       BOTTOM
-    ========================== */
-
-    .footer-bottom{
-
-        gap:12px;
-
-        padding-top:18px;
+    .footer-col a {
+        font-size: 0.82rem;
     }
 
-    .footer-bottom p{
 
-        font-size:.85rem;
+    /* CONTACT */
+
+    .footer-contact {
+        width: 100%;
     }
 
-    .footer-bottom-links{
-
-        gap:12px;
+    .info-email {
+        font-size: 0.76rem !important;
     }
 
-    .footer-bottom-links a{
-
-        font-size:.85rem;
+    .footer-address {
+        margin-top: 10px;
     }
 
-}/* ==========================================================
-   TABLET FOOTER (769px - 992px)
-========================================================== */
+    .footer-address h5 {
+        font-size: 0.68rem !important;
 
-@media screen and (min-width:769px) and (max-width:992px){
-
-    /* ==========================
-       CTA
-    ========================== */
-
-    .footer-cta{
-
-        padding:90px 35px 60px;
+        margin-bottom: 2px !important;
     }
 
-    .footer-cta-content{
+    .info-address {
+        max-width: 280px;
 
-        display:flex;
+        margin: 0 auto;
 
-        flex-direction:column;
+        font-size: 0.68rem;
 
-        align-items:flex-start;
-
-        gap:35px;
+        line-height: 1.35;
     }
 
-    .footer-cta h2{
 
-        font-size:2.8rem;
+    /* BOTTOM */
 
-        line-height:1.15;
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        gap: 12px;
+
+        margin-top: 20px;
+
+        padding-top: 16px;
     }
 
-    .footer-cta p{
-
-        max-width:100%;
-
-        font-size:1rem;
+    .footer-bottom p {
+        font-size: 0.72rem;
     }
 
-    .footer-cta-actions{
+    .footer-bottom-links {
+        justify-content: center;
 
-        display:flex;
+        flex-wrap: wrap;
 
-        flex-wrap:wrap;
-
-        gap:15px;
+        gap: 10px;
     }
 
-    .footer-cta-actions .btn,
-
-    .footer-cta-actions a{
-
-        min-width:180px;
+    .footer-bottom-links a {
+        font-size: 0.72rem;
     }
 
-    /* ==========================
-       MAIN
-    ========================== */
 
-    .footer-main{
+    /* WATERMARK */
 
-        padding:55px 35px;
+    .footer-wordmark span {
+        font-size: 6rem;
+
+        letter-spacing: -0.04em;
     }
 
-    .footer-grid{
-
-        display:grid;
-
-        grid-template-columns:repeat(2,1fr);
-
-        gap:40px;
-    }
-
-    .footer-brand{
-
-        grid-column:1/-1;
-    }
-
-    .footer-brand p{
-
-        max-width:650px;
-    }
-
-    /* ==========================
-       BOTTOM
-    ========================== */
-
-    .footer-bottom{
-
-        display:flex;
-
-        justify-content:space-between;
-
-        align-items:center;
-
-        flex-wrap:wrap;
-
-        gap:15px;
-    }
-
-    .footer-bottom-links{
-
-        display:flex;
-
-        gap:18px;
-    }
-
-    /* ==========================
-       WATERMARK
-    ========================== */
-
-    .footer-wordmark span{
-
-        font-size:9rem;
-    }
-
-    .footer-wordmark::after{
-
-        width:850px;
-
-        height:280px;
-
-        filter:blur(90px);
-    }
-
-}
-
-
-/* ==========================================================
-   MOBILE FLOATING BUTTON - CLICK FIX
-   ========================================================== */
-
-@media screen and (max-width: 768px) {
-
-    .site-footer {
-        position: relative;
-        z-index: 1;
-    }
-
-    .footer-wordmark,
     .footer-wordmark::after {
+        width: 600px;
+
+        height: 250px;
+
+        filter: blur(80px);
+    }
+
+
+    /* CHATBOT */
+
+    #chatbot-container {
+        right: 18px;
+
+        bottom: 18px;
+
+        z-index: 2147483647 !important;
+
         pointer-events: none !important;
     }
 
-    /* Keep footer content below floating controls */
-    .footer-cta,
-    .footer-main,
-    .footer-bottom {
-        position: relative;
-        z-index: 2;
+    #chatbot-container #chatbot-toggle {
+        pointer-events: auto !important;
     }
 
-    /* Floating/chat button */
-    button[aria-label*="chat" i],
-    button[aria-label*="contact" i],
-    .chat-button,
-    .chat-btn,
-    .floating-button,
-    .floating-chat,
-    .chat-widget {
-        position: fixed !important;
-        z-index: 999999 !important;
+    #chatbot-container #chatbot-window.open {
         pointer-events: auto !important;
+    }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        text-align: center;
+    }
+
+
+    /* CTA */
+
+    .footer-cta {
+        padding: 55px 15px 30px;
+    }
+
+    .footer-cta h2 {
+        font-size: 1.7rem;
+
+        line-height: 1.2;
+    }
+
+    .footer-cta p {
+        font-size: 0.82rem;
+
+        line-height: 1.55;
+    }
+
+
+    /* BUTTONS */
+
+    .footer-cta-actions .btn,
+    .footer-cta-actions a {
+        min-height: 46px;
+
+        font-size: 0.88rem;
+    }
+
+
+    /* MAIN */
+
+    .footer-main {
+        padding: 30px 15px;
+    }
+
+    .footer-grid {
+        gap: 25px;
+    }
+
+
+    /* BRAND */
+
+    .footer-brand h4 {
+        font-size: 1.55rem;
+
+        margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+        font-size: 0.82rem;
+
+        line-height: 1.55;
+    }
+
+
+    /* LINKS */
+
+    .footer-col h5 {
+        font-size: 0.85rem;
+    }
+
+    .footer-col a {
+        font-size: 0.8rem;
+    }
+
+
+    /* EMAIL */
+
+    .info-email {
+        font-size: 0.7rem !important;
+    }
+
+
+    /* ADDRESSES */
+
+    .footer-address {
+        margin-top: 8px;
+    }
+
+    .footer-address h5 {
+        font-size: 0.65rem !important;
+    }
+
+    .info-address {
+        max-width: 260px;
+
+        font-size: 0.65rem;
+
+        line-height: 1.3;
+    }
+
+
+    /* BOTTOM */
+
+    .footer-bottom {
+        gap: 10px;
+
+        padding-top: 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.68rem;
+    }
+
+    .footer-bottom-links {
+        gap: 8px;
+    }
+
+    .footer-bottom-links a {
+        font-size: 0.68rem;
+    }
+
+
+    /* WATERMARK */
+
+    .footer-wordmark span {
+        font-size: 3.5rem;
+
+        letter-spacing: -0.03em;
+    }
+
+    .footer-wordmark::after {
+        width: 320px;
+
+        height: 170px;
+
+        filter: blur(55px);
+    }
+
+
+    /* CHATBOT */
+
+    #chatbot-container {
+        right: 16px;
+
+        bottom: 16px;
+
+        width: max-content;
+
+        height: max-content;
+
+        pointer-events: none !important;
+
+        z-index: 2147483647 !important;
+    }
+
+    #chatbot-container #chatbot-toggle {
+        pointer-events: auto !important;
+    }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+    .footer-cta {
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+    .footer-main {
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+    .footer-cta h2 {
+        font-size: 1.55rem;
+    }
+
+    .footer-cta p {
+        font-size: 0.78rem;
+    }
+
+    .info-email {
+        font-size: 0.67rem !important;
+    }
+
+    .info-address {
+        font-size: 0.62rem;
+
+        max-width: 240px;
+    }
+
+    #chatbot-container {
+        right: 12px;
+
+        bottom: 12px;
+    }
+}
+
+
+/* ============================================================
+   TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .footer-col a:hover {
+        padding-left: 0;
+    }
+
+    #chatbot-container #chatbot-toggle:hover {
+        transform: none;
+    }
+
+    #chatbot-container #chatbot-toggle:active {
+        transform: scale(0.94);
     }
 }
