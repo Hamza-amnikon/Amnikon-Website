@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
 
-                const response = await fetch("https://amnikontechnologies.com/api/api/contact", {
+                const response = await fetch("https://amnikontechnologies.com/api/contact", {
 
                     method: "POST",
 
