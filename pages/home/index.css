@@ -115,7 +115,7 @@
 
   font-size: 1.2rem;
 
-  color: rgba(255, 255, 255, 0.82);
+  color: rgb(255, 255, 255);
 
   line-height: 1.8;
 }
@@ -731,7 +731,7 @@
 
   -webkit-backdrop-filter: blur(20px);
 
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.468);
 
   min-height: 100vh;
 
@@ -764,7 +764,7 @@
 }
 
 .why-item p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 
   line-height: 1.8;
 
@@ -784,7 +784,7 @@
 
   color: #a3b7d8;
 
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 /* ==========================================
@@ -817,7 +817,7 @@
   letter-spacing: 0.4em;
 
   text-transform: uppercase;
-
+  
   color: #666;
 
   margin-bottom: 30px;
@@ -1374,4 +1374,54 @@
   #dynamic-word {
     font-size: 3rem;
   }
+}
+
+
+/* ==========================================
+   HERO EYEBROW - BRIGHT / PREMIUM
+========================================== */
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 30px;
+  margin-bottom: 28px;
+
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  background: rgba(37, 99, 235, 0.18);
+
+  border: 1.5px solid rgba(56, 189, 248, 0.8);
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.35),
+    0 0 30px rgba(37, 99, 235, 0.2);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  text-shadow:
+    0 0 8px rgba(56, 189, 248, 0.9);
+
+  transition: all 0.3s ease;
+}
+
+.hero .eyebrow:hover {
+  background: rgba(37, 99, 235, 0.28);
+
+  border-color: #67e8f9;
+
+  box-shadow:
+    0 0 15px rgba(56, 189, 248, 0.6),
+    0 0 40px rgba(37, 99, 235, 0.35);
+
+  transform: translateY(-2px);
 }

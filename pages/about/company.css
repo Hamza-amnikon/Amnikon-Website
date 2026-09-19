@@ -114,21 +114,60 @@
     z-index:10;
 }
 
-.about-hero-content .eyebrow{
+/* ==========================================
+   ABOUT HERO — BRIGHT EYEBROW
+========================================== */
 
-    display:inline-block;
+.about-hero-content .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    color:#429ceb;
+    padding: 10px 30px;
+    margin-bottom: 28px;
 
-    font-size:.85rem;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
 
-    font-weight:600;
+    color: #ffffff;
 
-    letter-spacing:.25em;
+    background: rgba(37, 99, 235, 0.18);
 
-    text-transform:uppercase;
+    border: 1.5px solid rgba(56, 189, 248, 0.8);
 
-    margin-bottom:24px;
+    border-radius: 999px;
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.35),
+        0 0 30px rgba(37, 99, 235, 0.20);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    text-shadow:
+        0 0 8px rgba(56, 189, 248, 0.9);
+
+    transition: all 0.3s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.about-hero-content .eyebrow:hover {
+
+    background: rgba(37, 99, 235, 0.28);
+
+    border-color: #67e8f9;
+
+    box-shadow:
+        0 0 15px rgba(56, 189, 248, 0.6),
+        0 0 40px rgba(37, 99, 235, 0.35);
+
+    transform: translateY(-2px);
 }
 
 .about-hero-content h1{
@@ -515,7 +554,7 @@
 
     font-weight:900;
 
-    margin-bottom:20px;
+    margin-bottom:80px;
 
     background:
         linear-gradient(
@@ -528,11 +567,33 @@
     -webkit-text-fill-color:transparent;
 }
 
+.highlights-story .story-slide p{
+
+    font-size:
+        clamp(1.15rem,10vw,1.15rem);
+
+    line-height:1.9;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #fefefe
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
 .story-author{
 
     display:block;
 
-    margin-top:30px;
+    margin-top:20px;
 
     color:rgba(255,255,255,.7);
 }
@@ -1073,4 +1134,80 @@
     .big-number{
         font-size:2rem;
     }
+}
+
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 30px;
+    margin-bottom: 28px;
+
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    background: rgba(37, 99, 235, 0.18);
+
+    border: 1.5px solid rgba(56, 189, 248, 0.8);
+
+    border-radius: 999px;
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.35),
+        0 0 30px rgba(37, 99, 235, 0.20);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    text-shadow:
+        0 0 8px rgba(56, 189, 248, 0.9);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.eyebrow:hover {
+
+    background: rgba(37, 99, 235, 0.28);
+
+    border-color: #67e8f9;
+
+    box-shadow:
+        0 0 15px rgba(56, 189, 248, 0.6),
+        0 0 40px rgba(37, 99, 235, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .eyebrow {
+        padding: 8px 20px;
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.16em;
+
+        margin-bottom: 22px;
+    }
+
 }
