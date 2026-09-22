@@ -1004,6 +1004,228 @@
 
 </section>
 
+
+<!-- ==========================================
+            FREQUENTLY ASKED QUESTIONS
+=========================================== -->
+
+<section class="faq-section" id="faq">
+
+    <div class="section-label">
+
+        <span class="eyebrow">
+            Frequently Asked Questions
+        </span>
+
+        <h2>
+            Advisory Questions,
+            <span class="highlight">
+                Answered.
+            </span>
+        </h2>
+
+        <p>
+            Find answers to common questions about AMNIKON's IT advisory,
+            Virtual CIO, technology strategy, cloud transformation,
+            security, and digital transformation services.
+        </p>
+
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>What is IT advisory and how can it help my business?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                AMNIKON's IT advisory service provides strategic technology
+                guidance to help organizations align IT investments,
+                infrastructure, security, cloud initiatives, and digital
+                transformation with business objectives.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Do you provide Virtual CIO (vCIO) services?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. Our Virtual CIO service provides executive-level IT
+                leadership including strategic planning, technology roadmaps,
+                vendor management, budgeting, governance, security oversight,
+                and executive reporting without requiring a full-time CIO.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Can you create a long-term IT strategy and roadmap?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. We assess your current technology environment, business
+                priorities, operational requirements, and future goals to
+                develop a practical IT strategy and roadmap focused on
+                sustainable technology growth.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Can you help us plan and manage a cloud transformation?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. Our advisory team supports cloud strategy, workload
+                assessments, migration planning, modernization, and
+                optimization across Azure, AWS, and hybrid environments.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Do you provide cybersecurity and compliance consulting?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. We provide security and compliance advisory covering
+                governance, risk assessments, security strategy, compliance
+                planning, and recommendations aligned with applicable
+                industry standards and business requirements.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Can you help reduce our IT costs?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. We review technology spending, licensing, infrastructure,
+                vendors, and IT investments to identify opportunities to reduce
+                unnecessary costs while improving efficiency and business value.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>How does your Virtual CIO engagement work?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                A vCIO engagement can include regular strategy meetings,
+                technology roadmap planning, KPI reviews, vendor management,
+                budget planning, security oversight, compliance guidance,
+                and executive reporting based on your organization's needs.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Do you work with small and mid-sized businesses?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. Our advisory services can be structured around the size,
+                complexity, and technology requirements of your organization,
+                providing access to strategic IT expertise without requiring
+                a full-time internal executive team.
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+                <span>Can you help with digital transformation and AI readiness?</span>
+                <span class="faq-toggle">+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. We help organizations evaluate automation opportunities,
+                collaboration platforms, AI readiness, business processes,
+                and other digital initiatives as part of a broader
+                transformation strategy.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const faqItem = this.closest(".faq-item");
+            const isOpen = faqItem.classList.contains("active");
+
+            document.querySelectorAll(".faq-item").forEach(function (item) {
+
+                item.classList.remove("active");
+
+                const toggle = item.querySelector(".faq-toggle");
+
+                if (toggle) {
+                    toggle.textContent = "+";
+                }
+
+            });
+
+            if (!isOpen) {
+
+                faqItem.classList.add("active");
+
+                const toggle = faqItem.querySelector(".faq-toggle");
+
+                if (toggle) {
+                    toggle.textContent = "−";
+                }
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+
+
+
 <!-- ==========================================
                 CTA
 =========================================== -->

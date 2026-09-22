@@ -10,9 +10,13 @@
 
 .site-footer {
     position: relative;
+
     overflow: hidden;
+
     background: #020617;
-    color: #fff;
+
+    color: #ffffff;
+
     isolation: isolate;
 }
 
@@ -23,10 +27,13 @@
 
 .footer-wordmark {
     position: absolute;
+
     inset: 0;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     overflow: hidden;
@@ -35,6 +42,7 @@
 
     z-index: 0;
 }
+
 
 .footer-wordmark span {
     display: block;
@@ -55,20 +63,24 @@
 
     white-space: nowrap;
 
-    background: linear-gradient(
-        180deg,
-        rgba(237, 236, 236, 0.379),
-        rgba(255, 255, 255, 0.044)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            rgba(237, 236, 236, 0.379),
+            rgba(255, 255, 255, 0.044)
+        );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 }
 
 
-/* Blue glow */
+/* ============================================================
+   BLUE GLOW
+   ============================================================ */
 
 .footer-wordmark::after {
     content: "";
@@ -76,18 +88,21 @@
     position: absolute;
 
     left: 50%;
+
     top: 50%;
 
     transform: translate(-50%, -50%);
 
     width: 1200px;
+
     height: 400px;
 
-    background: radial-gradient(
-        circle,
-        rgba(37, 99, 235, 0.18),
-        transparent 70%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.18),
+            transparent 70%
+        );
 
     filter: blur(120px);
 
@@ -98,7 +113,7 @@
 
 
 /* ============================================================
-   CTA
+   FOOTER CTA
    ============================================================ */
 
 .footer-cta {
@@ -108,6 +123,7 @@
 
     padding: 90px 0 45px;
 }
+
 
 .footer-cta-content {
     display: flex;
@@ -119,6 +135,94 @@
     gap: 60px;
 }
 
+
+/* ============================================================
+   FOOTER CTA EYEBROW
+   ============================================================ */
+
+.footer-cta .eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 30px;
+
+    margin-bottom: 28px;
+
+    font-family: inherit;
+
+    font-size: 0.85rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.22em;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    background: rgba(37, 99, 235, 0.18);
+
+    border: 1.5px solid rgba(56, 189, 248, 0.8);
+
+    border-radius: 999px;
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, 0.35),
+        0 0 30px rgba(37, 99, 235, 0.20);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    text-shadow:
+        0 0 8px rgba(56, 189, 248, 0.9);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ============================================================
+   FOOTER EYEBROW HOVER
+   ============================================================ */
+
+.footer-cta .eyebrow:hover {
+
+    background: rgba(37, 99, 235, 0.28);
+
+    border-color: #67e8f9;
+
+    box-shadow:
+        0 0 15px rgba(56, 189, 248, 0.6),
+        0 0 40px rgba(37, 99, 235, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   REMOVE OLD EYEBROW DOT
+   ============================================================ */
+
+.footer-cta .eyebrow::before {
+
+    display: none;
+}
+
+
+/* ============================================================
+   CTA HEADING
+   ============================================================ */
+
 .footer-cta h2 {
     font-size: clamp(2.8rem, 5vw, 5rem);
 
@@ -126,8 +230,13 @@
 
     margin-bottom: 18px;
 
-    color: #fff;
+    color: #ffffff;
 }
+
+
+/* ============================================================
+   CTA DESCRIPTION
+   ============================================================ */
 
 .footer-cta p {
     max-width: 650px;
@@ -138,6 +247,11 @@
 
     margin: 0;
 }
+
+
+/* ============================================================
+   CTA ACTIONS
+   ============================================================ */
 
 .footer-cta-actions {
     display: flex;
@@ -159,6 +273,11 @@
 
     padding: 45px 0 40px;
 }
+
+
+/* ============================================================
+   FOOTER GRID
+   ============================================================ */
 
 .footer-grid {
     display: grid;
@@ -184,12 +303,13 @@
 
     margin: 0 0 15px;
 
-    color: #fff;
+    color: #ffffff;
 
     font-weight: 800;
 
     letter-spacing: -1px;
 }
+
 
 .footer-brand p {
     max-width: 380px;
@@ -215,8 +335,9 @@
 
     font-weight: 700;
 
-    color: #fff;
+    color: #ffffff;
 }
+
 
 .footer-col ul {
     list-style: none;
@@ -226,9 +347,11 @@
     padding: 0;
 }
 
+
 .footer-col li {
     margin-bottom: 7px;
 }
+
 
 .footer-col a {
     color: rgba(255, 255, 255, 0.65);
@@ -241,6 +364,7 @@
 
     font-size: 0.85rem;
 }
+
 
 .footer-col a:hover {
     color: #60a5fa;
@@ -278,11 +402,13 @@
     min-width: 0;
 }
 
+
 .footer-address {
     margin-top: 12px;
 
     margin-bottom: 0 !important;
 }
+
 
 .footer-address h5 {
     margin: 0 0 3px !important;
@@ -293,6 +419,7 @@
 
     color: rgba(255, 255, 255, 0.9) !important;
 }
+
 
 .info-address {
     margin: 0;
@@ -316,7 +443,8 @@
 
     padding-top: 18px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
 
     display: flex;
 
@@ -327,6 +455,7 @@
     gap: 15px;
 }
 
+
 .footer-bottom p {
     margin: 0;
 
@@ -335,11 +464,13 @@
     font-size: 0.78rem;
 }
 
+
 .footer-bottom-links {
     display: flex;
 
     gap: 18px;
 }
+
 
 .footer-bottom-links a {
     color: rgba(255, 255, 255, 0.45);
@@ -351,19 +482,15 @@
     transition: color 0.25s ease;
 }
 
+
 .footer-bottom-links a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 
 /* ============================================================
    CHATBOT CLICK SAFETY
    ============================================================ */
-
-/*
-   The chatbot wrapper must NEVER block clicks.
-   Only its actual interactive elements receive clicks.
-*/
 
 #chatbot-container {
     position: fixed !important;
@@ -385,6 +512,7 @@
     padding: 0;
 }
 
+
 #chatbot-container #chatbot-toggle {
     pointer-events: auto !important;
 
@@ -393,18 +521,20 @@
     z-index: 2147483647 !important;
 }
 
+
 #chatbot-container #chatbot-window {
     pointer-events: none !important;
 }
+
 
 #chatbot-container #chatbot-window.open {
     pointer-events: auto !important;
 }
 
 
-/*
-   Footer decorative elements can never intercept clicks.
-*/
+/* ============================================================
+   FOOTER DECORATIVE CLICK SAFETY
+   ============================================================ */
 
 .footer-wordmark,
 .footer-wordmark::before,
@@ -414,7 +544,7 @@
 
 
 /* ============================================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1600px+
    ============================================================ */
 
 @media (min-width: 1600px) {
@@ -427,20 +557,23 @@
         gap: 70px;
     }
 
+
     .footer-cta-content {
         max-width: 1600px;
 
         margin: 0 auto;
     }
 
+
     .footer-wordmark span {
         font-size: 24rem;
     }
+
 }
 
 
 /* ============================================================
-   LAPTOP
+   LAPTOP — 1200px
    ============================================================ */
 
 @media (max-width: 1200px) {
@@ -449,9 +582,11 @@
         gap: 35px;
     }
 
+
     .footer-cta-content {
         gap: 40px;
     }
+
 
     .footer-wordmark span {
         font-size: clamp(
@@ -460,11 +595,12 @@
             18rem
         );
     }
+
 }
 
 
 /* ============================================================
-   TABLET
+   TABLET — 992px
    ============================================================ */
 
 @media (max-width: 992px) {
@@ -472,6 +608,7 @@
     .footer-cta {
         padding: 75px 30px 45px;
     }
+
 
     .footer-cta-content {
         flex-direction: column;
@@ -481,11 +618,13 @@
         gap: 35px;
     }
 
+
     .footer-cta h2 {
         font-size: 2.8rem;
 
         line-height: 1.1;
     }
+
 
     .footer-cta p {
         max-width: 100%;
@@ -493,15 +632,18 @@
         font-size: 0.95rem;
     }
 
+
     .footer-cta-actions {
         flex-wrap: wrap;
 
         gap: 12px;
     }
 
+
     .footer-main {
         padding: 45px 30px;
     }
+
 
     .footer-grid {
         grid-template-columns:
@@ -511,17 +653,21 @@
         gap: 35px;
     }
 
+
     .footer-brand {
         grid-column: 1 / -1;
     }
+
 
     .footer-brand p {
         max-width: 650px;
     }
 
+
     .footer-wordmark span {
         font-size: 9rem;
     }
+
 
     .footer-wordmark::after {
         width: 850px;
@@ -530,11 +676,12 @@
 
         filter: blur(90px);
     }
+
 }
 
 
 /* ============================================================
-   MOBILE
+   MOBILE — 768px
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -542,6 +689,7 @@
     .footer-cta {
         padding: 65px 20px 40px;
     }
+
 
     .footer-cta-content {
         align-items: center;
@@ -551,17 +699,36 @@
         gap: 28px;
     }
 
+
+    /* --------------------------------------------------------
+       MOBILE EYEBROW
+       -------------------------------------------------------- */
+
+    .footer-cta .eyebrow {
+
+        padding: 8px 20px;
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.16em;
+
+        margin-bottom: 22px;
+    }
+
+
     .footer-cta h2 {
         font-size: 2.1rem;
 
         line-height: 1.15;
     }
 
+
     .footer-cta p {
         font-size: 0.88rem;
 
         line-height: 1.6;
     }
+
 
     .footer-cta-actions {
         width: 100%;
@@ -570,6 +737,7 @@
 
         gap: 10px;
     }
+
 
     .footer-cta-actions .btn,
     .footer-cta-actions a {
@@ -581,11 +749,14 @@
     }
 
 
-    /* MAIN */
+    /* --------------------------------------------------------
+       FOOTER MAIN
+       -------------------------------------------------------- */
 
     .footer-main {
         padding: 35px 20px;
     }
+
 
     .footer-grid {
         grid-template-columns: 1fr;
@@ -595,15 +766,18 @@
         text-align: center;
     }
 
+
     .footer-brand {
         grid-column: auto;
     }
+
 
     .footer-brand h4 {
         font-size: 1.7rem;
 
         margin-bottom: 10px;
     }
+
 
     .footer-brand p {
         max-width: 100%;
@@ -616,7 +790,9 @@
     }
 
 
-    /* COLUMNS */
+    /* --------------------------------------------------------
+       FOOTER COLUMNS
+       -------------------------------------------------------- */
 
     .footer-col h5 {
         font-size: 0.85rem;
@@ -624,34 +800,42 @@
         margin-bottom: 10px;
     }
 
+
     .footer-col li {
         margin-bottom: 5px;
     }
+
 
     .footer-col a {
         font-size: 0.82rem;
     }
 
 
-    /* CONTACT */
+    /* --------------------------------------------------------
+       CONTACT
+       -------------------------------------------------------- */
 
     .footer-contact {
         width: 100%;
     }
 
+
     .info-email {
         font-size: 0.76rem !important;
     }
 
+
     .footer-address {
         margin-top: 10px;
     }
+
 
     .footer-address h5 {
         font-size: 0.68rem !important;
 
         margin-bottom: 2px !important;
     }
+
 
     .info-address {
         max-width: 280px;
@@ -664,7 +848,9 @@
     }
 
 
-    /* BOTTOM */
+    /* --------------------------------------------------------
+       FOOTER BOTTOM
+       -------------------------------------------------------- */
 
     .footer-bottom {
         flex-direction: column;
@@ -680,9 +866,11 @@
         padding-top: 16px;
     }
 
+
     .footer-bottom p {
         font-size: 0.72rem;
     }
+
 
     .footer-bottom-links {
         justify-content: center;
@@ -692,18 +880,22 @@
         gap: 10px;
     }
 
+
     .footer-bottom-links a {
         font-size: 0.72rem;
     }
 
 
-    /* WATERMARK */
+    /* --------------------------------------------------------
+       WATERMARK
+       -------------------------------------------------------- */
 
     .footer-wordmark span {
         font-size: 6rem;
 
         letter-spacing: -0.04em;
     }
+
 
     .footer-wordmark::after {
         width: 600px;
@@ -714,7 +906,9 @@
     }
 
 
-    /* CHATBOT */
+    /* --------------------------------------------------------
+       CHATBOT
+       -------------------------------------------------------- */
 
     #chatbot-container {
         right: 18px;
@@ -726,18 +920,21 @@
         pointer-events: none !important;
     }
 
+
     #chatbot-container #chatbot-toggle {
         pointer-events: auto !important;
     }
 
+
     #chatbot-container #chatbot-window.open {
         pointer-events: auto !important;
     }
+
 }
 
 
 /* ============================================================
-   SMALL MOBILE
+   SMALL MOBILE — 480px
    ============================================================ */
 
 @media (max-width: 480px) {
@@ -746,22 +943,27 @@
         font-size: 14px;
     }
 
+
     .site-footer {
         text-align: center;
     }
 
 
-    /* CTA */
+    /* --------------------------------------------------------
+       CTA
+       -------------------------------------------------------- */
 
     .footer-cta {
         padding: 55px 15px 30px;
     }
+
 
     .footer-cta h2 {
         font-size: 1.7rem;
 
         line-height: 1.2;
     }
+
 
     .footer-cta p {
         font-size: 0.82rem;
@@ -770,34 +972,59 @@
     }
 
 
-    /* BUTTONS */
+    /* --------------------------------------------------------
+       EYEBROW
+       -------------------------------------------------------- */
+
+    .footer-cta .eyebrow {
+
+        padding: 7px 16px;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 0.13em;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* --------------------------------------------------------
+       BUTTONS
+       -------------------------------------------------------- */
 
     .footer-cta-actions .btn,
     .footer-cta-actions a {
+
         min-height: 46px;
 
         font-size: 0.88rem;
     }
 
 
-    /* MAIN */
+    /* --------------------------------------------------------
+       MAIN
+       -------------------------------------------------------- */
 
     .footer-main {
         padding: 30px 15px;
     }
+
 
     .footer-grid {
         gap: 25px;
     }
 
 
-    /* BRAND */
+    /* --------------------------------------------------------
+       BRAND
+       -------------------------------------------------------- */
 
     .footer-brand h4 {
         font-size: 1.55rem;
 
         margin-bottom: 10px;
     }
+
 
     .footer-brand p {
         font-size: 0.82rem;
@@ -806,33 +1033,42 @@
     }
 
 
-    /* LINKS */
+    /* --------------------------------------------------------
+       LINKS
+       -------------------------------------------------------- */
 
     .footer-col h5 {
         font-size: 0.85rem;
     }
+
 
     .footer-col a {
         font-size: 0.8rem;
     }
 
 
-    /* EMAIL */
+    /* --------------------------------------------------------
+       EMAIL
+       -------------------------------------------------------- */
 
     .info-email {
         font-size: 0.7rem !important;
     }
 
 
-    /* ADDRESSES */
+    /* --------------------------------------------------------
+       ADDRESSES
+       -------------------------------------------------------- */
 
     .footer-address {
         margin-top: 8px;
     }
 
+
     .footer-address h5 {
         font-size: 0.65rem !important;
     }
+
 
     .info-address {
         max-width: 260px;
@@ -843,7 +1079,9 @@
     }
 
 
-    /* BOTTOM */
+    /* --------------------------------------------------------
+       BOTTOM
+       -------------------------------------------------------- */
 
     .footer-bottom {
         gap: 10px;
@@ -851,26 +1089,32 @@
         padding-top: 15px;
     }
 
+
     .footer-bottom p {
         font-size: 0.68rem;
     }
 
+
     .footer-bottom-links {
         gap: 8px;
     }
+
 
     .footer-bottom-links a {
         font-size: 0.68rem;
     }
 
 
-    /* WATERMARK */
+    /* --------------------------------------------------------
+       WATERMARK
+       -------------------------------------------------------- */
 
     .footer-wordmark span {
         font-size: 3.5rem;
 
         letter-spacing: -0.03em;
     }
+
 
     .footer-wordmark::after {
         width: 320px;
@@ -881,7 +1125,9 @@
     }
 
 
-    /* CHATBOT */
+    /* --------------------------------------------------------
+       CHATBOT
+       -------------------------------------------------------- */
 
     #chatbot-container {
         right: 16px;
@@ -897,14 +1143,16 @@
         z-index: 2147483647 !important;
     }
 
+
     #chatbot-container #chatbot-toggle {
         pointer-events: auto !important;
     }
+
 }
 
 
 /* ============================================================
-   VERY SMALL PHONES
+   VERY SMALL PHONES — 360px
    ============================================================ */
 
 @media (max-width: 360px) {
@@ -915,23 +1163,38 @@
         padding-right: 12px;
     }
 
+
     .footer-main {
         padding-left: 12px;
 
         padding-right: 12px;
     }
 
+
     .footer-cta h2 {
         font-size: 1.55rem;
     }
+
 
     .footer-cta p {
         font-size: 0.78rem;
     }
 
+
+    .footer-cta .eyebrow {
+
+        padding: 6px 14px;
+
+        font-size: 0.64rem;
+
+        letter-spacing: 0.11em;
+    }
+
+
     .info-email {
         font-size: 0.67rem !important;
     }
+
 
     .info-address {
         font-size: 0.62rem;
@@ -939,11 +1202,13 @@
         max-width: 240px;
     }
 
+
     #chatbot-container {
         right: 12px;
 
         bottom: 12px;
     }
+
 }
 
 
@@ -957,11 +1222,20 @@
         padding-left: 0;
     }
 
+
+    .footer-cta .eyebrow:hover {
+
+        transform: none;
+    }
+
+
     #chatbot-container #chatbot-toggle:hover {
         transform: none;
     }
 
+
     #chatbot-container #chatbot-toggle:active {
         transform: scale(0.94);
     }
+
 }

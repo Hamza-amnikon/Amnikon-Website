@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Great question! You can contact us at sales@amnikon.com for more details.",
     "I'd be happy to help. Could you tell me more about what you're looking for?",
     "We specialize in Managed IT, Cybersecurity, and Cloud Solutions. Which interests you?",
-    "You can schedule a free consultation at your convenience — just click 'Meeting' above!"
+    "You can schedule a  consultation at your convenience — just click 'Meeting' above!"
   ];
 
   let replyIndex = 0;
